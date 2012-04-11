@@ -1,0 +1,9 @@
+D:\Documente\Razvan\Programe\C#\Gestiune_Cheltuieli\Gestiune Cheltuieli\bin\Debug\Gestiune Cheltuieli.exe
+D:\Documente\Razvan\Programe\C#\Gestiune_Cheltuieli\Gestiune Cheltuieli\bin\Debug\Gestiune Cheltuieli.pdb
+D:\Documente\Razvan\Programe\C#\Gestiune_Cheltuieli\Gestiune Cheltuieli\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Documente\Razvan\Programe\C#\Gestiune_Cheltuieli\Gestiune Cheltuieli\obj\x86\Debug\Gestiune_Cheltuieli.frmMain.resources
+D:\Documente\Razvan\Programe\C#\Gestiune_Cheltuieli\Gestiune Cheltuieli\obj\x86\Debug\Gestiune_Cheltuieli.Properties.Resources.resources
+D:\Documente\Razvan\Programe\C#\Gestiune_Cheltuieli\Gestiune Cheltuieli\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\Documente\Razvan\Programe\C#\Gestiune_Cheltuieli\Gestiune Cheltuieli\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\Documente\Razvan\Programe\C#\Gestiune_Cheltuieli\Gestiune Cheltuieli\obj\x86\Debug\Gestiune Cheltuieli.exe
+D:\Documente\Razvan\Programe\C#\Gestiune_Cheltuieli\Gestiune Cheltuieli\obj\x86\Debug\Gestiune Cheltuieli.pdb
