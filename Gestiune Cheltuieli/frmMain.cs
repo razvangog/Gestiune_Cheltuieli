@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Drawing.Imaging;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Gestiune_Cheltuieli
 {
@@ -14,7 +16,6 @@ namespace Gestiune_Cheltuieli
         public bool modificare;
         public int index;
 
-
         public frmMain()
         {
             InitializeComponent();
@@ -26,6 +27,7 @@ namespace Gestiune_Cheltuieli
             clhPerioada.Width = 100;
             clhSuma.Width = 100;
 
+            pnlGrafic.Hide();
             pnlAdaugaEveniment.Hide();
             pnlMain.Show();
 
@@ -148,6 +150,7 @@ namespace Gestiune_Cheltuieli
                 modificare = false;
 
                 pnlMain.Hide();
+                pnlGrafic.Hide();
                 pnlAdaugaEveniment.Show();
             }
         }
@@ -215,6 +218,7 @@ namespace Gestiune_Cheltuieli
                     modificare = true;
 
                     pnlMain.Hide();
+                    pnlGrafic.Hide();
                     pnlAdaugaEveniment.Show();
                 }
             }
@@ -243,6 +247,63 @@ namespace Gestiune_Cheltuieli
             }
             else
                 MessageBox.Show("Selectati cel putin o inregistrare pentru a fi stearsa", "Stergere eveniment");
+        }
+
+        private void sortezLista()
+        {
+            evenimente.Sort(delegate(Eveniment a, Eveniment b) { return a.data.CompareTo(b.data); });
+        }
+
+        private void deseneazaGrafic()
+        {
+            sortezLista();
+
+            if (radValoriAbsolute.Checked == true)
+            {
+                chrGrafic.Series["Cheltuieli"].ChartType = SeriesChartType.Column;
+                chrGrafic.Series["Venituri"].ChartType = SeriesChartType.Column;
+
+                chrGrafic.Series["Cheltuieli"].IsValueShownAsLabel = true;
+                chrGrafic.Series["Venituri"].IsValueShownAsLabel = true;
+
+                chrGrafic.Series["Cheltuieli"].Points.Clear();
+                chrGrafic.Series["Venituri"].Points.Clear();
+
+                foreach (Eveniment ev in evenimente)
+                {
+                    if (ev.tipEveniment == TipEveniment.Cheltuiala)
+                        chrGrafic.Series["Cheltuieli"].Points.AddXY(ev.data.Date, ev.suma);
+                    else
+                        chrGrafic.Series["Venituri"].Points.AddXY(ev.data.Date, ev.suma);
+                }
+            }
+            else
+            {
+                chrGrafic.Series["Cheltuieli"].ChartType = SeriesChartType.Line;
+                chrGrafic.Series["Venituri"].ChartType = SeriesChartType.Line;
+
+                chrGrafic.Series["Cheltuieli"].IsValueShownAsLabel = true;
+                chrGrafic.Series["Venituri"].IsValueShownAsLabel = true;
+
+                chrGrafic.Series["Cheltuieli"].Points.Clear();
+                chrGrafic.Series["Venituri"].Points.Clear();
+
+                double valCheltuieli = 0, valVenituri = 0;
+
+                foreach (Eveniment ev in evenimente)
+                {
+                    if (ev.tipEveniment == TipEveniment.Cheltuiala)
+                    {
+                        valCheltuieli += ev.suma;
+                        chrGrafic.Series["Cheltuieli"].Points.AddXY(ev.data.Date, valCheltuieli);
+                    }
+                    else
+                    {
+                        valVenituri += ev.suma;
+                        chrGrafic.Series["Venituri"].Points.AddXY(ev.data.Date, valVenituri);
+                    }
+                }
+            }
         }
 
 
@@ -332,6 +393,7 @@ namespace Gestiune_Cheltuieli
                     viewCurent = View.Main;
 
                     pnlAdaugaEveniment.Hide();
+                    pnlGrafic.Hide();
                     pnlMain.Show();
                 }
                 catch (Exception exceptie)
@@ -392,6 +454,7 @@ namespace Gestiune_Cheltuieli
                     viewCurent = View.Main;
 
                     pnlAdaugaEveniment.Hide();
+                    pnlGrafic.Hide();
                     pnlMain.Show();
                 }
                 catch (Exception exceptie)
@@ -412,6 +475,7 @@ namespace Gestiune_Cheltuieli
                     viewCurent = View.Main;
 
                     pnlAdaugaEveniment.Hide();
+                    pnlGrafic.Hide();
                     pnlMain.Show();
 
                     evenimente = EvenimentReader.citesteEvenimente("evenimente.xml");
@@ -441,14 +505,24 @@ namespace Gestiune_Cheltuieli
         }
 
 
-        private void btnInapoi_Click(object sender, EventArgs e)
+        private void btnInapoiAdaugaEveniment_Click(object sender, EventArgs e)
         {
             viewCurent = View.Main;
 
             pnlAdaugaEveniment.Hide();
+            pnlGrafic.Hide();
             pnlMain.Show();
 
             afiseazaEvenimente();
+        }
+
+        private void btnInapoiGrafic_Click(object sender, EventArgs e)
+        {
+            viewCurent = View.Main;
+
+            pnlGrafic.Hide();
+            pnlAdaugaEveniment.Hide();
+            pnlMain.Show();
         }
 
 
@@ -557,6 +631,53 @@ namespace Gestiune_Cheltuieli
                 txtOdataLa.Enabled = false;
                 lblOdataLa.Enabled = false;
             }
+        }
+
+
+        private void mnuSalveazaGrafic_Click(object sender, EventArgs e)
+        {
+            dlgSalveazaGrafic.Filter = "JPeg Image|*.jpg|Bitmap Image|*.bmp|Gif Image|*.gif|Png Image|*.png";
+            dlgSalveazaGrafic.ShowDialog();
+
+            if (dlgSalveazaGrafic.FileName != "")
+            {
+                switch (dlgSalveazaGrafic.FilterIndex)
+                {
+                    case 1:
+                        chrGrafic.SaveImage(dlgSalveazaGrafic.FileName, ImageFormat.Jpeg);
+                        break;
+                    case 2:
+                        chrGrafic.SaveImage(dlgSalveazaGrafic.FileName, ImageFormat.Bmp);
+                        break;
+                    case 3:
+                        chrGrafic.SaveImage(dlgSalveazaGrafic.FileName, ImageFormat.Gif);
+                        break;
+                    case 4:
+                        chrGrafic.SaveImage(dlgSalveazaGrafic.FileName, ImageFormat.Png);
+                        break;
+                }
+            }
+        }
+
+        private void mnuAfiseazaGrafic_Click(object sender, EventArgs e)
+        {
+            viewCurent = View.Grafic;
+
+            deseneazaGrafic();
+
+            pnlMain.Hide();
+            pnlAdaugaEveniment.Hide();
+            pnlGrafic.Show();
+        }
+
+        private void radValoriAbsolute_CheckedChanged(object sender, EventArgs e)
+        {
+            deseneazaGrafic();
+        }
+
+        private void radValoriCumulative_CheckedChanged(object sender, EventArgs e)
+        {
+            deseneazaGrafic();
         }
     }
 }

@@ -28,6 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.lblSageataDreapta = new System.Windows.Forms.Label();
             this.lblMinus = new System.Windows.Forms.Label();
@@ -69,7 +74,7 @@
             this.mnuFiltru = new System.Windows.Forms.ToolStripTextBox();
             this.mnuFiltruLabel = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlAdaugaEveniment = new System.Windows.Forms.Panel();
-            this.btnInapoi = new System.Windows.Forms.Button();
+            this.btnInapoiAdaugaEveniment = new System.Windows.Forms.Button();
             this.lblAdaugaEveniment = new System.Windows.Forms.Label();
             this.txtDetalii = new System.Windows.Forms.TextBox();
             this.cmbTipEveniment = new System.Windows.Forms.ComboBox();
@@ -84,9 +89,19 @@
             this.lblData = new System.Windows.Forms.Label();
             this.dtpData = new System.Windows.Forms.DateTimePicker();
             this.btnAdaugaEveniment = new System.Windows.Forms.Button();
+            this.pnlGrafic = new System.Windows.Forms.Panel();
+            this.btnInapoiGrafic = new System.Windows.Forms.Button();
+            this.grpTipGrafic = new System.Windows.Forms.GroupBox();
+            this.radValoriCumulative = new System.Windows.Forms.RadioButton();
+            this.radValoriAbsolute = new System.Windows.Forms.RadioButton();
+            this.chrGrafic = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.dlgSalveazaGrafic = new System.Windows.Forms.SaveFileDialog();
             this.pnlMain.SuspendLayout();
             this.mnuMeniu.SuspendLayout();
             this.pnlAdaugaEveniment.SuspendLayout();
+            this.pnlGrafic.SuspendLayout();
+            this.grpTipGrafic.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chrGrafic)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMain
@@ -283,37 +298,37 @@
             // mnuDeschide
             // 
             this.mnuDeschide.Name = "mnuDeschide";
-            this.mnuDeschide.Size = new System.Drawing.Size(152, 22);
+            this.mnuDeschide.Size = new System.Drawing.Size(151, 22);
             this.mnuDeschide.Text = "Deschide";
             this.mnuDeschide.Click += new System.EventHandler(this.mnuDeschide_Click);
             // 
             // mnuSalveaza
             // 
             this.mnuSalveaza.Name = "mnuSalveaza";
-            this.mnuSalveaza.Size = new System.Drawing.Size(152, 22);
+            this.mnuSalveaza.Size = new System.Drawing.Size(151, 22);
             this.mnuSalveaza.Text = "Salveaza";
             this.mnuSalveaza.Click += new System.EventHandler(this.mnuSalveaza_Click);
             // 
             // mnuSeparatorFisier
             // 
             this.mnuSeparatorFisier.Name = "mnuSeparatorFisier";
-            this.mnuSeparatorFisier.Size = new System.Drawing.Size(149, 6);
+            this.mnuSeparatorFisier.Size = new System.Drawing.Size(148, 6);
             // 
             // mnuExportaExcel
             // 
             this.mnuExportaExcel.Name = "mnuExportaExcel";
-            this.mnuExportaExcel.Size = new System.Drawing.Size(152, 22);
+            this.mnuExportaExcel.Size = new System.Drawing.Size(151, 22);
             this.mnuExportaExcel.Text = "Exporta Excel...";
             // 
             // mnuSeparatorFisier2
             // 
             this.mnuSeparatorFisier2.Name = "mnuSeparatorFisier2";
-            this.mnuSeparatorFisier2.Size = new System.Drawing.Size(149, 6);
+            this.mnuSeparatorFisier2.Size = new System.Drawing.Size(148, 6);
             // 
             // mnuIesire
             // 
             this.mnuIesire.Name = "mnuIesire";
-            this.mnuIesire.Size = new System.Drawing.Size(152, 22);
+            this.mnuIesire.Size = new System.Drawing.Size(151, 22);
             this.mnuIesire.Text = "Iesire";
             this.mnuIesire.Click += new System.EventHandler(this.mnuIesire_Click);
             // 
@@ -388,14 +403,16 @@
             // mnuAfiseazaGrafic
             // 
             this.mnuAfiseazaGrafic.Name = "mnuAfiseazaGrafic";
-            this.mnuAfiseazaGrafic.Size = new System.Drawing.Size(151, 22);
+            this.mnuAfiseazaGrafic.Size = new System.Drawing.Size(152, 22);
             this.mnuAfiseazaGrafic.Text = "Afiseaza grafic";
+            this.mnuAfiseazaGrafic.Click += new System.EventHandler(this.mnuAfiseazaGrafic_Click);
             // 
             // mnuSalveazaGrafic
             // 
             this.mnuSalveazaGrafic.Name = "mnuSalveazaGrafic";
-            this.mnuSalveazaGrafic.Size = new System.Drawing.Size(151, 22);
+            this.mnuSalveazaGrafic.Size = new System.Drawing.Size(152, 22);
             this.mnuSalveazaGrafic.Text = "Salveaza grafic";
+            this.mnuSalveazaGrafic.Click += new System.EventHandler(this.mnuSalveazaGrafic_Click);
             // 
             // mnuAjutor
             // 
@@ -410,18 +427,18 @@
             // mnuTutorial
             // 
             this.mnuTutorial.Name = "mnuTutorial";
-            this.mnuTutorial.Size = new System.Drawing.Size(115, 22);
+            this.mnuTutorial.Size = new System.Drawing.Size(152, 22);
             this.mnuTutorial.Text = "Tutorial";
             // 
             // mnuSeparatorAjutor
             // 
             this.mnuSeparatorAjutor.Name = "mnuSeparatorAjutor";
-            this.mnuSeparatorAjutor.Size = new System.Drawing.Size(112, 6);
+            this.mnuSeparatorAjutor.Size = new System.Drawing.Size(149, 6);
             // 
             // mnuDespre
             // 
             this.mnuDespre.Name = "mnuDespre";
-            this.mnuDespre.Size = new System.Drawing.Size(115, 22);
+            this.mnuDespre.Size = new System.Drawing.Size(152, 22);
             this.mnuDespre.Text = "Despre";
             // 
             // mnuFiltru
@@ -441,7 +458,7 @@
             // 
             // pnlAdaugaEveniment
             // 
-            this.pnlAdaugaEveniment.Controls.Add(this.btnInapoi);
+            this.pnlAdaugaEveniment.Controls.Add(this.btnInapoiAdaugaEveniment);
             this.pnlAdaugaEveniment.Controls.Add(this.lblAdaugaEveniment);
             this.pnlAdaugaEveniment.Controls.Add(this.txtDetalii);
             this.pnlAdaugaEveniment.Controls.Add(this.cmbTipEveniment);
@@ -461,15 +478,15 @@
             this.pnlAdaugaEveniment.Size = new System.Drawing.Size(770, 530);
             this.pnlAdaugaEveniment.TabIndex = 2;
             // 
-            // btnInapoi
+            // btnInapoiAdaugaEveniment
             // 
-            this.btnInapoi.Location = new System.Drawing.Point(3, 3);
-            this.btnInapoi.Name = "btnInapoi";
-            this.btnInapoi.Size = new System.Drawing.Size(62, 24);
-            this.btnInapoi.TabIndex = 14;
-            this.btnInapoi.Text = "<< Inapoi";
-            this.btnInapoi.UseVisualStyleBackColor = true;
-            this.btnInapoi.Click += new System.EventHandler(this.btnInapoi_Click);
+            this.btnInapoiAdaugaEveniment.Location = new System.Drawing.Point(3, 3);
+            this.btnInapoiAdaugaEveniment.Name = "btnInapoiAdaugaEveniment";
+            this.btnInapoiAdaugaEveniment.Size = new System.Drawing.Size(62, 24);
+            this.btnInapoiAdaugaEveniment.TabIndex = 14;
+            this.btnInapoiAdaugaEveniment.Text = "<< Inapoi";
+            this.btnInapoiAdaugaEveniment.UseVisualStyleBackColor = true;
+            this.btnInapoiAdaugaEveniment.Click += new System.EventHandler(this.btnInapoiAdaugaEveniment_Click);
             // 
             // lblAdaugaEveniment
             // 
@@ -601,6 +618,103 @@
             this.btnAdaugaEveniment.UseVisualStyleBackColor = true;
             this.btnAdaugaEveniment.Click += new System.EventHandler(this.btnAdaugaEveniment_Click);
             // 
+            // pnlGrafic
+            // 
+            this.pnlGrafic.Controls.Add(this.btnInapoiGrafic);
+            this.pnlGrafic.Controls.Add(this.grpTipGrafic);
+            this.pnlGrafic.Controls.Add(this.chrGrafic);
+            this.pnlGrafic.Location = new System.Drawing.Point(12, 30);
+            this.pnlGrafic.Name = "pnlGrafic";
+            this.pnlGrafic.Size = new System.Drawing.Size(770, 530);
+            this.pnlGrafic.TabIndex = 3;
+            // 
+            // btnInapoiGrafic
+            // 
+            this.btnInapoiGrafic.Location = new System.Drawing.Point(3, 3);
+            this.btnInapoiGrafic.Name = "btnInapoiGrafic";
+            this.btnInapoiGrafic.Size = new System.Drawing.Size(62, 24);
+            this.btnInapoiGrafic.TabIndex = 2;
+            this.btnInapoiGrafic.Text = "<< Inapoi";
+            this.btnInapoiGrafic.UseVisualStyleBackColor = true;
+            this.btnInapoiGrafic.Click += new System.EventHandler(this.btnInapoiGrafic_Click);
+            // 
+            // grpTipGrafic
+            // 
+            this.grpTipGrafic.Controls.Add(this.radValoriCumulative);
+            this.grpTipGrafic.Controls.Add(this.radValoriAbsolute);
+            this.grpTipGrafic.Location = new System.Drawing.Point(638, 12);
+            this.grpTipGrafic.Name = "grpTipGrafic";
+            this.grpTipGrafic.Size = new System.Drawing.Size(118, 73);
+            this.grpTipGrafic.TabIndex = 1;
+            this.grpTipGrafic.TabStop = false;
+            this.grpTipGrafic.Text = "Tip grafic";
+            // 
+            // radValoriCumulative
+            // 
+            this.radValoriCumulative.AutoSize = true;
+            this.radValoriCumulative.Location = new System.Drawing.Point(7, 46);
+            this.radValoriCumulative.Name = "radValoriCumulative";
+            this.radValoriCumulative.Size = new System.Drawing.Size(105, 17);
+            this.radValoriCumulative.TabIndex = 1;
+            this.radValoriCumulative.Text = "Valori cumulative";
+            this.radValoriCumulative.UseVisualStyleBackColor = true;
+            this.radValoriCumulative.CheckedChanged += new System.EventHandler(this.radValoriCumulative_CheckedChanged);
+            // 
+            // radValoriAbsolute
+            // 
+            this.radValoriAbsolute.AutoSize = true;
+            this.radValoriAbsolute.Checked = true;
+            this.radValoriAbsolute.Location = new System.Drawing.Point(7, 20);
+            this.radValoriAbsolute.Name = "radValoriAbsolute";
+            this.radValoriAbsolute.Size = new System.Drawing.Size(94, 17);
+            this.radValoriAbsolute.TabIndex = 0;
+            this.radValoriAbsolute.TabStop = true;
+            this.radValoriAbsolute.Text = "Valori absolute";
+            this.radValoriAbsolute.UseVisualStyleBackColor = true;
+            this.radValoriAbsolute.CheckedChanged += new System.EventHandler(this.radValoriAbsolute_CheckedChanged);
+            // 
+            // chrGrafic
+            // 
+            chartArea3.Name = "ChartArea1";
+            this.chrGrafic.ChartAreas.Add(chartArea3);
+            legend3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend3.IsTextAutoFit = false;
+            legend3.Name = "Legend1";
+            this.chrGrafic.Legends.Add(legend3);
+            this.chrGrafic.Location = new System.Drawing.Point(13, 91);
+            this.chrGrafic.Name = "chrGrafic";
+            this.chrGrafic.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chrGrafic.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.Red,
+        System.Drawing.Color.Lime};
+            series5.BorderWidth = 2;
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Legend = "Legend1";
+            series5.Name = "Cheltuieli";
+            series5.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+            series5.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series6.BorderWidth = 2;
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series6.Legend = "Legend1";
+            series6.Name = "Venituri";
+            series6.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+            series6.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            this.chrGrafic.Series.Add(series5);
+            this.chrGrafic.Series.Add(series6);
+            this.chrGrafic.Size = new System.Drawing.Size(743, 422);
+            this.chrGrafic.TabIndex = 0;
+            title3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title3.Name = "ttlTitluGrafic";
+            title3.Text = "Evolutia cheltuielilor/veniturilor";
+            this.chrGrafic.Titles.Add(title3);
+            // 
+            // dlgSalveazaGrafic
+            // 
+            this.dlgSalveazaGrafic.FileName = "grafic";
+            this.dlgSalveazaGrafic.Title = "Salveaza grafic";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -609,6 +723,7 @@
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlAdaugaEveniment);
             this.Controls.Add(this.mnuMeniu);
+            this.Controls.Add(this.pnlGrafic);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.mnuMeniu;
             this.MaximizeBox = false;
@@ -623,6 +738,10 @@
             this.mnuMeniu.PerformLayout();
             this.pnlAdaugaEveniment.ResumeLayout(false);
             this.pnlAdaugaEveniment.PerformLayout();
+            this.pnlGrafic.ResumeLayout(false);
+            this.grpTipGrafic.ResumeLayout(false);
+            this.grpTipGrafic.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chrGrafic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -677,7 +796,7 @@
         private System.Windows.Forms.ComboBox cmbPerioada;
         private System.Windows.Forms.TextBox txtSuma;
         private System.Windows.Forms.Label lblAdaugaEveniment;
-        private System.Windows.Forms.Button btnInapoi;
+        private System.Windows.Forms.Button btnInapoiAdaugaEveniment;
         private System.Windows.Forms.Button btnPlus;
         private System.Windows.Forms.Button btnMinus;
         private System.Windows.Forms.Button btnSageataDreapta;
@@ -686,6 +805,13 @@
         private System.Windows.Forms.Label lblPlus;
         private System.Windows.Forms.ToolStripMenuItem mnuSterge;
         private System.Windows.Forms.ToolStripMenuItem mnuModifica;
+        private System.Windows.Forms.Panel pnlGrafic;
+        private System.Windows.Forms.GroupBox grpTipGrafic;
+        private System.Windows.Forms.RadioButton radValoriCumulative;
+        private System.Windows.Forms.RadioButton radValoriAbsolute;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chrGrafic;
+        private System.Windows.Forms.Button btnInapoiGrafic;
+        private System.Windows.Forms.SaveFileDialog dlgSalveazaGrafic;
 
     }
 }

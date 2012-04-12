@@ -1,7 +1,8 @@
 <evenimente>
-  <eveniment id="1" data="4/11/2012 7:14:22 PM" perioada="Saptamanal" tipEveniment="Cheltuiala" suma="123">dasfads</eveniment>
-  <eveniment id="2" data="2/2/2012 8:11:57 PM" perioada="Lunar" tipEveniment="Cheltuiala" suma="410">salariu</eveniment>
-  <eveniment id="4" data="4/11/2012 8:56:04 PM" perioada="AltTip" tipEveniment="Venit" suma="1000">loto</eveniment>
-  <eveniment id="5" data="4/12/2012 4:09:31 PM" perioada="OdataLaXZile" xZile="2" tipEveniment="Venit" suma="55">primesc bani</eveniment>
-  <eveniment id="6" data="4/12/2012 4:11:31 PM" perioada="Saptamanal" tipEveniment="Venit" suma="66">test</eveniment>
+  <eveniment id="10" data="4/11/2012 11:23:59 PM" perioada="AltTip" tipEveniment="Venit" suma="200">Am castigat la loto</eveniment>
+  <eveniment id="7" data="4/12/2012 11:20:02 PM" perioada="Lunar" tipEveniment="Venit" suma="2200">Salariu</eveniment>
+  <eveniment id="12" data="4/12/2012 11:30:49 PM" perioada="AltTip" tipEveniment="Cheltuiala" suma="150">Am pierdut niste bani</eveniment>
+  <eveniment id="8" data="4/13/2012 11:20:22 PM" perioada="Lunar" tipEveniment="Cheltuiala" suma="155">Plata factura curent</eveniment>
+  <eveniment id="9" data="4/14/2012 11:20:54 PM" perioada="AltTip" tipEveniment="Cheltuiala" suma="570">Am cumparat un frigider</eveniment>
+  <eveniment id="11" data="4/15/2012 11:24:35 PM" perioada="AltTip" tipEveniment="Venit" suma="1300">Am primit datoria de la X</eveniment>
 </evenimente>
