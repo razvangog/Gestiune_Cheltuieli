@@ -26,6 +26,7 @@ namespace Gestiune_Cheltuieli
 
     public struct Eveniment
     {
+        public int id;
         public DateTime data;
         public double suma;
         public PerioadaEveniment perioada;

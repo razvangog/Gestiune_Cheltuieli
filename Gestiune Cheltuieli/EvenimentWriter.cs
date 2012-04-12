@@ -11,8 +11,8 @@ namespace Gestiune_Cheltuieli
     {
         public static void scrieEvenimente(string numeFisier, List<Eveniment> lista)
         {
-            if (File.Exists("evenimente.xml") == true)
-                File.Delete("evenimente.xml");
+            if (File.Exists(numeFisier) == true)
+                File.Delete(numeFisier);
 
             XmlDocument fisierXML = new XmlDocument();
 
@@ -22,7 +22,8 @@ namespace Gestiune_Cheltuieli
             foreach (Eveniment e in lista)
             {
                 XmlElement elem = fisierXML.CreateElement("eveniment");
-                
+
+                elem.SetAttribute("id", Convert.ToString(e.id));
                 elem.SetAttribute("data", Convert.ToString(e.data));
                 elem.SetAttribute("perioada", Convert.ToString(e.perioada));
                 

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.btnPlus = new System.Windows.Forms.Button();
             this.lblValoareTotal = new System.Windows.Forms.Label();
             this.lblValoareSubtotal = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
@@ -76,7 +77,7 @@
             this.lblData = new System.Windows.Forms.Label();
             this.dtpData = new System.Windows.Forms.DateTimePicker();
             this.btnAdaugaEveniment = new System.Windows.Forms.Button();
-            this.btnPlus = new System.Windows.Forms.Button();
+            this.btnMinus = new System.Windows.Forms.Button();
             this.pnlMain.SuspendLayout();
             this.mnuMeniu.SuspendLayout();
             this.pnlAdaugaEveniment.SuspendLayout();
@@ -84,6 +85,7 @@
             // 
             // pnlMain
             // 
+            this.pnlMain.Controls.Add(this.btnMinus);
             this.pnlMain.Controls.Add(this.btnPlus);
             this.pnlMain.Controls.Add(this.lblValoareTotal);
             this.pnlMain.Controls.Add(this.lblValoareSubtotal);
@@ -94,6 +96,19 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(770, 530);
             this.pnlMain.TabIndex = 0;
+            // 
+            // btnPlus
+            // 
+            this.btnPlus.BackColor = System.Drawing.Color.Lime;
+            this.btnPlus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlus.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnPlus.Location = new System.Drawing.Point(634, 4);
+            this.btnPlus.Name = "btnPlus";
+            this.btnPlus.Size = new System.Drawing.Size(32, 32);
+            this.btnPlus.TabIndex = 6;
+            this.btnPlus.Text = "+";
+            this.btnPlus.UseVisualStyleBackColor = false;
+            this.btnPlus.Click += new System.EventHandler(this.btnPlus_Click);
             // 
             // lblValoareTotal
             // 
@@ -200,7 +215,7 @@
             // mnuDeschide
             // 
             this.mnuDeschide.Name = "mnuDeschide";
-            this.mnuDeschide.Size = new System.Drawing.Size(151, 22);
+            this.mnuDeschide.Size = new System.Drawing.Size(152, 22);
             this.mnuDeschide.Text = "Deschide";
             // 
             // salveazaToolStripMenuItem
@@ -213,24 +228,25 @@
             // mnuSeparatorFisier
             // 
             this.mnuSeparatorFisier.Name = "mnuSeparatorFisier";
-            this.mnuSeparatorFisier.Size = new System.Drawing.Size(148, 6);
+            this.mnuSeparatorFisier.Size = new System.Drawing.Size(149, 6);
             // 
             // mnuExportaExcel
             // 
             this.mnuExportaExcel.Name = "mnuExportaExcel";
-            this.mnuExportaExcel.Size = new System.Drawing.Size(151, 22);
+            this.mnuExportaExcel.Size = new System.Drawing.Size(152, 22);
             this.mnuExportaExcel.Text = "Exporta Excel...";
             // 
             // mnuSeparatorFisier2
             // 
             this.mnuSeparatorFisier2.Name = "mnuSeparatorFisier2";
-            this.mnuSeparatorFisier2.Size = new System.Drawing.Size(148, 6);
+            this.mnuSeparatorFisier2.Size = new System.Drawing.Size(149, 6);
             // 
             // mnuIesire
             // 
             this.mnuIesire.Name = "mnuIesire";
-            this.mnuIesire.Size = new System.Drawing.Size(151, 22);
+            this.mnuIesire.Size = new System.Drawing.Size(152, 22);
             this.mnuIesire.Text = "Iesire";
+            this.mnuIesire.Click += new System.EventHandler(this.mnuIesire_Click);
             // 
             // mnuEveniment
             // 
@@ -498,18 +514,18 @@
             this.btnAdaugaEveniment.UseVisualStyleBackColor = true;
             this.btnAdaugaEveniment.Click += new System.EventHandler(this.btnAdaugaEveniment_Click);
             // 
-            // btnPlus
+            // btnMinus
             // 
-            this.btnPlus.BackColor = System.Drawing.Color.Lime;
-            this.btnPlus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlus.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnPlus.Location = new System.Drawing.Point(634, 4);
-            this.btnPlus.Name = "btnPlus";
-            this.btnPlus.Size = new System.Drawing.Size(32, 32);
-            this.btnPlus.TabIndex = 6;
-            this.btnPlus.Text = "+";
-            this.btnPlus.UseVisualStyleBackColor = false;
-            this.btnPlus.Click += new System.EventHandler(this.btnPlus_Click);
+            this.btnMinus.BackColor = System.Drawing.Color.Red;
+            this.btnMinus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMinus.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnMinus.Location = new System.Drawing.Point(634, 42);
+            this.btnMinus.Name = "btnMinus";
+            this.btnMinus.Size = new System.Drawing.Size(32, 32);
+            this.btnMinus.TabIndex = 7;
+            this.btnMinus.Text = "-";
+            this.btnMinus.UseVisualStyleBackColor = false;
+            this.btnMinus.Click += new System.EventHandler(this.btnMinus_Click);
             // 
             // frmMain
             // 
@@ -526,6 +542,7 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistem de gestiune al cheltuielilor";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
             this.mnuMeniu.ResumeLayout(false);
@@ -588,6 +605,7 @@
         private System.Windows.Forms.Label lblAdaugaEveniment;
         private System.Windows.Forms.Button btnInapoi;
         private System.Windows.Forms.Button btnPlus;
+        private System.Windows.Forms.Button btnMinus;
 
     }
 }

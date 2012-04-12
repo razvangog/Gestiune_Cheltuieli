@@ -11,8 +11,10 @@ namespace Gestiune_Cheltuieli
 {
     public partial class frmMain : Form
     {
-        View viewCurent;
+        public View viewCurent;
         public List<Eveniment> evenimente;
+        public int maxId;
+        public bool amModificat;
 
         public frmMain()
         {
@@ -29,8 +31,22 @@ namespace Gestiune_Cheltuieli
             pnlMain.Show();
 
             evenimente = EvenimentReader.citesteEvenimente("evenimente.xml");
+            maxId = getMaxId();
+
+            amModificat = false;
 
             afiseazaEvenimente();
+        }
+
+        public int getMaxId()
+        {
+            int id = 0;
+
+            foreach (Eveniment e in evenimente)
+                if (e.id > id)
+                    id = e.id;
+
+            return id;
         }
 
         public void afiseazaEvenimente()
@@ -44,6 +60,8 @@ namespace Gestiune_Cheltuieli
                 ListViewItem item = new ListViewItem(Convert.ToString(ev.data.Date));
 
                 item.UseItemStyleForSubItems = false;
+
+                item.Tag = (object)ev.id;
 
                 item.SubItems.Add(ev.detalii);
 
@@ -126,10 +144,12 @@ namespace Gestiune_Cheltuieli
 
         private void btnAdaugaEveniment_Click(object sender, EventArgs e)
         {
-            Eveniment ev = new Eveniment();
-
             try
             {
+                Eveniment ev = new Eveniment();
+
+                ev.id = ++maxId;
+
                 ev.data = dtpData.Value;
                 ev.suma = Convert.ToDouble(txtSuma.Text);
 
@@ -166,6 +186,8 @@ namespace Gestiune_Cheltuieli
                 
                 evenimente.Add(ev);
 
+                amModificat = true;
+
                 afiseazaEvenimente();
 
                 viewCurent = View.Main;
@@ -175,6 +197,8 @@ namespace Gestiune_Cheltuieli
             }
             catch(Exception exceptie)
             {
+                --maxId;
+
                 MessageBox.Show(exceptie.Message);
             }
         }
@@ -247,6 +271,8 @@ namespace Gestiune_Cheltuieli
 
                         item.UseItemStyleForSubItems = false;
 
+                        item.Tag = (object)ev.id;
+
                         item.SubItems.Add(ev.detalii);
 
                         if (ev.perioada == PerioadaEveniment.OdataLaXZile)
@@ -304,6 +330,41 @@ namespace Gestiune_Cheltuieli
 
                     lblValoareTotal.Text = Convert.ToString(sumaTotal);
                 }
+            }
+        }
+
+        private void mnuIesire_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (amModificat == true)
+                if (MessageBox.Show("Doriti sa salvati modificarile?", "Modificari", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    EvenimentWriter.scrieEvenimente("evenimente.xml", evenimente);
+        }
+
+        private void btnMinus_Click(object sender, EventArgs e)
+        {
+            if (lstEvenimente.SelectedItems.Count > 0)
+            {
+                int idCurent;
+
+                foreach (ListViewItem item in lstEvenimente.SelectedItems)
+                {
+                    idCurent = Convert.ToInt32(item.Tag);
+
+                    for (int i = 0; i < evenimente.Count; i++)
+                    {
+                        if (evenimente[i].id == idCurent)
+                            evenimente.RemoveAt(i--);
+                    }
+                }
+
+                amModificat = true;
+
+                afiseazaEvenimente();
             }
         }
     }

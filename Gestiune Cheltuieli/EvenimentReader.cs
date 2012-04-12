@@ -30,6 +30,7 @@ namespace Gestiune_Cheltuieli
                 {
                     Eveniment ev = new Eveniment();
 
+                    ev.id = Convert.ToInt32(elem.Attributes["id"].Value);
                     ev.data = Convert.ToDateTime(elem.Attributes["data"].Value);
 
                     switch (elem.Attributes["perioada"].Value)
