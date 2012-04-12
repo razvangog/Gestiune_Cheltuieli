@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.lblSageataDreapta = new System.Windows.Forms.Label();
+            this.lblMinus = new System.Windows.Forms.Label();
+            this.lblPlus = new System.Windows.Forms.Label();
             this.btnSageataDreapta = new System.Windows.Forms.Button();
             this.btnMinus = new System.Windows.Forms.Button();
             this.btnPlus = new System.Windows.Forms.Button();
@@ -44,13 +47,15 @@
             this.mnuMeniu = new System.Windows.Forms.MenuStrip();
             this.mnuFisier = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuDeschide = new System.Windows.Forms.ToolStripMenuItem();
-            this.salveazaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuSalveaza = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSeparatorFisier = new System.Windows.Forms.ToolStripSeparator();
             this.mnuExportaExcel = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSeparatorFisier2 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuIesire = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuEveniment = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAdauga = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuModifica = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuSterge = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSeparatorEveniment = new System.Windows.Forms.ToolStripSeparator();
             this.mnuAfiseazaCheltuieli = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAfiseazaVenituri = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,11 +84,6 @@
             this.lblData = new System.Windows.Forms.Label();
             this.dtpData = new System.Windows.Forms.DateTimePicker();
             this.btnAdaugaEveniment = new System.Windows.Forms.Button();
-            this.lblPlus = new System.Windows.Forms.Label();
-            this.lblMinus = new System.Windows.Forms.Label();
-            this.lblSageataDreapta = new System.Windows.Forms.Label();
-            this.mnuSterge = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuModifica = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMain.SuspendLayout();
             this.mnuMeniu.SuspendLayout();
             this.pnlAdaugaEveniment.SuspendLayout();
@@ -106,6 +106,36 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(770, 530);
             this.pnlMain.TabIndex = 0;
+            // 
+            // lblSageataDreapta
+            // 
+            this.lblSageataDreapta.AutoSize = true;
+            this.lblSageataDreapta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSageataDreapta.Location = new System.Drawing.Point(677, 88);
+            this.lblSageataDreapta.Name = "lblSageataDreapta";
+            this.lblSageataDreapta.Size = new System.Drawing.Size(68, 20);
+            this.lblSageataDreapta.TabIndex = 11;
+            this.lblSageataDreapta.Text = "Modifica";
+            // 
+            // lblMinus
+            // 
+            this.lblMinus.AutoSize = true;
+            this.lblMinus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMinus.Location = new System.Drawing.Point(677, 50);
+            this.lblMinus.Name = "lblMinus";
+            this.lblMinus.Size = new System.Drawing.Size(57, 20);
+            this.lblMinus.TabIndex = 10;
+            this.lblMinus.Text = "Sterge";
+            // 
+            // lblPlus
+            // 
+            this.lblPlus.AutoSize = true;
+            this.lblPlus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlus.Location = new System.Drawing.Point(677, 12);
+            this.lblPlus.Name = "lblPlus";
+            this.lblPlus.Size = new System.Drawing.Size(65, 20);
+            this.lblPlus.TabIndex = 9;
+            this.lblPlus.Text = "Adauga";
             // 
             // btnSageataDreapta
             // 
@@ -241,7 +271,7 @@
             // 
             this.mnuFisier.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuDeschide,
-            this.salveazaToolStripMenuItem,
+            this.mnuSalveaza,
             this.mnuSeparatorFisier,
             this.mnuExportaExcel,
             this.mnuSeparatorFisier2,
@@ -253,36 +283,37 @@
             // mnuDeschide
             // 
             this.mnuDeschide.Name = "mnuDeschide";
-            this.mnuDeschide.Size = new System.Drawing.Size(151, 22);
+            this.mnuDeschide.Size = new System.Drawing.Size(152, 22);
             this.mnuDeschide.Text = "Deschide";
+            this.mnuDeschide.Click += new System.EventHandler(this.mnuDeschide_Click);
             // 
-            // salveazaToolStripMenuItem
+            // mnuSalveaza
             // 
-            this.salveazaToolStripMenuItem.Name = "salveazaToolStripMenuItem";
-            this.salveazaToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
-            this.salveazaToolStripMenuItem.Text = "Salveaza";
-            this.salveazaToolStripMenuItem.Click += new System.EventHandler(this.salveazaToolStripMenuItem_Click);
+            this.mnuSalveaza.Name = "mnuSalveaza";
+            this.mnuSalveaza.Size = new System.Drawing.Size(152, 22);
+            this.mnuSalveaza.Text = "Salveaza";
+            this.mnuSalveaza.Click += new System.EventHandler(this.mnuSalveaza_Click);
             // 
             // mnuSeparatorFisier
             // 
             this.mnuSeparatorFisier.Name = "mnuSeparatorFisier";
-            this.mnuSeparatorFisier.Size = new System.Drawing.Size(148, 6);
+            this.mnuSeparatorFisier.Size = new System.Drawing.Size(149, 6);
             // 
             // mnuExportaExcel
             // 
             this.mnuExportaExcel.Name = "mnuExportaExcel";
-            this.mnuExportaExcel.Size = new System.Drawing.Size(151, 22);
+            this.mnuExportaExcel.Size = new System.Drawing.Size(152, 22);
             this.mnuExportaExcel.Text = "Exporta Excel...";
             // 
             // mnuSeparatorFisier2
             // 
             this.mnuSeparatorFisier2.Name = "mnuSeparatorFisier2";
-            this.mnuSeparatorFisier2.Size = new System.Drawing.Size(148, 6);
+            this.mnuSeparatorFisier2.Size = new System.Drawing.Size(149, 6);
             // 
             // mnuIesire
             // 
             this.mnuIesire.Name = "mnuIesire";
-            this.mnuIesire.Size = new System.Drawing.Size(151, 22);
+            this.mnuIesire.Size = new System.Drawing.Size(152, 22);
             this.mnuIesire.Text = "Iesire";
             this.mnuIesire.Click += new System.EventHandler(this.mnuIesire_Click);
             // 
@@ -306,6 +337,20 @@
             this.mnuAdauga.Text = "Adauga...";
             this.mnuAdauga.Click += new System.EventHandler(this.mnuAdauga_Click);
             // 
+            // mnuModifica
+            // 
+            this.mnuModifica.Name = "mnuModifica";
+            this.mnuModifica.Size = new System.Drawing.Size(168, 22);
+            this.mnuModifica.Text = "Modifica...";
+            this.mnuModifica.Click += new System.EventHandler(this.mnuModifica_Click);
+            // 
+            // mnuSterge
+            // 
+            this.mnuSterge.Name = "mnuSterge";
+            this.mnuSterge.Size = new System.Drawing.Size(168, 22);
+            this.mnuSterge.Text = "Sterge";
+            this.mnuSterge.Click += new System.EventHandler(this.mnuSterge_Click);
+            // 
             // mnuSeparatorEveniment
             // 
             this.mnuSeparatorEveniment.Name = "mnuSeparatorEveniment";
@@ -319,6 +364,7 @@
             this.mnuAfiseazaCheltuieli.Name = "mnuAfiseazaCheltuieli";
             this.mnuAfiseazaCheltuieli.Size = new System.Drawing.Size(168, 22);
             this.mnuAfiseazaCheltuieli.Text = "Afiseaza cheltuieli";
+            this.mnuAfiseazaCheltuieli.Click += new System.EventHandler(this.mnuAfiseazaCheltuieli_Click);
             // 
             // mnuAfiseazaVenituri
             // 
@@ -328,6 +374,7 @@
             this.mnuAfiseazaVenituri.Name = "mnuAfiseazaVenituri";
             this.mnuAfiseazaVenituri.Size = new System.Drawing.Size(168, 22);
             this.mnuAfiseazaVenituri.Text = "Afiseaza venituri";
+            this.mnuAfiseazaVenituri.Click += new System.EventHandler(this.mnuAfiseazaVenituri_Click);
             // 
             // mnuGrafic
             // 
@@ -554,50 +601,6 @@
             this.btnAdaugaEveniment.UseVisualStyleBackColor = true;
             this.btnAdaugaEveniment.Click += new System.EventHandler(this.btnAdaugaEveniment_Click);
             // 
-            // lblPlus
-            // 
-            this.lblPlus.AutoSize = true;
-            this.lblPlus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlus.Location = new System.Drawing.Point(677, 12);
-            this.lblPlus.Name = "lblPlus";
-            this.lblPlus.Size = new System.Drawing.Size(65, 20);
-            this.lblPlus.TabIndex = 9;
-            this.lblPlus.Text = "Adauga";
-            // 
-            // lblMinus
-            // 
-            this.lblMinus.AutoSize = true;
-            this.lblMinus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMinus.Location = new System.Drawing.Point(677, 50);
-            this.lblMinus.Name = "lblMinus";
-            this.lblMinus.Size = new System.Drawing.Size(57, 20);
-            this.lblMinus.TabIndex = 10;
-            this.lblMinus.Text = "Sterge";
-            // 
-            // lblSageataDreapta
-            // 
-            this.lblSageataDreapta.AutoSize = true;
-            this.lblSageataDreapta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSageataDreapta.Location = new System.Drawing.Point(677, 88);
-            this.lblSageataDreapta.Name = "lblSageataDreapta";
-            this.lblSageataDreapta.Size = new System.Drawing.Size(68, 20);
-            this.lblSageataDreapta.TabIndex = 11;
-            this.lblSageataDreapta.Text = "Modifica";
-            // 
-            // mnuSterge
-            // 
-            this.mnuSterge.Name = "mnuSterge";
-            this.mnuSterge.Size = new System.Drawing.Size(168, 22);
-            this.mnuSterge.Text = "Sterge";
-            this.mnuSterge.Click += new System.EventHandler(this.mnuSterge_Click);
-            // 
-            // mnuModifica
-            // 
-            this.mnuModifica.Name = "mnuModifica";
-            this.mnuModifica.Size = new System.Drawing.Size(168, 22);
-            this.mnuModifica.Text = "Modifica...";
-            this.mnuModifica.Click += new System.EventHandler(this.mnuModifica_Click);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -631,7 +634,7 @@
         private System.Windows.Forms.MenuStrip mnuMeniu;
         private System.Windows.Forms.ToolStripMenuItem mnuFisier;
         private System.Windows.Forms.ToolStripMenuItem mnuDeschide;
-        private System.Windows.Forms.ToolStripMenuItem salveazaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuSalveaza;
         private System.Windows.Forms.ToolStripSeparator mnuSeparatorFisier;
         private System.Windows.Forms.ToolStripMenuItem mnuIesire;
         private System.Windows.Forms.ToolStripMenuItem mnuEveniment;
