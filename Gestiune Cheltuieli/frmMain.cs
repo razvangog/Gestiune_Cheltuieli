@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Gestiune_Cheltuieli
@@ -15,6 +11,8 @@ namespace Gestiune_Cheltuieli
         public List<Eveniment> evenimente;
         public int maxId;
         public bool amModificat;
+        public bool modificare;
+        public int index;
 
         public frmMain()
         {
@@ -34,6 +32,7 @@ namespace Gestiune_Cheltuieli
             maxId = getMaxId();
 
             amModificat = false;
+            modificare = false;
 
             afiseazaEvenimente();
         }
@@ -127,6 +126,9 @@ namespace Gestiune_Cheltuieli
             {
                 viewCurent = View.AdaugaEveniment;
 
+                lblAdaugaEveniment.Text = "Adauga un eveniment nou";
+                btnAdaugaEveniment.Text = "Adauga eveniment";
+
                 dtpData.Value = DateTime.Now;
                 txtSuma.Text = "";
                 cmbPerioada.Text = "Alegeti o perioada...";
@@ -137,6 +139,8 @@ namespace Gestiune_Cheltuieli
                 txtOdataLa.Enabled = false;
                 lblOdataLa.Enabled = false;
 
+                modificare = false;
+
                 pnlMain.Hide();
                 pnlAdaugaEveniment.Show();
             }
@@ -144,62 +148,125 @@ namespace Gestiune_Cheltuieli
 
         private void btnAdaugaEveniment_Click(object sender, EventArgs e)
         {
-            try
+            if (modificare == false)
             {
-                Eveniment ev = new Eveniment();
-
-                ev.id = ++maxId;
-
-                ev.data = dtpData.Value;
-                ev.suma = Convert.ToDouble(txtSuma.Text);
-
-                switch (cmbPerioada.SelectedItem.ToString())
+                try
                 {
-                    case "Lunar":
-                        ev.perioada = PerioadaEveniment.Lunar;
-                        break;
-                    case "Saptamanal":
-                        ev.perioada = PerioadaEveniment.Saptamanal;
-                        break;
-                    case "Odata la n zile":
-                        ev.perioada = PerioadaEveniment.OdataLaXZile;
-                        ev.xZile = Convert.ToInt32(txtOdataLa.Text);
-                        break;
-                    case "Alt tip":
-                        ev.perioada = PerioadaEveniment.AltTip;
-                        break;
-                    default:
-                        throw new Exception("Alegeti o perioada");
-                }
+                    Eveniment ev = new Eveniment();
 
-                switch (cmbTipEveniment.SelectedItem.ToString())
+                    ev.id = ++maxId;
+
+                    ev.data = dtpData.Value;
+                    ev.suma = Convert.ToDouble(txtSuma.Text);
+
+                    switch (cmbPerioada.SelectedItem.ToString())
+                    {
+                        case "Lunar":
+                            ev.perioada = PerioadaEveniment.Lunar;
+                            break;
+                        case "Saptamanal":
+                            ev.perioada = PerioadaEveniment.Saptamanal;
+                            break;
+                        case "Odata la n zile":
+                            ev.perioada = PerioadaEveniment.OdataLaXZile;
+                            ev.xZile = Convert.ToInt32(txtOdataLa.Text);
+                            break;
+                        case "Alt tip":
+                            ev.perioada = PerioadaEveniment.AltTip;
+                            break;
+                        default:
+                            throw new Exception("Alegeti o perioada");
+                    }
+
+                    switch (cmbTipEveniment.SelectedItem.ToString())
+                    {
+                        case "Cheltuiala":
+                            ev.tipEveniment = TipEveniment.Cheltuiala;
+                            break;
+                        case "Venit":
+                            ev.tipEveniment = TipEveniment.Venit;
+                            break;
+                    }
+
+                    ev.detalii = txtDetalii.Text;
+
+                    evenimente.Add(ev);
+
+                    amModificat = true;
+
+                    afiseazaEvenimente();
+
+                    viewCurent = View.Main;
+
+                    pnlAdaugaEveniment.Hide();
+                    pnlMain.Show();
+                }
+                catch (Exception exceptie)
                 {
-                    case "Cheltuiala":
-                        ev.tipEveniment = TipEveniment.Cheltuiala;
-                        break;
-                    case "Venit":
-                        ev.tipEveniment = TipEveniment.Venit;
-                        break;
+                    --maxId;
+
+                    MessageBox.Show(exceptie.Message, "Atentie");
                 }
-
-                ev.detalii = txtDetalii.Text;
-                
-                evenimente.Add(ev);
-
-                amModificat = true;
-
-                afiseazaEvenimente();
-
-                viewCurent = View.Main;
-
-                pnlAdaugaEveniment.Hide();
-                pnlMain.Show();
             }
-            catch(Exception exceptie)
+            else
             {
-                --maxId;
+                try
+                {
+                    Eveniment ev = new Eveniment();
 
-                MessageBox.Show(exceptie.Message);
+                    ev.id = evenimente[index].id;
+
+                    ev.data = dtpData.Value;
+                    ev.suma = Convert.ToDouble(txtSuma.Text);
+
+                    switch (cmbPerioada.SelectedItem.ToString())
+                    {
+                        case "Lunar":
+                            ev.perioada = PerioadaEveniment.Lunar;
+                            break;
+                        case "Saptamanal":
+                            ev.perioada = PerioadaEveniment.Saptamanal;
+                            break;
+                        case "Odata la n zile":
+                            ev.perioada = PerioadaEveniment.OdataLaXZile;
+                            ev.xZile = Convert.ToInt32(txtOdataLa.Text);
+                            break;
+                        case "Alt tip":
+                            ev.perioada = PerioadaEveniment.AltTip;
+                            break;
+                        default:
+                            throw new Exception("Alegeti o perioada");
+                    }
+
+                    switch (cmbTipEveniment.SelectedItem.ToString())
+                    {
+                        case "Cheltuiala":
+                            ev.tipEveniment = TipEveniment.Cheltuiala;
+                            break;
+                        case "Venit":
+                            ev.tipEveniment = TipEveniment.Venit;
+                            break;
+                    }
+
+                    ev.detalii = txtDetalii.Text;
+
+                    evenimente[index] = ev;
+
+                    amModificat = true;
+
+                    afiseazaEvenimente();
+
+                    viewCurent = View.Main;
+
+                    pnlAdaugaEveniment.Hide();
+                    pnlMain.Show();
+                }
+                catch (Exception exceptie)
+                {
+                    --maxId;
+
+                    MessageBox.Show(exceptie.Message, "Atentie");
+                }
             }
         }
 
@@ -233,6 +300,9 @@ namespace Gestiune_Cheltuieli
             {
                 viewCurent = View.AdaugaEveniment;
 
+                lblAdaugaEveniment.Text = "Adauga un eveniment nou";
+                btnAdaugaEveniment.Text = "Adauga eveniment";
+
                 dtpData.Value = DateTime.Now;
                 txtSuma.Text = "";
                 cmbPerioada.Text = "Alegeti o perioada...";
@@ -242,6 +312,8 @@ namespace Gestiune_Cheltuieli
 
                 txtOdataLa.Enabled = false;
                 lblOdataLa.Enabled = false;
+
+                modificare = false;
 
                 pnlMain.Hide();
                 pnlAdaugaEveniment.Show();
@@ -365,6 +437,169 @@ namespace Gestiune_Cheltuieli
                 amModificat = true;
 
                 afiseazaEvenimente();
+            }
+            else
+                MessageBox.Show("Selectati cel putin o inregistrare pentru a fi stearsa", "Stergere eveniment");
+        }
+
+        private void btnSageataDreapta_Click(object sender, EventArgs e)
+        {
+            if (lstEvenimente.SelectedItems.Count == 0)
+                MessageBox.Show("Selectati o inregistrare pentru a o modifica", "Modificare eveniment");
+            else if (lstEvenimente.SelectedItems.Count > 1)
+                MessageBox.Show("Selectati o singura inregistrare", "Modificare eveniment");
+            else
+            {
+                int idCurent = Convert.ToInt32(lstEvenimente.SelectedItems[0].Tag);
+
+                index = 0;
+
+                while (index < evenimente.Count && evenimente[index].id != idCurent)
+                    index ++;
+
+                if (viewCurent != View.AdaugaEveniment)
+                {
+                    viewCurent = View.AdaugaEveniment;
+
+                    lblAdaugaEveniment.Text = "Modifica un eveniment";
+                    btnAdaugaEveniment.Text = "Modifica eveniment";
+
+                    dtpData.Value = evenimente[index].data;
+                    txtSuma.Text = Convert.ToString(evenimente[index].suma);
+
+                    txtOdataLa.Text = "";
+                    txtOdataLa.Enabled = false;
+                    lblOdataLa.Enabled = false;
+
+                    switch (evenimente[index].perioada)
+                    {
+                        case PerioadaEveniment.Lunar:
+                            cmbPerioada.SelectedIndex = 0;
+                            break;
+                        case PerioadaEveniment.Saptamanal:
+                            cmbPerioada.SelectedIndex = 1;
+                            break;
+                        case PerioadaEveniment.OdataLaXZile:
+                            cmbPerioada.SelectedIndex = 2;
+                            txtOdataLa.Text = Convert.ToString(evenimente[index].xZile);
+                            txtOdataLa.Enabled = true;
+                            lblOdataLa.Enabled = true;
+                            break;
+                        case PerioadaEveniment.AltTip:
+                            cmbPerioada.SelectedIndex = 3;
+                            break;
+                    }
+
+                    switch (evenimente[index].tipEveniment)
+                    {
+                        case TipEveniment.Cheltuiala:
+                            cmbTipEveniment.SelectedIndex = 0;
+                            break;
+                        case TipEveniment.Venit:
+                            cmbTipEveniment.SelectedIndex = 1;
+                            break;
+                    }
+
+                    txtDetalii.Text = evenimente[index].detalii;
+
+                    modificare = true;
+
+                    pnlMain.Hide();
+                    pnlAdaugaEveniment.Show();
+                }
+            }
+        }
+
+        private void mnuSterge_Click(object sender, EventArgs e)
+        {
+            if (lstEvenimente.SelectedItems.Count > 0)
+            {
+                int idCurent;
+
+                foreach (ListViewItem item in lstEvenimente.SelectedItems)
+                {
+                    idCurent = Convert.ToInt32(item.Tag);
+
+                    for (int i = 0; i < evenimente.Count; i++)
+                    {
+                        if (evenimente[i].id == idCurent)
+                            evenimente.RemoveAt(i--);
+                    }
+                }
+
+                amModificat = true;
+
+                afiseazaEvenimente();
+            }
+            else
+                MessageBox.Show("Selectati cel putin o inregistrare pentru a fi stearsa", "Stergere eveniment");
+        }
+
+        private void mnuModifica_Click(object sender, EventArgs e)
+        {
+            if (lstEvenimente.SelectedItems.Count == 0)
+                MessageBox.Show("Selectati o inregistrare pentru a o modifica", "Modificare eveniment");
+            else if (lstEvenimente.SelectedItems.Count > 1)
+                MessageBox.Show("Selectati o singura inregistrare", "Modificare eveniment");
+            else
+            {
+                int idCurent = Convert.ToInt32(lstEvenimente.SelectedItems[0].Tag);
+
+                index = 0;
+
+                while (index < evenimente.Count && evenimente[index].id != idCurent)
+                    index++;
+
+                if (viewCurent != View.AdaugaEveniment)
+                {
+                    viewCurent = View.AdaugaEveniment;
+
+                    lblAdaugaEveniment.Text = "Modifica un eveniment";
+                    btnAdaugaEveniment.Text = "Modifica eveniment";
+
+                    dtpData.Value = evenimente[index].data;
+                    txtSuma.Text = Convert.ToString(evenimente[index].suma);
+
+                    txtOdataLa.Text = "";
+                    txtOdataLa.Enabled = false;
+                    lblOdataLa.Enabled = false;
+
+                    switch (evenimente[index].perioada)
+                    {
+                        case PerioadaEveniment.Lunar:
+                            cmbPerioada.SelectedIndex = 0;
+                            break;
+                        case PerioadaEveniment.Saptamanal:
+                            cmbPerioada.SelectedIndex = 1;
+                            break;
+                        case PerioadaEveniment.OdataLaXZile:
+                            cmbPerioada.SelectedIndex = 2;
+                            txtOdataLa.Text = Convert.ToString(evenimente[index].xZile);
+                            txtOdataLa.Enabled = true;
+                            lblOdataLa.Enabled = true;
+                            break;
+                        case PerioadaEveniment.AltTip:
+                            cmbPerioada.SelectedIndex = 3;
+                            break;
+                    }
+
+                    switch (evenimente[index].tipEveniment)
+                    {
+                        case TipEveniment.Cheltuiala:
+                            cmbTipEveniment.SelectedIndex = 0;
+                            break;
+                        case TipEveniment.Venit:
+                            cmbTipEveniment.SelectedIndex = 1;
+                            break;
+                    }
+
+                    txtDetalii.Text = evenimente[index].detalii;
+
+                    modificare = true;
+
+                    pnlMain.Hide();
+                    pnlAdaugaEveniment.Show();
+                }
             }
         }
     }

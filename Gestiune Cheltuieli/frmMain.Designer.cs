@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.btnSageataDreapta = new System.Windows.Forms.Button();
+            this.btnMinus = new System.Windows.Forms.Button();
             this.btnPlus = new System.Windows.Forms.Button();
             this.lblValoareTotal = new System.Windows.Forms.Label();
             this.lblValoareSubtotal = new System.Windows.Forms.Label();
@@ -77,7 +79,11 @@
             this.lblData = new System.Windows.Forms.Label();
             this.dtpData = new System.Windows.Forms.DateTimePicker();
             this.btnAdaugaEveniment = new System.Windows.Forms.Button();
-            this.btnMinus = new System.Windows.Forms.Button();
+            this.lblPlus = new System.Windows.Forms.Label();
+            this.lblMinus = new System.Windows.Forms.Label();
+            this.lblSageataDreapta = new System.Windows.Forms.Label();
+            this.mnuSterge = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuModifica = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMain.SuspendLayout();
             this.mnuMeniu.SuspendLayout();
             this.pnlAdaugaEveniment.SuspendLayout();
@@ -85,6 +91,10 @@
             // 
             // pnlMain
             // 
+            this.pnlMain.Controls.Add(this.lblSageataDreapta);
+            this.pnlMain.Controls.Add(this.lblMinus);
+            this.pnlMain.Controls.Add(this.lblPlus);
+            this.pnlMain.Controls.Add(this.btnSageataDreapta);
             this.pnlMain.Controls.Add(this.btnMinus);
             this.pnlMain.Controls.Add(this.btnPlus);
             this.pnlMain.Controls.Add(this.lblValoareTotal);
@@ -97,6 +107,32 @@
             this.pnlMain.Size = new System.Drawing.Size(770, 530);
             this.pnlMain.TabIndex = 0;
             // 
+            // btnSageataDreapta
+            // 
+            this.btnSageataDreapta.BackColor = System.Drawing.Color.Gold;
+            this.btnSageataDreapta.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSageataDreapta.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnSageataDreapta.Location = new System.Drawing.Point(634, 80);
+            this.btnSageataDreapta.Name = "btnSageataDreapta";
+            this.btnSageataDreapta.Size = new System.Drawing.Size(37, 32);
+            this.btnSageataDreapta.TabIndex = 8;
+            this.btnSageataDreapta.Text = ">";
+            this.btnSageataDreapta.UseVisualStyleBackColor = false;
+            this.btnSageataDreapta.Click += new System.EventHandler(this.btnSageataDreapta_Click);
+            // 
+            // btnMinus
+            // 
+            this.btnMinus.BackColor = System.Drawing.Color.Red;
+            this.btnMinus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMinus.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnMinus.Location = new System.Drawing.Point(634, 42);
+            this.btnMinus.Name = "btnMinus";
+            this.btnMinus.Size = new System.Drawing.Size(37, 32);
+            this.btnMinus.TabIndex = 7;
+            this.btnMinus.Text = "-";
+            this.btnMinus.UseVisualStyleBackColor = false;
+            this.btnMinus.Click += new System.EventHandler(this.btnMinus_Click);
+            // 
             // btnPlus
             // 
             this.btnPlus.BackColor = System.Drawing.Color.Lime;
@@ -104,7 +140,7 @@
             this.btnPlus.ForeColor = System.Drawing.SystemColors.Window;
             this.btnPlus.Location = new System.Drawing.Point(634, 4);
             this.btnPlus.Name = "btnPlus";
-            this.btnPlus.Size = new System.Drawing.Size(32, 32);
+            this.btnPlus.Size = new System.Drawing.Size(37, 32);
             this.btnPlus.TabIndex = 6;
             this.btnPlus.Text = "+";
             this.btnPlus.UseVisualStyleBackColor = false;
@@ -133,18 +169,20 @@
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.Location = new System.Drawing.Point(634, 486);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(37, 13);
+            this.lblTotal.Size = new System.Drawing.Size(45, 16);
             this.lblTotal.TabIndex = 3;
             this.lblTotal.Text = "Total: ";
             // 
             // lblSubtotal
             // 
             this.lblSubtotal.AutoSize = true;
+            this.lblSubtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSubtotal.Location = new System.Drawing.Point(634, 437);
             this.lblSubtotal.Name = "lblSubtotal";
-            this.lblSubtotal.Size = new System.Drawing.Size(52, 13);
+            this.lblSubtotal.Size = new System.Drawing.Size(63, 16);
             this.lblSubtotal.TabIndex = 2;
             this.lblSubtotal.Text = "Subtotal: ";
             // 
@@ -215,36 +253,36 @@
             // mnuDeschide
             // 
             this.mnuDeschide.Name = "mnuDeschide";
-            this.mnuDeschide.Size = new System.Drawing.Size(152, 22);
+            this.mnuDeschide.Size = new System.Drawing.Size(151, 22);
             this.mnuDeschide.Text = "Deschide";
             // 
             // salveazaToolStripMenuItem
             // 
             this.salveazaToolStripMenuItem.Name = "salveazaToolStripMenuItem";
-            this.salveazaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.salveazaToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.salveazaToolStripMenuItem.Text = "Salveaza";
             this.salveazaToolStripMenuItem.Click += new System.EventHandler(this.salveazaToolStripMenuItem_Click);
             // 
             // mnuSeparatorFisier
             // 
             this.mnuSeparatorFisier.Name = "mnuSeparatorFisier";
-            this.mnuSeparatorFisier.Size = new System.Drawing.Size(149, 6);
+            this.mnuSeparatorFisier.Size = new System.Drawing.Size(148, 6);
             // 
             // mnuExportaExcel
             // 
             this.mnuExportaExcel.Name = "mnuExportaExcel";
-            this.mnuExportaExcel.Size = new System.Drawing.Size(152, 22);
+            this.mnuExportaExcel.Size = new System.Drawing.Size(151, 22);
             this.mnuExportaExcel.Text = "Exporta Excel...";
             // 
             // mnuSeparatorFisier2
             // 
             this.mnuSeparatorFisier2.Name = "mnuSeparatorFisier2";
-            this.mnuSeparatorFisier2.Size = new System.Drawing.Size(149, 6);
+            this.mnuSeparatorFisier2.Size = new System.Drawing.Size(148, 6);
             // 
             // mnuIesire
             // 
             this.mnuIesire.Name = "mnuIesire";
-            this.mnuIesire.Size = new System.Drawing.Size(152, 22);
+            this.mnuIesire.Size = new System.Drawing.Size(151, 22);
             this.mnuIesire.Text = "Iesire";
             this.mnuIesire.Click += new System.EventHandler(this.mnuIesire_Click);
             // 
@@ -252,6 +290,8 @@
             // 
             this.mnuEveniment.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuAdauga,
+            this.mnuModifica,
+            this.mnuSterge,
             this.mnuSeparatorEveniment,
             this.mnuAfiseazaCheltuieli,
             this.mnuAfiseazaVenituri});
@@ -514,18 +554,49 @@
             this.btnAdaugaEveniment.UseVisualStyleBackColor = true;
             this.btnAdaugaEveniment.Click += new System.EventHandler(this.btnAdaugaEveniment_Click);
             // 
-            // btnMinus
+            // lblPlus
             // 
-            this.btnMinus.BackColor = System.Drawing.Color.Red;
-            this.btnMinus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMinus.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnMinus.Location = new System.Drawing.Point(634, 42);
-            this.btnMinus.Name = "btnMinus";
-            this.btnMinus.Size = new System.Drawing.Size(32, 32);
-            this.btnMinus.TabIndex = 7;
-            this.btnMinus.Text = "-";
-            this.btnMinus.UseVisualStyleBackColor = false;
-            this.btnMinus.Click += new System.EventHandler(this.btnMinus_Click);
+            this.lblPlus.AutoSize = true;
+            this.lblPlus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlus.Location = new System.Drawing.Point(677, 12);
+            this.lblPlus.Name = "lblPlus";
+            this.lblPlus.Size = new System.Drawing.Size(65, 20);
+            this.lblPlus.TabIndex = 9;
+            this.lblPlus.Text = "Adauga";
+            // 
+            // lblMinus
+            // 
+            this.lblMinus.AutoSize = true;
+            this.lblMinus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMinus.Location = new System.Drawing.Point(677, 50);
+            this.lblMinus.Name = "lblMinus";
+            this.lblMinus.Size = new System.Drawing.Size(57, 20);
+            this.lblMinus.TabIndex = 10;
+            this.lblMinus.Text = "Sterge";
+            // 
+            // lblSageataDreapta
+            // 
+            this.lblSageataDreapta.AutoSize = true;
+            this.lblSageataDreapta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSageataDreapta.Location = new System.Drawing.Point(677, 88);
+            this.lblSageataDreapta.Name = "lblSageataDreapta";
+            this.lblSageataDreapta.Size = new System.Drawing.Size(68, 20);
+            this.lblSageataDreapta.TabIndex = 11;
+            this.lblSageataDreapta.Text = "Modifica";
+            // 
+            // mnuSterge
+            // 
+            this.mnuSterge.Name = "mnuSterge";
+            this.mnuSterge.Size = new System.Drawing.Size(168, 22);
+            this.mnuSterge.Text = "Sterge";
+            this.mnuSterge.Click += new System.EventHandler(this.mnuSterge_Click);
+            // 
+            // mnuModifica
+            // 
+            this.mnuModifica.Name = "mnuModifica";
+            this.mnuModifica.Size = new System.Drawing.Size(168, 22);
+            this.mnuModifica.Text = "Modifica...";
+            this.mnuModifica.Click += new System.EventHandler(this.mnuModifica_Click);
             // 
             // frmMain
             // 
@@ -533,8 +604,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 572);
             this.Controls.Add(this.pnlMain);
-            this.Controls.Add(this.mnuMeniu);
             this.Controls.Add(this.pnlAdaugaEveniment);
+            this.Controls.Add(this.mnuMeniu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.mnuMeniu;
             this.MaximizeBox = false;
@@ -606,6 +677,12 @@
         private System.Windows.Forms.Button btnInapoi;
         private System.Windows.Forms.Button btnPlus;
         private System.Windows.Forms.Button btnMinus;
+        private System.Windows.Forms.Button btnSageataDreapta;
+        private System.Windows.Forms.Label lblSageataDreapta;
+        private System.Windows.Forms.Label lblMinus;
+        private System.Windows.Forms.Label lblPlus;
+        private System.Windows.Forms.ToolStripMenuItem mnuSterge;
+        private System.Windows.Forms.ToolStripMenuItem mnuModifica;
 
     }
 }

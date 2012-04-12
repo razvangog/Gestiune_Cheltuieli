@@ -1,7 +1,6 @@
 <evenimente>
   <eveniment id="1" data="4/11/2012 7:14:22 PM" perioada="Saptamanal" tipEveniment="Cheltuiala" suma="123">dasfads</eveniment>
-  <eveniment id="2" data="2/1/2012 8:11:57 PM" perioada="Lunar" tipEveniment="Cheltuiala" suma="400">salariu</eveniment>
-  <eveniment id="3" data="12/20/2011 8:12:56 PM" perioada="Lunar" tipEveniment="Cheltuiala" suma="401">saasa</eveniment>
+  <eveniment id="2" data="2/2/2012 8:11:57 PM" perioada="Lunar" tipEveniment="Cheltuiala" suma="410">salariu</eveniment>
   <eveniment id="4" data="4/11/2012 8:56:04 PM" perioada="AltTip" tipEveniment="Venit" suma="1000">loto</eveniment>
   <eveniment id="5" data="4/12/2012 4:09:31 PM" perioada="OdataLaXZile" xZile="2" tipEveniment="Venit" suma="55">primesc bani</eveniment>
   <eveniment id="6" data="4/12/2012 4:11:31 PM" perioada="Saptamanal" tipEveniment="Venit" suma="66">test</eveniment>
