@@ -30,6 +30,7 @@ namespace Gestiune_Cheltuieli
             clhPerioada.Width = 100;
             clhSuma.Width = 100;
 
+            pnlAdaugaNotita.Hide();
             pnlNotite.Hide();
             pnlGrafic.Hide();
             pnlAdaugaEveniment.Hide();
@@ -169,6 +170,7 @@ namespace Gestiune_Cheltuieli
 
                 modificare = false;
 
+                pnlAdaugaNotita.Hide();
                 pnlNotite.Hide();
                 pnlMain.Hide();
                 pnlGrafic.Hide();
@@ -238,6 +240,7 @@ namespace Gestiune_Cheltuieli
 
                     modificare = true;
 
+                    pnlAdaugaNotita.Hide();
                     pnlNotite.Hide();
                     pnlMain.Hide();
                     pnlGrafic.Hide();
@@ -334,10 +337,10 @@ namespace Gestiune_Cheltuieli
 
             foreach (Notita not in notite)
             {
-                if (not.expirat == false && not.data.Day <= DateTime.Now.Day)
+                if (not.expirat == false && not.data <= DateTime.Now)
                 {
-                    ListViewItem item = new ListViewItem(not.data.Day + ": " + not.text);
-
+                    ListViewItem item = new ListViewItem(not.data + ": " + not.text);
+                    
                     item.Tag = (object)not.id;
 
                     lstNotite.Items.Add(item);
@@ -351,7 +354,7 @@ namespace Gestiune_Cheltuieli
 
             foreach (Notita not in notite)
             {
-                ListViewItem item = new ListViewItem(not.data.Day + ": " + not.text);
+                ListViewItem item = new ListViewItem(not.data + ": " + not.text);
 
                 if (not.expirat == true)
                     item.ForeColor = Color.Red;
@@ -448,6 +451,7 @@ namespace Gestiune_Cheltuieli
 
                     viewCurent = View.Main;
 
+                    pnlAdaugaNotita.Hide();
                     pnlNotite.Hide();
                     pnlAdaugaEveniment.Hide();
                     pnlGrafic.Hide();
@@ -510,6 +514,7 @@ namespace Gestiune_Cheltuieli
 
                     viewCurent = View.Main;
 
+                    pnlAdaugaNotita.Hide();
                     pnlNotite.Hide();
                     pnlAdaugaEveniment.Hide();
                     pnlGrafic.Hide();
@@ -532,6 +537,7 @@ namespace Gestiune_Cheltuieli
                 {
                     viewCurent = View.Main;
 
+                    pnlAdaugaNotita.Hide();
                     pnlNotite.Hide();
                     pnlAdaugaEveniment.Hide();
                     pnlGrafic.Hide();
@@ -568,6 +574,7 @@ namespace Gestiune_Cheltuieli
         {
             viewCurent = View.Main;
 
+            pnlAdaugaNotita.Hide();
             pnlNotite.Hide();
             pnlAdaugaEveniment.Hide();
             pnlGrafic.Hide();
@@ -580,6 +587,7 @@ namespace Gestiune_Cheltuieli
         {
             viewCurent = View.Main;
 
+            pnlAdaugaNotita.Hide();
             pnlNotite.Hide();
             pnlGrafic.Hide();
             pnlAdaugaEveniment.Hide();
@@ -590,6 +598,7 @@ namespace Gestiune_Cheltuieli
         {
             viewCurent = View.Main;
 
+            pnlAdaugaNotita.Hide();
             pnlNotite.Hide();
             pnlGrafic.Hide();
             pnlAdaugaEveniment.Hide();
@@ -737,6 +746,7 @@ namespace Gestiune_Cheltuieli
 
             deseneazaGrafic();
 
+            pnlAdaugaNotita.Hide();
             pnlNotite.Hide();
             pnlMain.Hide();
             pnlAdaugaEveniment.Hide();
@@ -745,7 +755,7 @@ namespace Gestiune_Cheltuieli
 
         private void radValoriAbsolute_CheckedChanged(object sender, EventArgs e)
         {
-            deseneazaGrafic();
+            //deseneazaGrafic();
         }
 
         private void radValoriCumulative_CheckedChanged(object sender, EventArgs e)
@@ -769,6 +779,7 @@ namespace Gestiune_Cheltuieli
                 lblNrNotiteNecitite.Text = Convert.ToString(nrNotiteNecitite);
                 btnNotite.Visible = true;
                 lblNrNotiteNecitite.Visible = true;
+                lblNrNotiteNecitite.BringToFront();
             }
             else
             {
@@ -785,6 +796,7 @@ namespace Gestiune_Cheltuieli
 
             btnAmCitit.Visible = true;
 
+            pnlAdaugaNotita.Hide();
             pnlMain.Hide();
             pnlGrafic.Hide();
             pnlAdaugaEveniment.Hide();
@@ -815,8 +827,12 @@ namespace Gestiune_Cheltuieli
                 }
             }
 
+            btnNotite.Visible = false;
+            lblNrNotiteNecitite.Visible = false;
+
             viewCurent = View.Main;
 
+            pnlAdaugaNotita.Hide();
             pnlNotite.Hide();
             pnlGrafic.Hide();
             pnlAdaugaEveniment.Hide();
@@ -831,10 +847,45 @@ namespace Gestiune_Cheltuieli
 
             btnAmCitit.Visible = false;
 
+            pnlAdaugaNotita.Hide();
             pnlMain.Hide();
             pnlGrafic.Hide();
             pnlAdaugaEveniment.Hide();
             pnlNotite.Show();
+        }
+
+        private void mnuAdaugaNotita_Click(object sender, EventArgs e)
+        {
+            viewCurent = View.AdaugaNotite;
+
+            txtText.Text = "";
+            dtpDataNotita.Value = DateTime.Now;
+
+            pnlMain.Hide();
+            pnlGrafic.Hide();
+            pnlAdaugaEveniment.Hide();
+            pnlNotite.Hide();
+            pnlAdaugaNotita.Show();
+        }
+
+        private void btnAdaugaNotita_Click(object sender, EventArgs e)
+        {
+            Notita not = new Notita();
+
+            not.id = getMaxIdNotita();
+            not.data = dtpDataNotita.Value;
+            not.text = txtText.Text;
+            not.expirat = false;
+
+            notite.Add(not);
+
+            viewCurent = View.Main;
+
+            pnlAdaugaNotita.Hide();
+            pnlNotite.Hide();
+            pnlAdaugaEveniment.Hide();
+            pnlGrafic.Hide();
+            pnlMain.Show();
         }
     }
 }

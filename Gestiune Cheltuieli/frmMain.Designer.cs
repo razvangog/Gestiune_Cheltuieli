@@ -29,12 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend12 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series23 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series24 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title12 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.lblNrNotiteNecitite = new System.Windows.Forms.Label();
+            this.btnNotite = new System.Windows.Forms.Button();
             this.lblSageataDreapta = new System.Windows.Forms.Label();
             this.lblMinus = new System.Windows.Forms.Label();
             this.lblPlus = new System.Windows.Forms.Label();
@@ -65,6 +67,9 @@
             this.mnuSeparatorEveniment = new System.Windows.Forms.ToolStripSeparator();
             this.mnuAfiseazaCheltuieli = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAfiseazaVenituri = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuNotite = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAdaugaNotita = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAfiseazaToate = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuGrafic = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAfiseazaGrafic = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSalveazaGrafic = new System.Windows.Forms.ToolStripMenuItem();
@@ -98,15 +103,18 @@
             this.chrGrafic = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dlgSalveazaGrafic = new System.Windows.Forms.SaveFileDialog();
             this.tmrEvenimente = new System.Windows.Forms.Timer(this.components);
-            this.btnNotite = new System.Windows.Forms.Button();
-            this.lblNrNotiteNecitite = new System.Windows.Forms.Label();
             this.pnlNotite = new System.Windows.Forms.Panel();
-            this.lstNotite = new System.Windows.Forms.ListView();
-            this.btnInapoiNotite = new System.Windows.Forms.Button();
             this.btnAmCitit = new System.Windows.Forms.Button();
-            this.mnuNotite = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuAdaugaNotita = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuAfiseazaToate = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnInapoiNotite = new System.Windows.Forms.Button();
+            this.lstNotite = new System.Windows.Forms.ListView();
+            this.pnlAdaugaNotita = new System.Windows.Forms.Panel();
+            this.btnInapoiAdaugaNotita = new System.Windows.Forms.Button();
+            this.lblAdaugaNotita = new System.Windows.Forms.Label();
+            this.txtText = new System.Windows.Forms.TextBox();
+            this.lblText = new System.Windows.Forms.Label();
+            this.lblDataNotita = new System.Windows.Forms.Label();
+            this.dtpDataNotita = new System.Windows.Forms.DateTimePicker();
+            this.btnAdaugaNotita = new System.Windows.Forms.Button();
             this.pnlMain.SuspendLayout();
             this.mnuMeniu.SuspendLayout();
             this.pnlAdaugaEveniment.SuspendLayout();
@@ -114,6 +122,7 @@
             this.grpTipGrafic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chrGrafic)).BeginInit();
             this.pnlNotite.SuspendLayout();
+            this.pnlAdaugaNotita.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMain
@@ -135,6 +144,31 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(770, 530);
             this.pnlMain.TabIndex = 0;
+            // 
+            // lblNrNotiteNecitite
+            // 
+            this.lblNrNotiteNecitite.AutoSize = true;
+            this.lblNrNotiteNecitite.BackColor = System.Drawing.Color.Red;
+            this.lblNrNotiteNecitite.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNrNotiteNecitite.ForeColor = System.Drawing.Color.White;
+            this.lblNrNotiteNecitite.Location = new System.Drawing.Point(748, 113);
+            this.lblNrNotiteNecitite.Name = "lblNrNotiteNecitite";
+            this.lblNrNotiteNecitite.Size = new System.Drawing.Size(24, 16);
+            this.lblNrNotiteNecitite.TabIndex = 13;
+            this.lblNrNotiteNecitite.Text = "10";
+            this.lblNrNotiteNecitite.Visible = false;
+            // 
+            // btnNotite
+            // 
+            this.btnNotite.BackColor = System.Drawing.Color.Transparent;
+            this.btnNotite.Location = new System.Drawing.Point(637, 119);
+            this.btnNotite.Name = "btnNotite";
+            this.btnNotite.Size = new System.Drawing.Size(124, 23);
+            this.btnNotite.TabIndex = 12;
+            this.btnNotite.Text = "Aveti x notite!";
+            this.btnNotite.UseVisualStyleBackColor = false;
+            this.btnNotite.Visible = false;
+            this.btnNotite.Click += new System.EventHandler(this.btnNotite_Click);
             // 
             // lblSageataDreapta
             // 
@@ -313,37 +347,37 @@
             // mnuDeschide
             // 
             this.mnuDeschide.Name = "mnuDeschide";
-            this.mnuDeschide.Size = new System.Drawing.Size(152, 22);
+            this.mnuDeschide.Size = new System.Drawing.Size(151, 22);
             this.mnuDeschide.Text = "Deschide";
             this.mnuDeschide.Click += new System.EventHandler(this.mnuDeschide_Click);
             // 
             // mnuSalveaza
             // 
             this.mnuSalveaza.Name = "mnuSalveaza";
-            this.mnuSalveaza.Size = new System.Drawing.Size(152, 22);
+            this.mnuSalveaza.Size = new System.Drawing.Size(151, 22);
             this.mnuSalveaza.Text = "Salveaza";
             this.mnuSalveaza.Click += new System.EventHandler(this.mnuSalveaza_Click);
             // 
             // mnuSeparatorFisier
             // 
             this.mnuSeparatorFisier.Name = "mnuSeparatorFisier";
-            this.mnuSeparatorFisier.Size = new System.Drawing.Size(149, 6);
+            this.mnuSeparatorFisier.Size = new System.Drawing.Size(148, 6);
             // 
             // mnuExportaExcel
             // 
             this.mnuExportaExcel.Name = "mnuExportaExcel";
-            this.mnuExportaExcel.Size = new System.Drawing.Size(152, 22);
+            this.mnuExportaExcel.Size = new System.Drawing.Size(151, 22);
             this.mnuExportaExcel.Text = "Exporta Excel...";
             // 
             // mnuSeparatorFisier2
             // 
             this.mnuSeparatorFisier2.Name = "mnuSeparatorFisier2";
-            this.mnuSeparatorFisier2.Size = new System.Drawing.Size(149, 6);
+            this.mnuSeparatorFisier2.Size = new System.Drawing.Size(148, 6);
             // 
             // mnuIesire
             // 
             this.mnuIesire.Name = "mnuIesire";
-            this.mnuIesire.Size = new System.Drawing.Size(152, 22);
+            this.mnuIesire.Size = new System.Drawing.Size(151, 22);
             this.mnuIesire.Text = "Iesire";
             this.mnuIesire.Click += new System.EventHandler(this.mnuIesire_Click);
             // 
@@ -406,6 +440,29 @@
             this.mnuAfiseazaVenituri.Text = "Afiseaza venituri";
             this.mnuAfiseazaVenituri.Click += new System.EventHandler(this.mnuAfiseazaVenituri_Click);
             // 
+            // mnuNotite
+            // 
+            this.mnuNotite.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuAdaugaNotita,
+            this.mnuAfiseazaToate});
+            this.mnuNotite.Name = "mnuNotite";
+            this.mnuNotite.Size = new System.Drawing.Size(52, 23);
+            this.mnuNotite.Text = "Notite";
+            // 
+            // mnuAdaugaNotita
+            // 
+            this.mnuAdaugaNotita.Name = "mnuAdaugaNotita";
+            this.mnuAdaugaNotita.Size = new System.Drawing.Size(152, 22);
+            this.mnuAdaugaNotita.Text = "Adauga...";
+            this.mnuAdaugaNotita.Click += new System.EventHandler(this.mnuAdaugaNotita_Click);
+            // 
+            // mnuAfiseazaToate
+            // 
+            this.mnuAfiseazaToate.Name = "mnuAfiseazaToate";
+            this.mnuAfiseazaToate.Size = new System.Drawing.Size(152, 22);
+            this.mnuAfiseazaToate.Text = "Afiseaza toate";
+            this.mnuAfiseazaToate.Click += new System.EventHandler(this.mnuAfiseazaToate_Click);
+            // 
             // mnuGrafic
             // 
             this.mnuGrafic.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -418,14 +475,14 @@
             // mnuAfiseazaGrafic
             // 
             this.mnuAfiseazaGrafic.Name = "mnuAfiseazaGrafic";
-            this.mnuAfiseazaGrafic.Size = new System.Drawing.Size(152, 22);
+            this.mnuAfiseazaGrafic.Size = new System.Drawing.Size(151, 22);
             this.mnuAfiseazaGrafic.Text = "Afiseaza grafic";
             this.mnuAfiseazaGrafic.Click += new System.EventHandler(this.mnuAfiseazaGrafic_Click);
             // 
             // mnuSalveazaGrafic
             // 
             this.mnuSalveazaGrafic.Name = "mnuSalveazaGrafic";
-            this.mnuSalveazaGrafic.Size = new System.Drawing.Size(152, 22);
+            this.mnuSalveazaGrafic.Size = new System.Drawing.Size(151, 22);
             this.mnuSalveazaGrafic.Text = "Salveaza grafic";
             this.mnuSalveazaGrafic.Click += new System.EventHandler(this.mnuSalveazaGrafic_Click);
             // 
@@ -442,18 +499,18 @@
             // mnuTutorial
             // 
             this.mnuTutorial.Name = "mnuTutorial";
-            this.mnuTutorial.Size = new System.Drawing.Size(152, 22);
+            this.mnuTutorial.Size = new System.Drawing.Size(115, 22);
             this.mnuTutorial.Text = "Tutorial";
             // 
             // mnuSeparatorAjutor
             // 
             this.mnuSeparatorAjutor.Name = "mnuSeparatorAjutor";
-            this.mnuSeparatorAjutor.Size = new System.Drawing.Size(149, 6);
+            this.mnuSeparatorAjutor.Size = new System.Drawing.Size(112, 6);
             // 
             // mnuDespre
             // 
             this.mnuDespre.Name = "mnuDespre";
-            this.mnuDespre.Size = new System.Drawing.Size(152, 22);
+            this.mnuDespre.Size = new System.Drawing.Size(115, 22);
             this.mnuDespre.Text = "Despre";
             // 
             // mnuFiltru
@@ -690,40 +747,40 @@
             // 
             // chrGrafic
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chrGrafic.ChartAreas.Add(chartArea3);
-            legend3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend3.IsTextAutoFit = false;
-            legend3.Name = "Legend1";
-            this.chrGrafic.Legends.Add(legend3);
+            chartArea12.Name = "ChartArea1";
+            this.chrGrafic.ChartAreas.Add(chartArea12);
+            legend12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend12.IsTextAutoFit = false;
+            legend12.Name = "Legend1";
+            this.chrGrafic.Legends.Add(legend12);
             this.chrGrafic.Location = new System.Drawing.Point(13, 91);
             this.chrGrafic.Name = "chrGrafic";
             this.chrGrafic.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.chrGrafic.PaletteCustomColors = new System.Drawing.Color[] {
         System.Drawing.Color.Red,
         System.Drawing.Color.Lime};
-            series5.BorderWidth = 2;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series5.Legend = "Legend1";
-            series5.Name = "Cheltuieli";
-            series5.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
-            series5.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            series6.BorderWidth = 2;
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series6.Legend = "Legend1";
-            series6.Name = "Venituri";
-            series6.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
-            series6.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            this.chrGrafic.Series.Add(series5);
-            this.chrGrafic.Series.Add(series6);
+            series23.BorderWidth = 2;
+            series23.ChartArea = "ChartArea1";
+            series23.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series23.Legend = "Legend1";
+            series23.Name = "Cheltuieli";
+            series23.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+            series23.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series24.BorderWidth = 2;
+            series24.ChartArea = "ChartArea1";
+            series24.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series24.Legend = "Legend1";
+            series24.Name = "Venituri";
+            series24.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+            series24.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            this.chrGrafic.Series.Add(series23);
+            this.chrGrafic.Series.Add(series24);
             this.chrGrafic.Size = new System.Drawing.Size(743, 422);
             this.chrGrafic.TabIndex = 0;
-            title3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title3.Name = "ttlTitluGrafic";
-            title3.Text = "Evolutia cheltuielilor/veniturilor";
-            this.chrGrafic.Titles.Add(title3);
+            title12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title12.Name = "ttlTitluGrafic";
+            title12.Text = "Evolutia cheltuielilor/veniturilor";
+            this.chrGrafic.Titles.Add(title12);
             // 
             // dlgSalveazaGrafic
             // 
@@ -732,33 +789,8 @@
             // 
             // tmrEvenimente
             // 
-            this.tmrEvenimente.Interval = 60000;
+            this.tmrEvenimente.Interval = 10000;
             this.tmrEvenimente.Tick += new System.EventHandler(this.tmrEvenimente_Tick);
-            // 
-            // btnNotite
-            // 
-            this.btnNotite.BackColor = System.Drawing.Color.Transparent;
-            this.btnNotite.Location = new System.Drawing.Point(637, 119);
-            this.btnNotite.Name = "btnNotite";
-            this.btnNotite.Size = new System.Drawing.Size(124, 23);
-            this.btnNotite.TabIndex = 12;
-            this.btnNotite.Text = "Aveti x notite!";
-            this.btnNotite.UseVisualStyleBackColor = false;
-            this.btnNotite.Visible = false;
-            this.btnNotite.Click += new System.EventHandler(this.btnNotite_Click);
-            // 
-            // lblNrNotiteNecitite
-            // 
-            this.lblNrNotiteNecitite.AutoSize = true;
-            this.lblNrNotiteNecitite.BackColor = System.Drawing.Color.Red;
-            this.lblNrNotiteNecitite.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNrNotiteNecitite.ForeColor = System.Drawing.Color.White;
-            this.lblNrNotiteNecitite.Location = new System.Drawing.Point(743, 113);
-            this.lblNrNotiteNecitite.Name = "lblNrNotiteNecitite";
-            this.lblNrNotiteNecitite.Size = new System.Drawing.Size(24, 16);
-            this.lblNrNotiteNecitite.TabIndex = 13;
-            this.lblNrNotiteNecitite.Text = "10";
-            this.lblNrNotiteNecitite.Visible = false;
             // 
             // pnlNotite
             // 
@@ -770,14 +802,15 @@
             this.pnlNotite.Size = new System.Drawing.Size(770, 530);
             this.pnlNotite.TabIndex = 4;
             // 
-            // lstNotite
+            // btnAmCitit
             // 
-            this.lstNotite.Location = new System.Drawing.Point(13, 42);
-            this.lstNotite.Name = "lstNotite";
-            this.lstNotite.Size = new System.Drawing.Size(743, 471);
-            this.lstNotite.TabIndex = 0;
-            this.lstNotite.UseCompatibleStateImageBehavior = false;
-            this.lstNotite.View = System.Windows.Forms.View.Details;
+            this.btnAmCitit.Location = new System.Drawing.Point(663, 4);
+            this.btnAmCitit.Name = "btnAmCitit";
+            this.btnAmCitit.Size = new System.Drawing.Size(93, 32);
+            this.btnAmCitit.TabIndex = 4;
+            this.btnAmCitit.Text = "Am citit notitele";
+            this.btnAmCitit.UseVisualStyleBackColor = true;
+            this.btnAmCitit.Click += new System.EventHandler(this.btnAmCitit_Click);
             // 
             // btnInapoiNotite
             // 
@@ -789,48 +822,103 @@
             this.btnInapoiNotite.UseVisualStyleBackColor = true;
             this.btnInapoiNotite.Click += new System.EventHandler(this.btnInapoiNotite_Click);
             // 
-            // btnAmCitit
+            // lstNotite
             // 
-            this.btnAmCitit.Location = new System.Drawing.Point(663, 4);
-            this.btnAmCitit.Name = "btnAmCitit";
-            this.btnAmCitit.Size = new System.Drawing.Size(93, 32);
-            this.btnAmCitit.TabIndex = 4;
-            this.btnAmCitit.Text = "Am citit notitele";
-            this.btnAmCitit.UseVisualStyleBackColor = true;
-            this.btnAmCitit.Click += new System.EventHandler(this.btnAmCitit_Click);
+            this.lstNotite.FullRowSelect = true;
+            this.lstNotite.Location = new System.Drawing.Point(13, 42);
+            this.lstNotite.Name = "lstNotite";
+            this.lstNotite.Size = new System.Drawing.Size(743, 471);
+            this.lstNotite.TabIndex = 0;
+            this.lstNotite.UseCompatibleStateImageBehavior = false;
+            this.lstNotite.View = System.Windows.Forms.View.List;
             // 
-            // mnuNotite
+            // pnlAdaugaNotita
             // 
-            this.mnuNotite.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuAdaugaNotita,
-            this.mnuAfiseazaToate});
-            this.mnuNotite.Name = "mnuNotite";
-            this.mnuNotite.Size = new System.Drawing.Size(52, 23);
-            this.mnuNotite.Text = "Notite";
+            this.pnlAdaugaNotita.Controls.Add(this.btnInapoiAdaugaNotita);
+            this.pnlAdaugaNotita.Controls.Add(this.lblAdaugaNotita);
+            this.pnlAdaugaNotita.Controls.Add(this.txtText);
+            this.pnlAdaugaNotita.Controls.Add(this.lblText);
+            this.pnlAdaugaNotita.Controls.Add(this.lblDataNotita);
+            this.pnlAdaugaNotita.Controls.Add(this.dtpDataNotita);
+            this.pnlAdaugaNotita.Controls.Add(this.btnAdaugaNotita);
+            this.pnlAdaugaNotita.Location = new System.Drawing.Point(12, 30);
+            this.pnlAdaugaNotita.Name = "pnlAdaugaNotita";
+            this.pnlAdaugaNotita.Size = new System.Drawing.Size(770, 530);
+            this.pnlAdaugaNotita.TabIndex = 5;
             // 
-            // mnuAdaugaNotita
+            // btnInapoiAdaugaNotita
             // 
-            this.mnuAdaugaNotita.Name = "mnuAdaugaNotita";
-            this.mnuAdaugaNotita.Size = new System.Drawing.Size(152, 22);
-            this.mnuAdaugaNotita.Text = "Adauga...";
+            this.btnInapoiAdaugaNotita.Location = new System.Drawing.Point(3, 4);
+            this.btnInapoiAdaugaNotita.Name = "btnInapoiAdaugaNotita";
+            this.btnInapoiAdaugaNotita.Size = new System.Drawing.Size(62, 24);
+            this.btnInapoiAdaugaNotita.TabIndex = 29;
+            this.btnInapoiAdaugaNotita.Text = "<< Inapoi";
+            this.btnInapoiAdaugaNotita.UseVisualStyleBackColor = true;
             // 
-            // mnuAfiseazaToate
+            // lblAdaugaNotita
             // 
-            this.mnuAfiseazaToate.Name = "mnuAfiseazaToate";
-            this.mnuAfiseazaToate.Size = new System.Drawing.Size(152, 22);
-            this.mnuAfiseazaToate.Text = "Afiseaza toate";
-            this.mnuAfiseazaToate.Click += new System.EventHandler(this.mnuAfiseazaToate_Click);
+            this.lblAdaugaNotita.AutoSize = true;
+            this.lblAdaugaNotita.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdaugaNotita.Location = new System.Drawing.Point(332, 132);
+            this.lblAdaugaNotita.Name = "lblAdaugaNotita";
+            this.lblAdaugaNotita.Size = new System.Drawing.Size(122, 20);
+            this.lblAdaugaNotita.TabIndex = 28;
+            this.lblAdaugaNotita.Text = "Adauga o notita";
+            // 
+            // txtText
+            // 
+            this.txtText.Location = new System.Drawing.Point(208, 206);
+            this.txtText.Multiline = true;
+            this.txtText.Name = "txtText";
+            this.txtText.Size = new System.Drawing.Size(373, 110);
+            this.txtText.TabIndex = 27;
+            // 
+            // lblText
+            // 
+            this.lblText.AutoSize = true;
+            this.lblText.Location = new System.Drawing.Point(170, 209);
+            this.lblText.Name = "lblText";
+            this.lblText.Size = new System.Drawing.Size(31, 13);
+            this.lblText.TabIndex = 22;
+            this.lblText.Text = "Text:";
+            // 
+            // lblDataNotita
+            // 
+            this.lblDataNotita.AutoSize = true;
+            this.lblDataNotita.Location = new System.Drawing.Point(169, 186);
+            this.lblDataNotita.Name = "lblDataNotita";
+            this.lblDataNotita.Size = new System.Drawing.Size(33, 13);
+            this.lblDataNotita.TabIndex = 17;
+            this.lblDataNotita.Text = "Data:";
+            // 
+            // dtpDataNotita
+            // 
+            this.dtpDataNotita.Location = new System.Drawing.Point(208, 180);
+            this.dtpDataNotita.Name = "dtpDataNotita";
+            this.dtpDataNotita.Size = new System.Drawing.Size(374, 20);
+            this.dtpDataNotita.TabIndex = 16;
+            // 
+            // btnAdaugaNotita
+            // 
+            this.btnAdaugaNotita.Location = new System.Drawing.Point(336, 322);
+            this.btnAdaugaNotita.Name = "btnAdaugaNotita";
+            this.btnAdaugaNotita.Size = new System.Drawing.Size(117, 31);
+            this.btnAdaugaNotita.TabIndex = 15;
+            this.btnAdaugaNotita.Text = "Adauga notita";
+            this.btnAdaugaNotita.UseVisualStyleBackColor = true;
+            this.btnAdaugaNotita.Click += new System.EventHandler(this.btnAdaugaNotita_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 572);
-            this.Controls.Add(this.pnlNotite);
             this.Controls.Add(this.pnlMain);
+            this.Controls.Add(this.pnlNotite);
+            this.Controls.Add(this.pnlAdaugaNotita);
             this.Controls.Add(this.pnlAdaugaEveniment);
-            this.Controls.Add(this.mnuMeniu);
             this.Controls.Add(this.pnlGrafic);
+            this.Controls.Add(this.mnuMeniu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.mnuMeniu;
             this.MaximizeBox = false;
@@ -850,6 +938,8 @@
             this.grpTipGrafic.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chrGrafic)).EndInit();
             this.pnlNotite.ResumeLayout(false);
+            this.pnlAdaugaNotita.ResumeLayout(false);
+            this.pnlAdaugaNotita.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -930,6 +1020,14 @@
         private System.Windows.Forms.ToolStripMenuItem mnuNotite;
         private System.Windows.Forms.ToolStripMenuItem mnuAdaugaNotita;
         private System.Windows.Forms.ToolStripMenuItem mnuAfiseazaToate;
+        private System.Windows.Forms.Panel pnlAdaugaNotita;
+        private System.Windows.Forms.Button btnInapoiAdaugaNotita;
+        private System.Windows.Forms.Label lblAdaugaNotita;
+        private System.Windows.Forms.TextBox txtText;
+        private System.Windows.Forms.Label lblText;
+        private System.Windows.Forms.Label lblDataNotita;
+        private System.Windows.Forms.DateTimePicker dtpDataNotita;
+        private System.Windows.Forms.Button btnAdaugaNotita;
 
     }
 }

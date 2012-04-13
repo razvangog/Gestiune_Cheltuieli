@@ -7,7 +7,8 @@ namespace Gestiune_Cheltuieli
         Main,
         AdaugaEveniment,
         Grafic,
-        Notite
+        Notite,
+        AdaugaNotite
     };
 
     public enum PerioadaEveniment

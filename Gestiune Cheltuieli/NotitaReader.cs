@@ -29,7 +29,7 @@ namespace Gestiune_Cheltuieli
                     
                     not.id = Convert.ToInt32(elem.Attributes["id"].Value);
                     not.data = Convert.ToDateTime(elem.Attributes["data"].Value);
-                    not.text = elem.Attributes["text"].Value;
+                    not.text = elem.InnerText;
                     not.expirat = Convert.ToBoolean(elem.Attributes["expirat"].Value);
                     
                     lista.Add(not);
