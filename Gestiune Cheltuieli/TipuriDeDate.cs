@@ -7,7 +7,7 @@ namespace Gestiune_Cheltuieli
         Main,
         AdaugaEveniment,
         Grafic,
-        Alerte
+        Notite
     };
 
     public enum PerioadaEveniment
@@ -33,5 +33,13 @@ namespace Gestiune_Cheltuieli
         public int xZile;
         public TipEveniment tipEveniment;
         public string detalii;
-    }
+    };
+
+    public struct Notita
+    {
+        public int id;
+        public DateTime data;
+        public string text;
+        public bool expirat;
+    };
 }

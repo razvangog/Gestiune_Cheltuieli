@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -96,16 +97,29 @@
             this.radValoriAbsolute = new System.Windows.Forms.RadioButton();
             this.chrGrafic = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dlgSalveazaGrafic = new System.Windows.Forms.SaveFileDialog();
+            this.tmrEvenimente = new System.Windows.Forms.Timer(this.components);
+            this.btnNotite = new System.Windows.Forms.Button();
+            this.lblNrNotiteNecitite = new System.Windows.Forms.Label();
+            this.pnlNotite = new System.Windows.Forms.Panel();
+            this.lstNotite = new System.Windows.Forms.ListView();
+            this.btnInapoiNotite = new System.Windows.Forms.Button();
+            this.btnAmCitit = new System.Windows.Forms.Button();
+            this.mnuNotite = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAdaugaNotita = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAfiseazaToate = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMain.SuspendLayout();
             this.mnuMeniu.SuspendLayout();
             this.pnlAdaugaEveniment.SuspendLayout();
             this.pnlGrafic.SuspendLayout();
             this.grpTipGrafic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chrGrafic)).BeginInit();
+            this.pnlNotite.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMain
             // 
+            this.pnlMain.Controls.Add(this.lblNrNotiteNecitite);
+            this.pnlMain.Controls.Add(this.btnNotite);
             this.pnlMain.Controls.Add(this.lblSageataDreapta);
             this.pnlMain.Controls.Add(this.lblMinus);
             this.pnlMain.Controls.Add(this.lblPlus);
@@ -272,6 +286,7 @@
             this.mnuMeniu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuFisier,
             this.mnuEveniment,
+            this.mnuNotite,
             this.mnuGrafic,
             this.mnuAjutor,
             this.mnuFiltru,
@@ -298,37 +313,37 @@
             // mnuDeschide
             // 
             this.mnuDeschide.Name = "mnuDeschide";
-            this.mnuDeschide.Size = new System.Drawing.Size(151, 22);
+            this.mnuDeschide.Size = new System.Drawing.Size(152, 22);
             this.mnuDeschide.Text = "Deschide";
             this.mnuDeschide.Click += new System.EventHandler(this.mnuDeschide_Click);
             // 
             // mnuSalveaza
             // 
             this.mnuSalveaza.Name = "mnuSalveaza";
-            this.mnuSalveaza.Size = new System.Drawing.Size(151, 22);
+            this.mnuSalveaza.Size = new System.Drawing.Size(152, 22);
             this.mnuSalveaza.Text = "Salveaza";
             this.mnuSalveaza.Click += new System.EventHandler(this.mnuSalveaza_Click);
             // 
             // mnuSeparatorFisier
             // 
             this.mnuSeparatorFisier.Name = "mnuSeparatorFisier";
-            this.mnuSeparatorFisier.Size = new System.Drawing.Size(148, 6);
+            this.mnuSeparatorFisier.Size = new System.Drawing.Size(149, 6);
             // 
             // mnuExportaExcel
             // 
             this.mnuExportaExcel.Name = "mnuExportaExcel";
-            this.mnuExportaExcel.Size = new System.Drawing.Size(151, 22);
+            this.mnuExportaExcel.Size = new System.Drawing.Size(152, 22);
             this.mnuExportaExcel.Text = "Exporta Excel...";
             // 
             // mnuSeparatorFisier2
             // 
             this.mnuSeparatorFisier2.Name = "mnuSeparatorFisier2";
-            this.mnuSeparatorFisier2.Size = new System.Drawing.Size(148, 6);
+            this.mnuSeparatorFisier2.Size = new System.Drawing.Size(149, 6);
             // 
             // mnuIesire
             // 
             this.mnuIesire.Name = "mnuIesire";
-            this.mnuIesire.Size = new System.Drawing.Size(151, 22);
+            this.mnuIesire.Size = new System.Drawing.Size(152, 22);
             this.mnuIesire.Text = "Iesire";
             this.mnuIesire.Click += new System.EventHandler(this.mnuIesire_Click);
             // 
@@ -715,11 +730,103 @@
             this.dlgSalveazaGrafic.FileName = "grafic";
             this.dlgSalveazaGrafic.Title = "Salveaza grafic";
             // 
+            // tmrEvenimente
+            // 
+            this.tmrEvenimente.Interval = 60000;
+            this.tmrEvenimente.Tick += new System.EventHandler(this.tmrEvenimente_Tick);
+            // 
+            // btnNotite
+            // 
+            this.btnNotite.BackColor = System.Drawing.Color.Transparent;
+            this.btnNotite.Location = new System.Drawing.Point(637, 119);
+            this.btnNotite.Name = "btnNotite";
+            this.btnNotite.Size = new System.Drawing.Size(124, 23);
+            this.btnNotite.TabIndex = 12;
+            this.btnNotite.Text = "Aveti x notite!";
+            this.btnNotite.UseVisualStyleBackColor = false;
+            this.btnNotite.Visible = false;
+            this.btnNotite.Click += new System.EventHandler(this.btnNotite_Click);
+            // 
+            // lblNrNotiteNecitite
+            // 
+            this.lblNrNotiteNecitite.AutoSize = true;
+            this.lblNrNotiteNecitite.BackColor = System.Drawing.Color.Red;
+            this.lblNrNotiteNecitite.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNrNotiteNecitite.ForeColor = System.Drawing.Color.White;
+            this.lblNrNotiteNecitite.Location = new System.Drawing.Point(743, 113);
+            this.lblNrNotiteNecitite.Name = "lblNrNotiteNecitite";
+            this.lblNrNotiteNecitite.Size = new System.Drawing.Size(24, 16);
+            this.lblNrNotiteNecitite.TabIndex = 13;
+            this.lblNrNotiteNecitite.Text = "10";
+            this.lblNrNotiteNecitite.Visible = false;
+            // 
+            // pnlNotite
+            // 
+            this.pnlNotite.Controls.Add(this.btnAmCitit);
+            this.pnlNotite.Controls.Add(this.btnInapoiNotite);
+            this.pnlNotite.Controls.Add(this.lstNotite);
+            this.pnlNotite.Location = new System.Drawing.Point(12, 30);
+            this.pnlNotite.Name = "pnlNotite";
+            this.pnlNotite.Size = new System.Drawing.Size(770, 530);
+            this.pnlNotite.TabIndex = 4;
+            // 
+            // lstNotite
+            // 
+            this.lstNotite.Location = new System.Drawing.Point(13, 42);
+            this.lstNotite.Name = "lstNotite";
+            this.lstNotite.Size = new System.Drawing.Size(743, 471);
+            this.lstNotite.TabIndex = 0;
+            this.lstNotite.UseCompatibleStateImageBehavior = false;
+            this.lstNotite.View = System.Windows.Forms.View.Details;
+            // 
+            // btnInapoiNotite
+            // 
+            this.btnInapoiNotite.Location = new System.Drawing.Point(3, 3);
+            this.btnInapoiNotite.Name = "btnInapoiNotite";
+            this.btnInapoiNotite.Size = new System.Drawing.Size(62, 24);
+            this.btnInapoiNotite.TabIndex = 3;
+            this.btnInapoiNotite.Text = "<< Inapoi";
+            this.btnInapoiNotite.UseVisualStyleBackColor = true;
+            this.btnInapoiNotite.Click += new System.EventHandler(this.btnInapoiNotite_Click);
+            // 
+            // btnAmCitit
+            // 
+            this.btnAmCitit.Location = new System.Drawing.Point(663, 4);
+            this.btnAmCitit.Name = "btnAmCitit";
+            this.btnAmCitit.Size = new System.Drawing.Size(93, 32);
+            this.btnAmCitit.TabIndex = 4;
+            this.btnAmCitit.Text = "Am citit notitele";
+            this.btnAmCitit.UseVisualStyleBackColor = true;
+            this.btnAmCitit.Click += new System.EventHandler(this.btnAmCitit_Click);
+            // 
+            // mnuNotite
+            // 
+            this.mnuNotite.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuAdaugaNotita,
+            this.mnuAfiseazaToate});
+            this.mnuNotite.Name = "mnuNotite";
+            this.mnuNotite.Size = new System.Drawing.Size(52, 23);
+            this.mnuNotite.Text = "Notite";
+            // 
+            // mnuAdaugaNotita
+            // 
+            this.mnuAdaugaNotita.Name = "mnuAdaugaNotita";
+            this.mnuAdaugaNotita.Size = new System.Drawing.Size(152, 22);
+            this.mnuAdaugaNotita.Text = "Adauga...";
+            // 
+            // mnuAfiseazaToate
+            // 
+            this.mnuAfiseazaToate.Name = "mnuAfiseazaToate";
+            this.mnuAfiseazaToate.Size = new System.Drawing.Size(152, 22);
+            this.mnuAfiseazaToate.Text = "Afiseaza toate";
+            this.mnuAfiseazaToate.Click += new System.EventHandler(this.mnuAfiseazaToate_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 572);
+            this.Controls.Add(this.pnlNotite);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlAdaugaEveniment);
             this.Controls.Add(this.mnuMeniu);
@@ -742,6 +849,7 @@
             this.grpTipGrafic.ResumeLayout(false);
             this.grpTipGrafic.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chrGrafic)).EndInit();
+            this.pnlNotite.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -812,6 +920,16 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chrGrafic;
         private System.Windows.Forms.Button btnInapoiGrafic;
         private System.Windows.Forms.SaveFileDialog dlgSalveazaGrafic;
+        private System.Windows.Forms.Timer tmrEvenimente;
+        private System.Windows.Forms.Button btnNotite;
+        private System.Windows.Forms.Label lblNrNotiteNecitite;
+        private System.Windows.Forms.Panel pnlNotite;
+        private System.Windows.Forms.Button btnInapoiNotite;
+        private System.Windows.Forms.ListView lstNotite;
+        private System.Windows.Forms.Button btnAmCitit;
+        private System.Windows.Forms.ToolStripMenuItem mnuNotite;
+        private System.Windows.Forms.ToolStripMenuItem mnuAdaugaNotita;
+        private System.Windows.Forms.ToolStripMenuItem mnuAfiseazaToate;
 
     }
 }

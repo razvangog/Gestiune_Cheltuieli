@@ -47,7 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Evenimente.cs" />
+    <Compile Include="NotitaReader.cs" />
+    <Compile Include="NotitaWriter.cs" />
+    <Compile Include="TipuriDeDate.cs" />
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>

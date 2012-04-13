@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Xml;
-using System.Xml.XPath;
 using System.IO;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace Gestiune_Cheltuieli
 {
     public class EvenimentReader
     {
-        //Citeste un fisier XML si returneaza o lista de structuri Cheltuieli
+        //Citeste un fisier XML si returneaza o lista de structuri Eveniment
         //Parametrii:
         //- numeFisier (string) = numele fisierului XML din care citesc
         public static List<Eveniment> citesteEvenimente(string numeFisier)
@@ -66,8 +63,8 @@ namespace Gestiune_Cheltuieli
                     lista.Add(ev);
                 }
             }
-            else
-                MessageBox.Show("Fisierul " + numeFisier + " nu exista.");
+            //else
+                //MessageBox.Show("Fisierul " + numeFisier + " nu exista.");
 
             return lista;
         }

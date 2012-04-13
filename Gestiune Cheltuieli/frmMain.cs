@@ -11,7 +11,10 @@ namespace Gestiune_Cheltuieli
     {
         public View viewCurent;
         public List<Eveniment> evenimente;
-        public int maxId;
+        public List<Notita> notite;
+        public int maxIdEveniment;
+        public int maxIdNotita;
+        public int nrNotiteNecitite;
         public bool amModificat;
         public bool modificare;
         public int index;
@@ -27,27 +30,44 @@ namespace Gestiune_Cheltuieli
             clhPerioada.Width = 100;
             clhSuma.Width = 100;
 
+            pnlNotite.Hide();
             pnlGrafic.Hide();
             pnlAdaugaEveniment.Hide();
             pnlMain.Show();
 
             evenimente = EvenimentReader.citesteEvenimente("evenimente.xml");
-            maxId = getMaxId();
+            maxIdEveniment = getMaxIdEveniment();
+
+            notite = NotitaReader.citesteNotite("notite.xml");
+            maxIdNotita = getMaxIdNotita();
 
             amModificat = false;
             modificare = false;
 
             afiseazaEvenimente();
+
+            tmrEvenimente.Enabled = true;
         }
 
 
-        public int getMaxId()
+        public int getMaxIdEveniment()
         {
             int id = 0;
 
             foreach (Eveniment e in evenimente)
                 if (e.id > id)
                     id = e.id;
+
+            return id;
+        }
+
+        public int getMaxIdNotita()
+        {
+            int id = 0;
+
+            foreach (Notita n in notite)
+                if (n.id > id)
+                    id = n.id;
 
             return id;
         }
@@ -149,6 +169,7 @@ namespace Gestiune_Cheltuieli
 
                 modificare = false;
 
+                pnlNotite.Hide();
                 pnlMain.Hide();
                 pnlGrafic.Hide();
                 pnlAdaugaEveniment.Show();
@@ -217,6 +238,7 @@ namespace Gestiune_Cheltuieli
 
                     modificare = true;
 
+                    pnlNotite.Hide();
                     pnlMain.Hide();
                     pnlGrafic.Hide();
                     pnlAdaugaEveniment.Show();
@@ -306,6 +328,40 @@ namespace Gestiune_Cheltuieli
             }
         }
 
+        private void afiseazaNotite()
+        {
+            lstNotite.Items.Clear();
+
+            foreach (Notita not in notite)
+            {
+                if (not.expirat == false && not.data.Day <= DateTime.Now.Day)
+                {
+                    ListViewItem item = new ListViewItem(not.data.Day + ": " + not.text);
+
+                    item.Tag = (object)not.id;
+
+                    lstNotite.Items.Add(item);
+                }
+            }
+        }
+
+        private void afiseazaToateNotite()
+        {
+            lstNotite.Items.Clear();
+
+            foreach (Notita not in notite)
+            {
+                ListViewItem item = new ListViewItem(not.data.Day + ": " + not.text);
+
+                if (not.expirat == true)
+                    item.ForeColor = Color.Red;
+                else
+                    item.ForeColor = Color.Lime;
+                
+                lstNotite.Items.Add(item);
+            }
+        }
+
 
         private void mnuAdauga_Click(object sender, EventArgs e)
         {
@@ -348,7 +404,7 @@ namespace Gestiune_Cheltuieli
                 {
                     Eveniment ev = new Eveniment();
 
-                    ev.id = ++maxId;
+                    ev.id = ++maxIdEveniment;
 
                     ev.data = dtpData.Value;
                     ev.suma = Convert.ToDouble(txtSuma.Text);
@@ -392,13 +448,14 @@ namespace Gestiune_Cheltuieli
 
                     viewCurent = View.Main;
 
+                    pnlNotite.Hide();
                     pnlAdaugaEveniment.Hide();
                     pnlGrafic.Hide();
                     pnlMain.Show();
                 }
                 catch (Exception exceptie)
                 {
-                    --maxId;
+                    --maxIdEveniment;
 
                     MessageBox.Show(exceptie.Message, "Atentie");
                 }
@@ -453,13 +510,14 @@ namespace Gestiune_Cheltuieli
 
                     viewCurent = View.Main;
 
+                    pnlNotite.Hide();
                     pnlAdaugaEveniment.Hide();
                     pnlGrafic.Hide();
                     pnlMain.Show();
                 }
                 catch (Exception exceptie)
                 {
-                    --maxId;
+                    --maxIdEveniment;
 
                     MessageBox.Show(exceptie.Message, "Atentie");
                 }
@@ -474,12 +532,13 @@ namespace Gestiune_Cheltuieli
                 {
                     viewCurent = View.Main;
 
+                    pnlNotite.Hide();
                     pnlAdaugaEveniment.Hide();
                     pnlGrafic.Hide();
                     pnlMain.Show();
 
                     evenimente = EvenimentReader.citesteEvenimente("evenimente.xml");
-                    maxId = getMaxId();
+                    maxIdEveniment = getMaxIdEveniment();
 
                     amModificat = false;
                     modificare = false;
@@ -509,6 +568,7 @@ namespace Gestiune_Cheltuieli
         {
             viewCurent = View.Main;
 
+            pnlNotite.Hide();
             pnlAdaugaEveniment.Hide();
             pnlGrafic.Hide();
             pnlMain.Show();
@@ -520,11 +580,21 @@ namespace Gestiune_Cheltuieli
         {
             viewCurent = View.Main;
 
+            pnlNotite.Hide();
             pnlGrafic.Hide();
             pnlAdaugaEveniment.Hide();
             pnlMain.Show();
         }
 
+        private void btnInapoiNotite_Click(object sender, EventArgs e)
+        {
+            viewCurent = View.Main;
+
+            pnlNotite.Hide();
+            pnlGrafic.Hide();
+            pnlAdaugaEveniment.Hide();
+            pnlMain.Show();
+        }
 
         private void mnuIesire_Click(object sender, EventArgs e)
         {
@@ -536,6 +606,8 @@ namespace Gestiune_Cheltuieli
             if (amModificat == true)
                 if (MessageBox.Show("Doriti sa salvati modificarile?", "Modificari", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     EvenimentWriter.scrieEvenimente("evenimente.xml", evenimente);
+
+            NotitaWriter.scrieNotite("notite.xml", notite);
         }
 
 
@@ -665,6 +737,7 @@ namespace Gestiune_Cheltuieli
 
             deseneazaGrafic();
 
+            pnlNotite.Hide();
             pnlMain.Hide();
             pnlAdaugaEveniment.Hide();
             pnlGrafic.Show();
@@ -678,6 +751,90 @@ namespace Gestiune_Cheltuieli
         private void radValoriCumulative_CheckedChanged(object sender, EventArgs e)
         {
             deseneazaGrafic();
+        }
+
+        private void tmrEvenimente_Tick(object sender, EventArgs e)
+        {
+            nrNotiteNecitite = 0;
+
+            foreach (Notita not in notite)
+            {
+                if (not.expirat == false)
+                    nrNotiteNecitite ++;
+            }
+
+            if (nrNotiteNecitite > 0)
+            {
+                btnNotite.Text = "Aveti " + nrNotiteNecitite + " notite!";
+                lblNrNotiteNecitite.Text = Convert.ToString(nrNotiteNecitite);
+                btnNotite.Visible = true;
+                lblNrNotiteNecitite.Visible = true;
+            }
+            else
+            {
+                btnNotite.Visible = false;
+                lblNrNotiteNecitite.Visible = false;
+            }
+        }
+
+        private void btnNotite_Click(object sender, EventArgs e)
+        {
+            viewCurent = View.Notite;
+
+            afiseazaNotite();
+
+            btnAmCitit.Visible = true;
+
+            pnlMain.Hide();
+            pnlGrafic.Hide();
+            pnlAdaugaEveniment.Hide();
+            pnlNotite.Show();
+        }
+
+        private void btnAmCitit_Click(object sender, EventArgs e)
+        {
+            int idCurent;
+
+            foreach (ListViewItem item in lstNotite.Items)
+            {
+                idCurent = Convert.ToInt32(item.Tag);
+
+                for (int i = 0; i < notite.Count; i++)
+                {
+                    if (notite[i].id == idCurent)
+                    {
+                        Notita not = new Notita();
+
+                        not.id = notite[i].id;
+                        not.data = notite[i].data;
+                        not.text = notite[i].text;
+                        not.expirat = true;
+
+                        notite[i] = not;
+                    }
+                }
+            }
+
+            viewCurent = View.Main;
+
+            pnlNotite.Hide();
+            pnlGrafic.Hide();
+            pnlAdaugaEveniment.Hide();
+            pnlMain.Show();
+        }
+
+        private void mnuAfiseazaToate_Click(object sender, EventArgs e)
+        {
+            viewCurent = View.Notite;
+
+            afiseazaToateNotite();
+
+            btnAmCitit.Visible = false;
+
+            pnlMain.Hide();
+            pnlGrafic.Hide();
+            pnlAdaugaEveniment.Hide();
+            pnlNotite.Show();
         }
     }
 }
