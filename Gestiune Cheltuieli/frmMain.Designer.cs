@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title7 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.btnExtinde = new System.Windows.Forms.Button();
             this.lblNrNotiteNecitite = new System.Windows.Forms.Label();
             this.btnNotite = new System.Windows.Forms.Button();
             this.lblSageataDreapta = new System.Windows.Forms.Label();
@@ -115,6 +116,11 @@
             this.lblDataNotita = new System.Windows.Forms.Label();
             this.dtpDataNotita = new System.Windows.Forms.DateTimePicker();
             this.btnAdaugaNotita = new System.Windows.Forms.Button();
+            this.grpPerioadaAfisata = new System.Windows.Forms.GroupBox();
+            this.dtpInceput = new System.Windows.Forms.DateTimePicker();
+            this.lblInceput = new System.Windows.Forms.Label();
+            this.lblSfarsit = new System.Windows.Forms.Label();
+            this.dtpSfarsit = new System.Windows.Forms.DateTimePicker();
             this.pnlMain.SuspendLayout();
             this.mnuMeniu.SuspendLayout();
             this.pnlAdaugaEveniment.SuspendLayout();
@@ -123,10 +129,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.chrGrafic)).BeginInit();
             this.pnlNotite.SuspendLayout();
             this.pnlAdaugaNotita.SuspendLayout();
+            this.grpPerioadaAfisata.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMain
             // 
+            this.pnlMain.Controls.Add(this.btnExtinde);
             this.pnlMain.Controls.Add(this.lblNrNotiteNecitite);
             this.pnlMain.Controls.Add(this.btnNotite);
             this.pnlMain.Controls.Add(this.lblSageataDreapta);
@@ -144,6 +152,16 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(770, 530);
             this.pnlMain.TabIndex = 0;
+            // 
+            // btnExtinde
+            // 
+            this.btnExtinde.Location = new System.Drawing.Point(634, 408);
+            this.btnExtinde.Name = "btnExtinde";
+            this.btnExtinde.Size = new System.Drawing.Size(127, 26);
+            this.btnExtinde.TabIndex = 14;
+            this.btnExtinde.Text = "Toate evenimentele";
+            this.btnExtinde.UseVisualStyleBackColor = true;
+            this.btnExtinde.Click += new System.EventHandler(this.btnExtinde_Click);
             // 
             // lblNrNotiteNecitite
             // 
@@ -294,6 +312,7 @@
             this.lstEvenimente.TabIndex = 0;
             this.lstEvenimente.UseCompatibleStateImageBehavior = false;
             this.lstEvenimente.View = System.Windows.Forms.View.Details;
+            this.lstEvenimente.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lstEvenimente_ColumnClick);
             // 
             // clhData
             // 
@@ -366,7 +385,7 @@
             // mnuExportaExcel
             // 
             this.mnuExportaExcel.Name = "mnuExportaExcel";
-            this.mnuExportaExcel.Size = new System.Drawing.Size(152, 22);
+            this.mnuExportaExcel.Size = new System.Drawing.Size(151, 22);
             this.mnuExportaExcel.Text = "Exporta Excel...";
             this.mnuExportaExcel.Click += new System.EventHandler(this.mnuExportaExcel_Click);
             // 
@@ -500,19 +519,19 @@
             // mnuTutorial
             // 
             this.mnuTutorial.Name = "mnuTutorial";
-            this.mnuTutorial.Size = new System.Drawing.Size(152, 22);
+            this.mnuTutorial.Size = new System.Drawing.Size(115, 22);
             this.mnuTutorial.Text = "Tutorial";
             this.mnuTutorial.Click += new System.EventHandler(this.mnuTutorial_Click);
             // 
             // mnuSeparatorAjutor
             // 
             this.mnuSeparatorAjutor.Name = "mnuSeparatorAjutor";
-            this.mnuSeparatorAjutor.Size = new System.Drawing.Size(149, 6);
+            this.mnuSeparatorAjutor.Size = new System.Drawing.Size(112, 6);
             // 
             // mnuDespre
             // 
             this.mnuDespre.Name = "mnuDespre";
-            this.mnuDespre.Size = new System.Drawing.Size(152, 22);
+            this.mnuDespre.Size = new System.Drawing.Size(115, 22);
             this.mnuDespre.Text = "Despre";
             this.mnuDespre.Click += new System.EventHandler(this.mnuDespre_Click);
             // 
@@ -695,6 +714,7 @@
             // 
             // pnlGrafic
             // 
+            this.pnlGrafic.Controls.Add(this.grpPerioadaAfisata);
             this.pnlGrafic.Controls.Add(this.btnInapoiGrafic);
             this.pnlGrafic.Controls.Add(this.grpTipGrafic);
             this.pnlGrafic.Controls.Add(this.chrGrafic);
@@ -717,7 +737,7 @@
             // 
             this.grpTipGrafic.Controls.Add(this.radValoriCumulative);
             this.grpTipGrafic.Controls.Add(this.radValoriAbsolute);
-            this.grpTipGrafic.Location = new System.Drawing.Point(638, 12);
+            this.grpTipGrafic.Location = new System.Drawing.Point(479, 12);
             this.grpTipGrafic.Name = "grpTipGrafic";
             this.grpTipGrafic.Size = new System.Drawing.Size(118, 73);
             this.grpTipGrafic.TabIndex = 1;
@@ -750,40 +770,40 @@
             // 
             // chrGrafic
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chrGrafic.ChartAreas.Add(chartArea3);
-            legend3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend3.IsTextAutoFit = false;
-            legend3.Name = "Legend1";
-            this.chrGrafic.Legends.Add(legend3);
+            chartArea7.Name = "ChartArea1";
+            this.chrGrafic.ChartAreas.Add(chartArea7);
+            legend7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend7.IsTextAutoFit = false;
+            legend7.Name = "Legend1";
+            this.chrGrafic.Legends.Add(legend7);
             this.chrGrafic.Location = new System.Drawing.Point(13, 91);
             this.chrGrafic.Name = "chrGrafic";
             this.chrGrafic.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.chrGrafic.PaletteCustomColors = new System.Drawing.Color[] {
         System.Drawing.Color.Red,
         System.Drawing.Color.Lime};
-            series5.BorderWidth = 2;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series5.Legend = "Legend1";
-            series5.Name = "Cheltuieli";
-            series5.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
-            series5.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            series6.BorderWidth = 2;
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series6.Legend = "Legend1";
-            series6.Name = "Venituri";
-            series6.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
-            series6.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            this.chrGrafic.Series.Add(series5);
-            this.chrGrafic.Series.Add(series6);
+            series13.BorderWidth = 2;
+            series13.ChartArea = "ChartArea1";
+            series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series13.Legend = "Legend1";
+            series13.Name = "Cheltuieli";
+            series13.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+            series13.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series14.BorderWidth = 2;
+            series14.ChartArea = "ChartArea1";
+            series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series14.Legend = "Legend1";
+            series14.Name = "Venituri";
+            series14.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+            series14.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            this.chrGrafic.Series.Add(series13);
+            this.chrGrafic.Series.Add(series14);
             this.chrGrafic.Size = new System.Drawing.Size(743, 422);
             this.chrGrafic.TabIndex = 0;
-            title3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title3.Name = "ttlTitluGrafic";
-            title3.Text = "Evolutia cheltuielilor/veniturilor";
-            this.chrGrafic.Titles.Add(title3);
+            title7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title7.Name = "ttlTitluGrafic";
+            title7.Text = "Evolutia cheltuielilor/veniturilor";
+            this.chrGrafic.Titles.Add(title7);
             // 
             // dlgSalveazaGrafic
             // 
@@ -911,16 +931,63 @@
             this.btnAdaugaNotita.UseVisualStyleBackColor = true;
             this.btnAdaugaNotita.Click += new System.EventHandler(this.btnAdaugaNotita_Click);
             // 
+            // grpPerioadaAfisata
+            // 
+            this.grpPerioadaAfisata.Controls.Add(this.dtpSfarsit);
+            this.grpPerioadaAfisata.Controls.Add(this.lblSfarsit);
+            this.grpPerioadaAfisata.Controls.Add(this.lblInceput);
+            this.grpPerioadaAfisata.Controls.Add(this.dtpInceput);
+            this.grpPerioadaAfisata.Location = new System.Drawing.Point(151, 12);
+            this.grpPerioadaAfisata.Name = "grpPerioadaAfisata";
+            this.grpPerioadaAfisata.Size = new System.Drawing.Size(318, 72);
+            this.grpPerioadaAfisata.TabIndex = 3;
+            this.grpPerioadaAfisata.TabStop = false;
+            this.grpPerioadaAfisata.Text = "Perioada afisata";
+            // 
+            // dtpInceput
+            // 
+            this.dtpInceput.Location = new System.Drawing.Point(82, 20);
+            this.dtpInceput.Name = "dtpInceput";
+            this.dtpInceput.Size = new System.Drawing.Size(227, 20);
+            this.dtpInceput.TabIndex = 0;
+            this.dtpInceput.ValueChanged += new System.EventHandler(this.dtpInceput_ValueChanged);
+            // 
+            // lblInceput
+            // 
+            this.lblInceput.AutoSize = true;
+            this.lblInceput.Location = new System.Drawing.Point(8, 21);
+            this.lblInceput.Name = "lblInceput";
+            this.lblInceput.Size = new System.Drawing.Size(68, 13);
+            this.lblInceput.TabIndex = 1;
+            this.lblInceput.Text = "Data inceput";
+            // 
+            // lblSfarsit
+            // 
+            this.lblSfarsit.AutoSize = true;
+            this.lblSfarsit.Location = new System.Drawing.Point(16, 46);
+            this.lblSfarsit.Name = "lblSfarsit";
+            this.lblSfarsit.Size = new System.Drawing.Size(60, 13);
+            this.lblSfarsit.TabIndex = 2;
+            this.lblSfarsit.Text = "Data sfarsit";
+            // 
+            // dtpSfarsit
+            // 
+            this.dtpSfarsit.Location = new System.Drawing.Point(82, 46);
+            this.dtpSfarsit.Name = "dtpSfarsit";
+            this.dtpSfarsit.Size = new System.Drawing.Size(227, 20);
+            this.dtpSfarsit.TabIndex = 3;
+            this.dtpSfarsit.ValueChanged += new System.EventHandler(this.dtpSfarsit_ValueChanged);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 572);
             this.Controls.Add(this.pnlMain);
+            this.Controls.Add(this.pnlGrafic);
             this.Controls.Add(this.pnlNotite);
             this.Controls.Add(this.pnlAdaugaNotita);
             this.Controls.Add(this.pnlAdaugaEveniment);
-            this.Controls.Add(this.pnlGrafic);
             this.Controls.Add(this.mnuMeniu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.mnuMeniu;
@@ -943,6 +1010,8 @@
             this.pnlNotite.ResumeLayout(false);
             this.pnlAdaugaNotita.ResumeLayout(false);
             this.pnlAdaugaNotita.PerformLayout();
+            this.grpPerioadaAfisata.ResumeLayout(false);
+            this.grpPerioadaAfisata.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1031,6 +1100,12 @@
         private System.Windows.Forms.Label lblDataNotita;
         private System.Windows.Forms.DateTimePicker dtpDataNotita;
         private System.Windows.Forms.Button btnAdaugaNotita;
+        private System.Windows.Forms.Button btnExtinde;
+        private System.Windows.Forms.GroupBox grpPerioadaAfisata;
+        private System.Windows.Forms.DateTimePicker dtpSfarsit;
+        private System.Windows.Forms.Label lblSfarsit;
+        private System.Windows.Forms.Label lblInceput;
+        private System.Windows.Forms.DateTimePicker dtpInceput;
 
     }
 }

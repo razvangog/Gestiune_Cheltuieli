@@ -19,6 +19,7 @@ namespace Gestiune_Cheltuieli
         public int nrNotiteNecitite;
         public bool amModificat;
         public bool modificare;
+        public bool totalEvenimente;
         public int index;
 
         public frmMain()
@@ -46,6 +47,7 @@ namespace Gestiune_Cheltuieli
 
             amModificat = false;
             modificare = false;
+            totalEvenimente = true;
 
             afiseazaEvenimente();
 
@@ -75,6 +77,28 @@ namespace Gestiune_Cheltuieli
             return id;
         }
 
+        public DateTime getMinDate()
+        {
+            DateTime minData = DateTime.Now;
+
+            foreach (Eveniment ev in evenimente)
+                if (ev.data < minData)
+                    minData = ev.data;
+
+            return minData;
+        }
+
+        public DateTime getMaxDate()
+        {
+            DateTime maxData = DateTime.Now;
+
+            foreach (Eveniment ev in evenimente)
+                if (ev.data > maxData)
+                    maxData = ev.data;
+
+            return maxData;
+        }
+
         private void afiseazaEvenimente()
         {
             double sumaSubtotal = 0, sumaTotal = 0;
@@ -83,71 +107,74 @@ namespace Gestiune_Cheltuieli
 
             foreach (Eveniment ev in evenimente)
             {
-                if ((ev.tipEveniment == TipEveniment.Cheltuiala && mnuAfiseazaCheltuieli.Checked == true) ||
-                   (ev.tipEveniment == TipEveniment.Venit && mnuAfiseazaVenituri.Checked == true))
+                if (totalEvenimente == false || (totalEvenimente == true && Math.Abs((DateTime.Now - ev.data).Days) <= 30))
                 {
-                    ListViewItem item = new ListViewItem(Convert.ToString(ev.data));
-
-                    item.UseItemStyleForSubItems = false;
-
-                    item.Tag = (object)ev.id;
-
-                    item.SubItems.Add(ev.detalii);
-
-                    if (ev.perioada == PerioadaEveniment.OdataLaXZile)
+                    if ((ev.tipEveniment == TipEveniment.Cheltuiala && mnuAfiseazaCheltuieli.Checked == true) ||
+                       (ev.tipEveniment == TipEveniment.Venit && mnuAfiseazaVenituri.Checked == true))
                     {
-                        item.SubItems.Add("odata la " + ev.xZile + " zile");
+                        ListViewItem item = new ListViewItem(Convert.ToString(ev.data));
+
+                        item.UseItemStyleForSubItems = false;
+
+                        item.Tag = (object)ev.id;
+
+                        item.SubItems.Add(ev.detalii);
+
+                        if (ev.perioada == PerioadaEveniment.OdataLaXZile)
+                        {
+                            item.SubItems.Add("odata la " + ev.xZile + " zile");
+                        }
+                        else
+                        {
+                            if (ev.perioada == PerioadaEveniment.Lunar)
+                                item.SubItems.Add("lunar");
+                            else if (ev.perioada == PerioadaEveniment.Saptamanal)
+                                item.SubItems.Add("saptamanal");
+                            else if (ev.perioada == PerioadaEveniment.AltTip)
+                                item.SubItems.Add(" - ");
+                        }
+
+                        if (ev.tipEveniment == TipEveniment.Cheltuiala)
+                            item.SubItems.Add(Convert.ToString(ev.suma), Color.Red, Color.White, lstEvenimente.Font);
+                        else
+                            item.SubItems.Add(Convert.ToString(ev.suma), Color.Green, Color.White, lstEvenimente.Font);
+
+                        lstEvenimente.Items.Add(item);
+
+                        if (ev.tipEveniment == TipEveniment.Cheltuiala)
+                        {
+                            sumaTotal -= ev.suma;
+
+                            if (Math.Abs((DateTime.Now - ev.data).Days) <= 30)
+                                sumaSubtotal -= ev.suma;
+                        }
+                        else
+                        {
+                            sumaTotal += ev.suma;
+
+                            if (Math.Abs((DateTime.Now - ev.data).Days) <= 30)
+                                sumaSubtotal += ev.suma;
+                        }
                     }
+
+                    if (sumaSubtotal > 0)
+                        lblValoareSubtotal.ForeColor = Color.Lime;
+                    else if (sumaSubtotal == 0)
+                        lblValoareSubtotal.ForeColor = Color.Blue;
                     else
-                    {
-                        if (ev.perioada == PerioadaEveniment.Lunar)
-                            item.SubItems.Add("lunar");
-                        else if (ev.perioada == PerioadaEveniment.Saptamanal)
-                            item.SubItems.Add("saptamanal");
-                        else if (ev.perioada == PerioadaEveniment.AltTip)
-                            item.SubItems.Add(" - ");
-                    }
+                        lblValoareSubtotal.ForeColor = Color.Red;
 
-                    if (ev.tipEveniment == TipEveniment.Cheltuiala)
-                        item.SubItems.Add(Convert.ToString(ev.suma), Color.Red, Color.White, lstEvenimente.Font);
+                    lblValoareSubtotal.Text = Convert.ToString(sumaSubtotal);
+
+                    if (sumaTotal > 0)
+                        lblValoareTotal.ForeColor = Color.Lime;
+                    else if (sumaTotal == 0)
+                        lblValoareTotal.ForeColor = Color.Blue;
                     else
-                        item.SubItems.Add(Convert.ToString(ev.suma), Color.Green, Color.White, lstEvenimente.Font);
+                        lblValoareTotal.ForeColor = Color.Red;
 
-                    lstEvenimente.Items.Add(item);
-
-                    if (ev.tipEveniment == TipEveniment.Cheltuiala)
-                    {
-                        sumaTotal -= ev.suma;
-
-                        if (Math.Abs((DateTime.Now - ev.data).Days) <= 30)
-                            sumaSubtotal -= ev.suma;
-                    }
-                    else
-                    {
-                        sumaTotal += ev.suma;
-
-                        if (Math.Abs((DateTime.Now - ev.data).Days) <= 30)
-                            sumaSubtotal += ev.suma;
-                    }
+                    lblValoareTotal.Text = Convert.ToString(sumaTotal);
                 }
-
-                if (sumaSubtotal > 0)
-                    lblValoareSubtotal.ForeColor = Color.Lime;
-                else if (sumaSubtotal == 0)
-                    lblValoareSubtotal.ForeColor = Color.Blue;
-                else
-                    lblValoareSubtotal.ForeColor = Color.Red;
-
-                lblValoareSubtotal.Text = Convert.ToString(sumaSubtotal);
-
-                if (sumaTotal > 0)
-                    lblValoareTotal.ForeColor = Color.Lime;
-                else if (sumaTotal == 0)
-                    lblValoareTotal.ForeColor = Color.Blue;
-                else
-                    lblValoareTotal.ForeColor = Color.Red;
-
-                lblValoareTotal.Text = Convert.ToString(sumaTotal);
             }
         }
 
@@ -298,10 +325,13 @@ namespace Gestiune_Cheltuieli
 
                 foreach (Eveniment ev in evenimente)
                 {
-                    if (ev.tipEveniment == TipEveniment.Cheltuiala)
-                        chrGrafic.Series["Cheltuieli"].Points.AddXY(ev.data.Date, ev.suma);
-                    else
-                        chrGrafic.Series["Venituri"].Points.AddXY(ev.data.Date, ev.suma);
+                    if (ev.data > dtpInceput.Value && ev.data < dtpSfarsit.Value)
+                    {
+                        if (ev.tipEveniment == TipEveniment.Cheltuiala)
+                            chrGrafic.Series["Cheltuieli"].Points.AddXY(ev.data.Date, ev.suma);
+                        else
+                            chrGrafic.Series["Venituri"].Points.AddXY(ev.data.Date, ev.suma);
+                    }
                 }
             }
             else
@@ -319,15 +349,18 @@ namespace Gestiune_Cheltuieli
 
                 foreach (Eveniment ev in evenimente)
                 {
-                    if (ev.tipEveniment == TipEveniment.Cheltuiala)
+                    if (ev.data > dtpInceput.Value && ev.data < dtpSfarsit.Value)
                     {
-                        valCheltuieli += ev.suma;
-                        chrGrafic.Series["Cheltuieli"].Points.AddXY(ev.data.Date, valCheltuieli);
-                    }
-                    else
-                    {
-                        valVenituri += ev.suma;
-                        chrGrafic.Series["Venituri"].Points.AddXY(ev.data.Date, valVenituri);
+                        if (ev.tipEveniment == TipEveniment.Cheltuiala)
+                        {
+                            valCheltuieli += ev.suma;
+                            chrGrafic.Series["Cheltuieli"].Points.AddXY(ev.data.Date, valCheltuieli);
+                        }
+                        else
+                        {
+                            valVenituri += ev.suma;
+                            chrGrafic.Series["Venituri"].Points.AddXY(ev.data.Date, valVenituri);
+                        }
                     }
                 }
             }
@@ -634,70 +667,77 @@ namespace Gestiune_Cheltuieli
 
                 foreach (Eveniment ev in evenimente)
                 {
-                    if (ev.detalii.Contains(mnuFiltru.Text) == true)
+                    if (totalEvenimente == false || (totalEvenimente == true && Math.Abs((DateTime.Now - ev.data).Days) <= 30))
                     {
-                        ListViewItem item = new ListViewItem(Convert.ToString(ev.data.Date));
-
-                        item.UseItemStyleForSubItems = false;
-
-                        item.Tag = (object)ev.id;
-
-                        item.SubItems.Add(ev.detalii);
-
-                        if (ev.perioada == PerioadaEveniment.OdataLaXZile)
+                        if ((ev.tipEveniment == TipEveniment.Cheltuiala && mnuAfiseazaCheltuieli.Checked == true) ||
+                           (ev.tipEveniment == TipEveniment.Venit && mnuAfiseazaVenituri.Checked == true))
                         {
-                            item.SubItems.Add("odata la " + ev.xZile + " zile");
-                        }
-                        else
-                        {
-                            if (ev.perioada == PerioadaEveniment.Lunar)
-                                item.SubItems.Add("lunar");
-                            else if (ev.perioada == PerioadaEveniment.Saptamanal)
-                                item.SubItems.Add("saptamanal");
-                            else if (ev.perioada == PerioadaEveniment.AltTip)
-                                item.SubItems.Add(" - ");
-                        }
+                            if (ev.detalii.Contains(mnuFiltru.Text) == true)
+                            {
+                                ListViewItem item = new ListViewItem(Convert.ToString(ev.data.Date));
 
-                        if (ev.tipEveniment == TipEveniment.Cheltuiala)
-                            item.SubItems.Add(Convert.ToString(ev.suma), Color.Red, Color.White, lstEvenimente.Font);
-                        else
-                            item.SubItems.Add(Convert.ToString(ev.suma), Color.Green, Color.White, lstEvenimente.Font);
+                                item.UseItemStyleForSubItems = false;
 
-                        lstEvenimente.Items.Add(item);
+                                item.Tag = (object)ev.id;
 
-                        if (ev.tipEveniment == TipEveniment.Cheltuiala)
-                        {
-                            sumaTotal -= ev.suma;
+                                item.SubItems.Add(ev.detalii);
 
-                            if (Math.Abs((DateTime.Now - ev.data).Days) <= 30)
-                                sumaSubtotal -= ev.suma;
-                        }
-                        else
-                        {
-                            sumaTotal += ev.suma;
+                                if (ev.perioada == PerioadaEveniment.OdataLaXZile)
+                                {
+                                    item.SubItems.Add("odata la " + ev.xZile + " zile");
+                                }
+                                else
+                                {
+                                    if (ev.perioada == PerioadaEveniment.Lunar)
+                                        item.SubItems.Add("lunar");
+                                    else if (ev.perioada == PerioadaEveniment.Saptamanal)
+                                        item.SubItems.Add("saptamanal");
+                                    else if (ev.perioada == PerioadaEveniment.AltTip)
+                                        item.SubItems.Add(" - ");
+                                }
 
-                            if (Math.Abs((DateTime.Now - ev.data).Days) <= 30)
-                                sumaSubtotal += ev.suma;
+                                if (ev.tipEveniment == TipEveniment.Cheltuiala)
+                                    item.SubItems.Add(Convert.ToString(ev.suma), Color.Red, Color.White, lstEvenimente.Font);
+                                else
+                                    item.SubItems.Add(Convert.ToString(ev.suma), Color.Green, Color.White, lstEvenimente.Font);
+
+                                lstEvenimente.Items.Add(item);
+
+                                if (ev.tipEveniment == TipEveniment.Cheltuiala)
+                                {
+                                    sumaTotal -= ev.suma;
+
+                                    if (Math.Abs((DateTime.Now - ev.data).Days) <= 30)
+                                        sumaSubtotal -= ev.suma;
+                                }
+                                else
+                                {
+                                    sumaTotal += ev.suma;
+
+                                    if (Math.Abs((DateTime.Now - ev.data).Days) <= 30)
+                                        sumaSubtotal += ev.suma;
+                                }
+                            }
+
+                            if (sumaSubtotal > 0)
+                                lblValoareSubtotal.ForeColor = Color.Lime;
+                            else if (sumaSubtotal == 0)
+                                lblValoareSubtotal.ForeColor = Color.Blue;
+                            else
+                                lblValoareSubtotal.ForeColor = Color.Red;
+
+                            lblValoareSubtotal.Text = Convert.ToString(sumaSubtotal);
+
+                            if (sumaTotal > 0)
+                                lblValoareTotal.ForeColor = Color.Lime;
+                            else if (sumaTotal == 0)
+                                lblValoareTotal.ForeColor = Color.Blue;
+                            else
+                                lblValoareTotal.ForeColor = Color.Red;
+
+                            lblValoareTotal.Text = Convert.ToString(sumaTotal);
                         }
                     }
-
-                    if (sumaSubtotal > 0)
-                        lblValoareSubtotal.ForeColor = Color.Lime;
-                    else if (sumaSubtotal == 0)
-                        lblValoareSubtotal.ForeColor = Color.Blue;
-                    else
-                        lblValoareSubtotal.ForeColor = Color.Red;
-
-                    lblValoareSubtotal.Text = Convert.ToString(sumaSubtotal);
-
-                    if (sumaTotal > 0)
-                        lblValoareTotal.ForeColor = Color.Lime;
-                    else if (sumaTotal == 0)
-                        lblValoareTotal.ForeColor = Color.Blue;
-                    else
-                        lblValoareTotal.ForeColor = Color.Red;
-
-                    lblValoareTotal.Text = Convert.ToString(sumaTotal);
                 }
             }
         }
@@ -747,6 +787,8 @@ namespace Gestiune_Cheltuieli
             viewCurent = View.Grafic;
 
             deseneazaGrafic();
+            dtpInceput.Value = getMinDate();
+            dtpSfarsit.Value = getMaxDate();
 
             pnlAdaugaNotita.Hide();
             pnlNotite.Hide();
@@ -936,6 +978,41 @@ namespace Gestiune_Cheltuieli
             workbook.SaveAs(System.Windows.Forms.Application.StartupPath + "\\" + "raport.xlsx", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing,Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
             
             app.Quit();
+        }
+
+        private void btnExtinde_Click(object sender, EventArgs e)
+        {
+            if (totalEvenimente == true)
+            {
+                btnExtinde.Text = "Ultimele 30 zile";
+                totalEvenimente = false;
+            }
+            else
+            {
+                btnExtinde.Text = "Toate evenimentele";
+                totalEvenimente = true;
+            }
+
+            afiseazaEvenimente();
+        }
+
+        private void lstEvenimente_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            if (e.Column == 0)
+            {
+                sortezLista();
+                afiseazaEvenimente();
+            }
+        }
+
+        private void dtpInceput_ValueChanged(object sender, EventArgs e)
+        {
+            deseneazaGrafic();
+        }
+
+        private void dtpSfarsit_ValueChanged(object sender, EventArgs e)
+        {
+            deseneazaGrafic();
         }
     }
 }
