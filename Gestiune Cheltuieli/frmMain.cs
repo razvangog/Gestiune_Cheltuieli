@@ -4,6 +4,8 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Drawing.Imaging;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Diagnostics;
+using Microsoft.Office.Interop.Excel;
 
 namespace Gestiune_Cheltuieli
 {
@@ -84,7 +86,7 @@ namespace Gestiune_Cheltuieli
                 if ((ev.tipEveniment == TipEveniment.Cheltuiala && mnuAfiseazaCheltuieli.Checked == true) ||
                    (ev.tipEveniment == TipEveniment.Venit && mnuAfiseazaVenituri.Checked == true))
                 {
-                    ListViewItem item = new ListViewItem(Convert.ToString(ev.data.Date));
+                    ListViewItem item = new ListViewItem(Convert.ToString(ev.data));
 
                     item.UseItemStyleForSubItems = false;
 
@@ -886,6 +888,54 @@ namespace Gestiune_Cheltuieli
             pnlAdaugaEveniment.Hide();
             pnlGrafic.Hide();
             pnlMain.Show();
+        }
+
+        private void mnuDespre_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("\t\tSistem de gestiune al cheltuielilor v1.0 \n\n         Aceasta aplicatie ajuta utilizatorul sa isi gestioneze cu usurinta cheltuielile si veniturile.\n\nEchipa:\n- Razvan Dumitrescu\n- Andrei Iocin\n- Razvan Rebegea\n- Sorin Slavic", "Despre");
+        }
+
+        private void mnuTutorial_Click(object sender, EventArgs e)
+        {
+            Process.Start("tutorial.html");
+        }
+
+        private void mnuExportaExcel_Click(object sender, EventArgs e)
+        {
+            Microsoft.Office.Interop.Excel._Application app  = new Microsoft.Office.Interop.Excel.Application(); 
+            Microsoft.Office.Interop.Excel._Workbook workbook =  app.Workbooks.Add(Type.Missing);
+            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;                   
+            
+            app.Visible = false;
+            
+            worksheet = workbook.Sheets["Sheet1"];
+            worksheet = workbook.ActiveSheet;
+            
+            worksheet.Name = "Cheltuieli si venituri";
+
+            for (int i = 0; i < lstEvenimente.Columns.Count; i++)
+            {
+                worksheet.Cells[1, i + 1] = lstEvenimente.Columns[i].Text;
+                ((Range)worksheet.Cells[1, i + 1]).Style.HorizontalAlignment = HorizontalAlignment.Center;
+                ((Range)worksheet.Cells[1, i + 1]).Font.Bold = true;
+            }
+
+            for (int i = 0; i < lstEvenimente.Items.Count; i++)
+            {
+                worksheet.Cells[i + 2, 1] = lstEvenimente.Items[i].SubItems[0].Text;
+                worksheet.Cells[i + 2, 2] = lstEvenimente.Items[i].SubItems[1].Text;
+                worksheet.Cells[i + 2, 3] = lstEvenimente.Items[i].SubItems[2].Text;
+                worksheet.Cells[i + 2, 4] = lstEvenimente.Items[i].SubItems[3].Text;
+            }
+
+            ((Range)worksheet.Columns["A", Type.Missing]).ColumnWidth = 15;
+            ((Range)worksheet.Columns["B", Type.Missing]).ColumnWidth = 64;
+            ((Range)worksheet.Columns["C", Type.Missing]).ColumnWidth = 15;
+            ((Range)worksheet.Columns["D", Type.Missing]).ColumnWidth = 15;
+
+            workbook.SaveAs(System.Windows.Forms.Application.StartupPath + "\\" + "raport.xlsx", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing,Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+            
+            app.Quit();
         }
     }
 }

@@ -7,3 +7,5 @@ D:\Documente\Razvan\Programe\C#\Gestiune_Cheltuieli\Gestiune Cheltuieli\obj\x86\
 D:\Documente\Razvan\Programe\C#\Gestiune_Cheltuieli\Gestiune Cheltuieli\obj\x86\Debug\GenerateResource.write.1.tlog
 D:\Documente\Razvan\Programe\C#\Gestiune_Cheltuieli\Gestiune Cheltuieli\obj\x86\Debug\Gestiune Cheltuieli.exe
 D:\Documente\Razvan\Programe\C#\Gestiune_Cheltuieli\Gestiune Cheltuieli\obj\x86\Debug\Gestiune Cheltuieli.pdb
+D:\Documente\Razvan\Programe\C#\Gestiune_Cheltuieli\Gestiune Cheltuieli\bin\Debug\Gestiune Cheltuieli.exe.config
+D:\Documente\Razvan\Programe\C#\Gestiune_Cheltuieli\Gestiune Cheltuieli\obj\x86\Debug\Gestiune Cheltuieli.csproj.ResolveComReference.cache

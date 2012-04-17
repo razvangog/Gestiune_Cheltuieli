@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend12 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series23 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series24 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title12 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.lblNrNotiteNecitite = new System.Windows.Forms.Label();
             this.btnNotite = new System.Windows.Forms.Button();
@@ -366,8 +366,9 @@
             // mnuExportaExcel
             // 
             this.mnuExportaExcel.Name = "mnuExportaExcel";
-            this.mnuExportaExcel.Size = new System.Drawing.Size(151, 22);
+            this.mnuExportaExcel.Size = new System.Drawing.Size(152, 22);
             this.mnuExportaExcel.Text = "Exporta Excel...";
+            this.mnuExportaExcel.Click += new System.EventHandler(this.mnuExportaExcel_Click);
             // 
             // mnuSeparatorFisier2
             // 
@@ -452,14 +453,14 @@
             // mnuAdaugaNotita
             // 
             this.mnuAdaugaNotita.Name = "mnuAdaugaNotita";
-            this.mnuAdaugaNotita.Size = new System.Drawing.Size(152, 22);
+            this.mnuAdaugaNotita.Size = new System.Drawing.Size(147, 22);
             this.mnuAdaugaNotita.Text = "Adauga...";
             this.mnuAdaugaNotita.Click += new System.EventHandler(this.mnuAdaugaNotita_Click);
             // 
             // mnuAfiseazaToate
             // 
             this.mnuAfiseazaToate.Name = "mnuAfiseazaToate";
-            this.mnuAfiseazaToate.Size = new System.Drawing.Size(152, 22);
+            this.mnuAfiseazaToate.Size = new System.Drawing.Size(147, 22);
             this.mnuAfiseazaToate.Text = "Afiseaza toate";
             this.mnuAfiseazaToate.Click += new System.EventHandler(this.mnuAfiseazaToate_Click);
             // 
@@ -499,19 +500,21 @@
             // mnuTutorial
             // 
             this.mnuTutorial.Name = "mnuTutorial";
-            this.mnuTutorial.Size = new System.Drawing.Size(115, 22);
+            this.mnuTutorial.Size = new System.Drawing.Size(152, 22);
             this.mnuTutorial.Text = "Tutorial";
+            this.mnuTutorial.Click += new System.EventHandler(this.mnuTutorial_Click);
             // 
             // mnuSeparatorAjutor
             // 
             this.mnuSeparatorAjutor.Name = "mnuSeparatorAjutor";
-            this.mnuSeparatorAjutor.Size = new System.Drawing.Size(112, 6);
+            this.mnuSeparatorAjutor.Size = new System.Drawing.Size(149, 6);
             // 
             // mnuDespre
             // 
             this.mnuDespre.Name = "mnuDespre";
-            this.mnuDespre.Size = new System.Drawing.Size(115, 22);
+            this.mnuDespre.Size = new System.Drawing.Size(152, 22);
             this.mnuDespre.Text = "Despre";
+            this.mnuDespre.Click += new System.EventHandler(this.mnuDespre_Click);
             // 
             // mnuFiltru
             // 
@@ -747,40 +750,40 @@
             // 
             // chrGrafic
             // 
-            chartArea12.Name = "ChartArea1";
-            this.chrGrafic.ChartAreas.Add(chartArea12);
-            legend12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend12.IsTextAutoFit = false;
-            legend12.Name = "Legend1";
-            this.chrGrafic.Legends.Add(legend12);
+            chartArea3.Name = "ChartArea1";
+            this.chrGrafic.ChartAreas.Add(chartArea3);
+            legend3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend3.IsTextAutoFit = false;
+            legend3.Name = "Legend1";
+            this.chrGrafic.Legends.Add(legend3);
             this.chrGrafic.Location = new System.Drawing.Point(13, 91);
             this.chrGrafic.Name = "chrGrafic";
             this.chrGrafic.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.chrGrafic.PaletteCustomColors = new System.Drawing.Color[] {
         System.Drawing.Color.Red,
         System.Drawing.Color.Lime};
-            series23.BorderWidth = 2;
-            series23.ChartArea = "ChartArea1";
-            series23.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series23.Legend = "Legend1";
-            series23.Name = "Cheltuieli";
-            series23.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
-            series23.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            series24.BorderWidth = 2;
-            series24.ChartArea = "ChartArea1";
-            series24.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series24.Legend = "Legend1";
-            series24.Name = "Venituri";
-            series24.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
-            series24.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            this.chrGrafic.Series.Add(series23);
-            this.chrGrafic.Series.Add(series24);
+            series5.BorderWidth = 2;
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Legend = "Legend1";
+            series5.Name = "Cheltuieli";
+            series5.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+            series5.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series6.BorderWidth = 2;
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series6.Legend = "Legend1";
+            series6.Name = "Venituri";
+            series6.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+            series6.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            this.chrGrafic.Series.Add(series5);
+            this.chrGrafic.Series.Add(series6);
             this.chrGrafic.Size = new System.Drawing.Size(743, 422);
             this.chrGrafic.TabIndex = 0;
-            title12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title12.Name = "ttlTitluGrafic";
-            title12.Text = "Evolutia cheltuielilor/veniturilor";
-            this.chrGrafic.Titles.Add(title12);
+            title3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title3.Name = "ttlTitluGrafic";
+            title3.Text = "Evolutia cheltuielilor/veniturilor";
+            this.chrGrafic.Titles.Add(title3);
             // 
             // dlgSalveazaGrafic
             // 
