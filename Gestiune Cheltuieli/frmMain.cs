@@ -20,6 +20,7 @@ namespace Gestiune_Cheltuieli
         public bool amModificat;
         public bool modificare;
         public bool totalEvenimente;
+        public bool amAfisatEvenimentePeriodice;
         public int index;
 
         public frmMain()
@@ -48,12 +49,40 @@ namespace Gestiune_Cheltuieli
             amModificat = false;
             modificare = false;
             totalEvenimente = true;
+            amAfisatEvenimentePeriodice = false;
 
             afiseazaEvenimente();
-
+            
             tmrEvenimente.Enabled = true;
         }
 
+
+        public void verificaPerioadaEvenimente()
+        {
+            string mesaje = "";
+
+            foreach (Eveniment ev in evenimente)
+            {
+                switch (ev.perioada)
+                {
+                    case PerioadaEveniment.Saptamanal:
+                        if (Math.Abs((DateTime.Now - ev.data).Days) % 7 == 0)
+                            mesaje += "A trecut o saptamana de cand: " + ev.detalii + "\n";
+                        break;
+                    case PerioadaEveniment.Lunar:
+                        if (Math.Abs((DateTime.Now - ev.data).Days) % 30 == 0)
+                            mesaje += "A trecut o luna de cand: " + ev.detalii + "\n";
+                        break;
+                    case PerioadaEveniment.OdataLaXZile:
+                        if (Math.Abs((DateTime.Now - ev.data).Days) % ev.xZile == 0)
+                            mesaje += "Au trecut " + ev.xZile + " de cand: " + ev.detalii + "\n";
+                        break;
+                }
+            }
+
+            if(mesaje != "")
+                MessageBox.Show(mesaje, "Evenimente periodice");
+        }
 
         public int getMaxIdEveniment()
         {
@@ -1013,6 +1042,15 @@ namespace Gestiune_Cheltuieli
         private void dtpSfarsit_ValueChanged(object sender, EventArgs e)
         {
             deseneazaGrafic();
+        }
+
+        private void frmMain_Paint(object sender, PaintEventArgs e)
+        {
+            if (amAfisatEvenimentePeriodice == false)
+            {
+                amAfisatEvenimentePeriodice = true;
+                verificaPerioadaEvenimente();
+            }
         }
     }
 }

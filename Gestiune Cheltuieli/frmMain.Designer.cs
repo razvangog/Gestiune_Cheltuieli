@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title7 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.btnExtinde = new System.Windows.Forms.Button();
             this.lblNrNotiteNecitite = new System.Windows.Forms.Label();
@@ -97,6 +97,11 @@
             this.dtpData = new System.Windows.Forms.DateTimePicker();
             this.btnAdaugaEveniment = new System.Windows.Forms.Button();
             this.pnlGrafic = new System.Windows.Forms.Panel();
+            this.grpPerioadaAfisata = new System.Windows.Forms.GroupBox();
+            this.dtpSfarsit = new System.Windows.Forms.DateTimePicker();
+            this.lblSfarsit = new System.Windows.Forms.Label();
+            this.lblInceput = new System.Windows.Forms.Label();
+            this.dtpInceput = new System.Windows.Forms.DateTimePicker();
             this.btnInapoiGrafic = new System.Windows.Forms.Button();
             this.grpTipGrafic = new System.Windows.Forms.GroupBox();
             this.radValoriCumulative = new System.Windows.Forms.RadioButton();
@@ -116,20 +121,15 @@
             this.lblDataNotita = new System.Windows.Forms.Label();
             this.dtpDataNotita = new System.Windows.Forms.DateTimePicker();
             this.btnAdaugaNotita = new System.Windows.Forms.Button();
-            this.grpPerioadaAfisata = new System.Windows.Forms.GroupBox();
-            this.dtpInceput = new System.Windows.Forms.DateTimePicker();
-            this.lblInceput = new System.Windows.Forms.Label();
-            this.lblSfarsit = new System.Windows.Forms.Label();
-            this.dtpSfarsit = new System.Windows.Forms.DateTimePicker();
             this.pnlMain.SuspendLayout();
             this.mnuMeniu.SuspendLayout();
             this.pnlAdaugaEveniment.SuspendLayout();
             this.pnlGrafic.SuspendLayout();
+            this.grpPerioadaAfisata.SuspendLayout();
             this.grpTipGrafic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chrGrafic)).BeginInit();
             this.pnlNotite.SuspendLayout();
             this.pnlAdaugaNotita.SuspendLayout();
-            this.grpPerioadaAfisata.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMain
@@ -723,6 +723,53 @@
             this.pnlGrafic.Size = new System.Drawing.Size(770, 530);
             this.pnlGrafic.TabIndex = 3;
             // 
+            // grpPerioadaAfisata
+            // 
+            this.grpPerioadaAfisata.Controls.Add(this.dtpSfarsit);
+            this.grpPerioadaAfisata.Controls.Add(this.lblSfarsit);
+            this.grpPerioadaAfisata.Controls.Add(this.lblInceput);
+            this.grpPerioadaAfisata.Controls.Add(this.dtpInceput);
+            this.grpPerioadaAfisata.Location = new System.Drawing.Point(151, 12);
+            this.grpPerioadaAfisata.Name = "grpPerioadaAfisata";
+            this.grpPerioadaAfisata.Size = new System.Drawing.Size(318, 72);
+            this.grpPerioadaAfisata.TabIndex = 3;
+            this.grpPerioadaAfisata.TabStop = false;
+            this.grpPerioadaAfisata.Text = "Perioada afisata";
+            // 
+            // dtpSfarsit
+            // 
+            this.dtpSfarsit.Location = new System.Drawing.Point(82, 46);
+            this.dtpSfarsit.Name = "dtpSfarsit";
+            this.dtpSfarsit.Size = new System.Drawing.Size(227, 20);
+            this.dtpSfarsit.TabIndex = 3;
+            this.dtpSfarsit.ValueChanged += new System.EventHandler(this.dtpSfarsit_ValueChanged);
+            // 
+            // lblSfarsit
+            // 
+            this.lblSfarsit.AutoSize = true;
+            this.lblSfarsit.Location = new System.Drawing.Point(16, 46);
+            this.lblSfarsit.Name = "lblSfarsit";
+            this.lblSfarsit.Size = new System.Drawing.Size(60, 13);
+            this.lblSfarsit.TabIndex = 2;
+            this.lblSfarsit.Text = "Data sfarsit";
+            // 
+            // lblInceput
+            // 
+            this.lblInceput.AutoSize = true;
+            this.lblInceput.Location = new System.Drawing.Point(8, 21);
+            this.lblInceput.Name = "lblInceput";
+            this.lblInceput.Size = new System.Drawing.Size(68, 13);
+            this.lblInceput.TabIndex = 1;
+            this.lblInceput.Text = "Data inceput";
+            // 
+            // dtpInceput
+            // 
+            this.dtpInceput.Location = new System.Drawing.Point(82, 20);
+            this.dtpInceput.Name = "dtpInceput";
+            this.dtpInceput.Size = new System.Drawing.Size(227, 20);
+            this.dtpInceput.TabIndex = 0;
+            this.dtpInceput.ValueChanged += new System.EventHandler(this.dtpInceput_ValueChanged);
+            // 
             // btnInapoiGrafic
             // 
             this.btnInapoiGrafic.Location = new System.Drawing.Point(3, 3);
@@ -770,40 +817,40 @@
             // 
             // chrGrafic
             // 
-            chartArea7.Name = "ChartArea1";
-            this.chrGrafic.ChartAreas.Add(chartArea7);
-            legend7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend7.IsTextAutoFit = false;
-            legend7.Name = "Legend1";
-            this.chrGrafic.Legends.Add(legend7);
+            chartArea1.Name = "ChartArea1";
+            this.chrGrafic.ChartAreas.Add(chartArea1);
+            legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend1.IsTextAutoFit = false;
+            legend1.Name = "Legend1";
+            this.chrGrafic.Legends.Add(legend1);
             this.chrGrafic.Location = new System.Drawing.Point(13, 91);
             this.chrGrafic.Name = "chrGrafic";
             this.chrGrafic.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.chrGrafic.PaletteCustomColors = new System.Drawing.Color[] {
         System.Drawing.Color.Red,
         System.Drawing.Color.Lime};
-            series13.BorderWidth = 2;
-            series13.ChartArea = "ChartArea1";
-            series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series13.Legend = "Legend1";
-            series13.Name = "Cheltuieli";
-            series13.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
-            series13.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            series14.BorderWidth = 2;
-            series14.ChartArea = "ChartArea1";
-            series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series14.Legend = "Legend1";
-            series14.Name = "Venituri";
-            series14.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
-            series14.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            this.chrGrafic.Series.Add(series13);
-            this.chrGrafic.Series.Add(series14);
+            series1.BorderWidth = 2;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "Cheltuieli";
+            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+            series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series2.BorderWidth = 2;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.Name = "Venituri";
+            series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+            series2.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            this.chrGrafic.Series.Add(series1);
+            this.chrGrafic.Series.Add(series2);
             this.chrGrafic.Size = new System.Drawing.Size(743, 422);
             this.chrGrafic.TabIndex = 0;
-            title7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title7.Name = "ttlTitluGrafic";
-            title7.Text = "Evolutia cheltuielilor/veniturilor";
-            this.chrGrafic.Titles.Add(title7);
+            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title1.Name = "ttlTitluGrafic";
+            title1.Text = "Evolutia cheltuielilor/veniturilor";
+            this.chrGrafic.Titles.Add(title1);
             // 
             // dlgSalveazaGrafic
             // 
@@ -931,53 +978,6 @@
             this.btnAdaugaNotita.UseVisualStyleBackColor = true;
             this.btnAdaugaNotita.Click += new System.EventHandler(this.btnAdaugaNotita_Click);
             // 
-            // grpPerioadaAfisata
-            // 
-            this.grpPerioadaAfisata.Controls.Add(this.dtpSfarsit);
-            this.grpPerioadaAfisata.Controls.Add(this.lblSfarsit);
-            this.grpPerioadaAfisata.Controls.Add(this.lblInceput);
-            this.grpPerioadaAfisata.Controls.Add(this.dtpInceput);
-            this.grpPerioadaAfisata.Location = new System.Drawing.Point(151, 12);
-            this.grpPerioadaAfisata.Name = "grpPerioadaAfisata";
-            this.grpPerioadaAfisata.Size = new System.Drawing.Size(318, 72);
-            this.grpPerioadaAfisata.TabIndex = 3;
-            this.grpPerioadaAfisata.TabStop = false;
-            this.grpPerioadaAfisata.Text = "Perioada afisata";
-            // 
-            // dtpInceput
-            // 
-            this.dtpInceput.Location = new System.Drawing.Point(82, 20);
-            this.dtpInceput.Name = "dtpInceput";
-            this.dtpInceput.Size = new System.Drawing.Size(227, 20);
-            this.dtpInceput.TabIndex = 0;
-            this.dtpInceput.ValueChanged += new System.EventHandler(this.dtpInceput_ValueChanged);
-            // 
-            // lblInceput
-            // 
-            this.lblInceput.AutoSize = true;
-            this.lblInceput.Location = new System.Drawing.Point(8, 21);
-            this.lblInceput.Name = "lblInceput";
-            this.lblInceput.Size = new System.Drawing.Size(68, 13);
-            this.lblInceput.TabIndex = 1;
-            this.lblInceput.Text = "Data inceput";
-            // 
-            // lblSfarsit
-            // 
-            this.lblSfarsit.AutoSize = true;
-            this.lblSfarsit.Location = new System.Drawing.Point(16, 46);
-            this.lblSfarsit.Name = "lblSfarsit";
-            this.lblSfarsit.Size = new System.Drawing.Size(60, 13);
-            this.lblSfarsit.TabIndex = 2;
-            this.lblSfarsit.Text = "Data sfarsit";
-            // 
-            // dtpSfarsit
-            // 
-            this.dtpSfarsit.Location = new System.Drawing.Point(82, 46);
-            this.dtpSfarsit.Name = "dtpSfarsit";
-            this.dtpSfarsit.Size = new System.Drawing.Size(227, 20);
-            this.dtpSfarsit.TabIndex = 3;
-            this.dtpSfarsit.ValueChanged += new System.EventHandler(this.dtpSfarsit_ValueChanged);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -992,11 +992,11 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.mnuMeniu;
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistem de gestiune al cheltuielilor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.frmMain_Paint);
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
             this.mnuMeniu.ResumeLayout(false);
@@ -1004,14 +1004,14 @@
             this.pnlAdaugaEveniment.ResumeLayout(false);
             this.pnlAdaugaEveniment.PerformLayout();
             this.pnlGrafic.ResumeLayout(false);
+            this.grpPerioadaAfisata.ResumeLayout(false);
+            this.grpPerioadaAfisata.PerformLayout();
             this.grpTipGrafic.ResumeLayout(false);
             this.grpTipGrafic.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chrGrafic)).EndInit();
             this.pnlNotite.ResumeLayout(false);
             this.pnlAdaugaNotita.ResumeLayout(false);
             this.pnlAdaugaNotita.PerformLayout();
-            this.grpPerioadaAfisata.ResumeLayout(false);
-            this.grpPerioadaAfisata.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

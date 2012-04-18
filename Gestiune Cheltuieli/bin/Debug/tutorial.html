@@ -5,6 +5,254 @@ Sistem de gestiune al cheltuielilor - Tutorial
   </title>
  </head>
  <body>
-text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text 
+
+  <h1 align="center">
+Sistem de gestiune al cheltuielilor
+  </h1>
+
+
+
+<br /><br /><br />
+
+
+
+
+  <h3>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Ecranul principal
+  </h3>
+  <p>
+   <img src="main.bmp" width="35%" height="35%" align="right">
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Acesta este ecranul principal, unde initial sunt afisate evenimentele (cheltuieli / venituri) din ultimele 30 zile. Prin apasarea butonului "Toate evenimentele", se poate comuta spre a fi afisate toate evenimentele introduse pana in prezent. Pentru fiecare eveniment sunt afisate:
+   <ul>
+    <li>
+"Data": data cand s-a intamplat evenimentul. Daca se da click pe coloana "Data", evenimentele vor fi afisate in ordine cronologica
+    </li>
+    <li>
+"Detalii": o scurta descriere a evenimentului
+    </li>
+    <li>
+"Perioada": pentru evenimentele care au loc periodic, se va afisa: "Saptamanal", "Lunar", "Odata la x zile". Pentru evenimentele care nu au loc periodic se va afisa "-"
+    </li>
+    <li>
+"Suma": suma care a fost primita/data. Veniturile sunt afisate cu verde, iar cheltuielile sunt afisate cu rosu
+    </li>
+   </ul>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+In partea din dreapta-sus a ecranului sunt 4 butoane:
+   <ul>
+    <li>
+"Adauga": la apasarea acestui buton, se va afisa ecranul de adaugare a evenimentelor
+    </li>
+    <li>
+"Sterge": la apasarea acestui buton, evenimentele selectate vor fi sterse
+    </li>
+    <li>
+"Modifica": la apasarea acestui buton, se va afisa ecranul de modificare al evenimentului selectat
+    </li>
+    <li>
+"Aveti x notite!": la apasarea acestui buton, se vor afisa notitele care au fost create si nu au fost afisate inca. Acest buton se afiseaza doar daca exista astfel de notite
+    </li>
+   </ul>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+In partea din dreapta-jos a ecranului sunt afisate:
+   <ul>
+    <li>
+"Subtotal": diferenta dintre venituri si cheltuieli de pe ultimele 30 zile
+    </li>
+    <li>
+"Total": diferenta dintre toate veniturile si cheltuielile introduse
+    </li>
+   </ul>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+In partea superioara a ecranului se afla <b>meniul</b> aplicatiei:
+   <ul>
+    <li>
+Fisier
+     <ul>
+      <li>
+Deschide: redeschide fisierul cu evenimente, fara a salva modificarile facute
+      </li>
+      <li>
+Salveaza: salveaza modificarile aduse evenimentelor
+      </li>
+      <li>
+Exporta Excel: exporta evenimentele afisate in format Excel (.xlsx)
+      </li>
+      <li>
+Iesire: iesirea din aplicatie
+      </li>
+     </ul>
+    </li>
+    <li>
+Eveniment
+     <ul>
+      <li>
+Adauga: afiseaza ecranul de adaugare a evenimentelor
+      </li>
+      <li>
+Modifica: afiseaza ecranul de modificare a evenimentului selectat
+      </li>
+      <li>
+Sterge: sterge evenimentele selectate
+      </li>
+      <li>
+Afiseaza cheltuieli: cheltuielile vor fi afisate doar daca este selectata aceasta optiune
+      </li>
+      <li>
+Afiseaza venituri: veniturile vor fi afisate doar daca este selectata aceasta optiune
+      </li>
+     </ul>
+    </li>
+    <li>
+Notite
+     <ul>
+      <li>
+Adauga: afiseaza ecranul de adaugare a notitelor
+      </li>
+      <li>
+Afiseaza toate: afiseaza toate notitele create pana in prezent. Cele care au fost afisate sunt scrise cu rosu, iar cele care urmeaza a fi afisate sunt scrise cu verde.
+      </li>
+     </ul>
+    </li>
+    <li>
+Grafic
+     <ul>
+      <li>
+Afiseaza grafic: afiseaza ecranul cu graficul
+      </li>
+      <li>
+Salveaza grafic: salveaza graficul curent in format imagine
+      </li>
+     </ul>
+    </li>
+    <li>
+Ajutor
+     <ul>
+      <li>
+Tutorial: afiseaza acest tutorial
+      </li>
+      <li>
+Despre: afiseaza informatii despre aplicatie si echipa
+      </li>
+     </ul>
+    </li>
+    <li>
+Filtru: evenimentele pot fi filtrate dupa detalii prin introducerea unui text in aceasta casuta
+    </li>
+   </ul>
+  </p>
+
+
+<br /><br />
+
+
+  <h3>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Ecranul de adaugare/modificare evenimente
+  </h3>
+  <p>
+   <img src="adauga_eveniment.bmp" width="35%" height="35%" align="right">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Cu ajutorul acestui ecran se pot adauga noi evenimente sau modifica evenimente deja existente. Pentru a adauga/modifica un eveniment se vor completa campurile:
+   <ul>
+    <li>
+Data: data cand a avut loc evenimentul
+    </li>
+    <li>
+Suma: valoarea venitului/cheltuielii
+    </li>
+    <li>
+Perioada: se poate alege periodicitatea evenimentului (saptamanal, lunar, odata la x zile, neperiodic)
+    </li>
+    <li>
+Odata la: in cazul in care evenimentul este periodic, cu perioada odata la x zile, aici se poate introduce valoarea lui x
+    </li>
+    <li>
+Tip eveniment: se poate alege daca evenimentul este o cheltuiala sau un venit
+    </li>
+    <li>
+Detalii: detalii despre eveniment
+    </li>
+   </ul>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Daca se doreste adaugarea/modificarea evenimentului, se va apasa butonul "Adauga eveniment"/"Modifica eveniment". Altfel, se va apasa butonul "Inapoi".
+  </p>
+
+
+<br /><br />
+
+
+  <h3>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Ecranul de adaugare a notitelor
+  </h3>
+  <p>
+   <img src="adauga_notita.bmp" width="35%" height="35%" align="right">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Cu ajutorul acestui ecran se pot adauga notite. Pentru a adauga o notita se vor completa campurile:
+   <ul>
+    <li>
+Data: data cand vrem sa fim atentionati
+    </li>
+    <li>
+Text: textul care ne va fi afisata la data setata anterior
+    </li>
+   </ul>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Daca se doreste adaugarea notitei, se va apasa butonul "Adauga notita". Altfel, se va apasa butonul "Inapoi".
+  </p>
+
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+
+
+  <h3>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Ecranul de afisare a notitelor
+  </h3>
+  <p>
+   <img src="afiseaza_notite.bmp" width="35%" height="35%" align="right">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+In acest ecran sunt afisate notitele active la momentul de fata. Prin apasarea butonului "Inapoi", se revine la ecranul principal. Prin apasarea butonului "Am citit notite" se vor marca toate notitele active ca fiind citite. Notitele citite nu se mai iau in considerare decat atunci cand se cere explicit afisarea tuturor notitelor.
+  </p>
+
+
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+
+
+
+<h3>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Ecranul de afisare a graficului
+  </h3>
+  <p>
+   <img src="afiseaza_grafic.bmp" width="35%" height="35%" align="right">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+In acest ecran, evenimentele vor fi afisate sub forma de grafic. Initial, vor fi reprezentate toate evenimentele cu valori absolute.
+
+<br />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Din partea superioara a ecranului se poate selecta perioada pentru care se vor reprezenta grafic evenimentele. De altfel, se poate alege tipul de grafic: cu valori absolute sau cu valor cumulative.
+
+<br />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Dupa setarea parametrilor graficului, acesta poate fi salvat in format imagine.
+  </p>
+
+
+
  </body>
 </html>
