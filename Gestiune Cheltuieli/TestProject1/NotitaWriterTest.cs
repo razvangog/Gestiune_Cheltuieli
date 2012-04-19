@@ -17,7 +17,7 @@ namespace TestProject1
         private List<Notita> lista, listaCopie , listaNoua;
         
         [TestInitialize]
-        public void TestInitialize1()
+        public void TestInitialize3()
         {
             caleFisier = @"C:\Users\User\Gestiune_Cheltuieli\Gestiune Cheltuieli\TestProject1\bin\Debug\notiteWriterTest2.xml";
             lista = new List<Notita>();
@@ -44,7 +44,7 @@ namespace TestProject1
         }
 
         [TestCleanup]
-        public void TestCleanup1()
+        public void TestCleanup3()
         {
             caleFisier = "";
             lista = new List<Notita>();
