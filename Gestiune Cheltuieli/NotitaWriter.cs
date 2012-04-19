@@ -7,7 +7,7 @@ using System.IO;
 
 namespace Gestiune_Cheltuieli
 {
-    class NotitaWriter
+    public class NotitaWriter
     {
         public static void scrieNotite(string numeFisier, List<Notita> lista)
         {

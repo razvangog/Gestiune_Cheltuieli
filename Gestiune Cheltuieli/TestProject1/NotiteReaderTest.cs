@@ -18,13 +18,14 @@ namespace TestProject1
         [TestInitialize]
         public void TestInitialize1()
         {
-            caleFisier = @"C:\Users\RazvanReb\GIT\Gestiune_Cheltuieli\Gestiune Cheltuieli\TestProject1\bin\Debug\notiteTest.xml";
+            //caleFisier = @"C:\Users\RazvanReb\GIT\Gestiune_Cheltuieli\Gestiune Cheltuieli\TestProject1\bin\Debug\notiteTest.xml";
+            caleFisier = @"C:\Users\User\Gestiune_Cheltuieli\Gestiune Cheltuieli\TestProject1\bin\Debug\notiteTest.xml";
 
             listaBuna = new List<Notita>();
-            listaBuna.Add(new Notita() { id = 1, text = "Test notite 1", data = Convert.ToDateTime("4/14/2012 12:58:44 AM"), expirat = true });
-            listaBuna.Add(new Notita() { id = 2, text = "test 2", data = Convert.ToDateTime("4/19/2012 5:33:48 PM"), expirat = false });
-            listaBuna.Add(new Notita() { id = 3, text = "test 3", data = Convert.ToDateTime("4/19/2012 5:23:53 PM"), expirat = true });
-            listaBuna.Add(new Notita() { id = 4, text = " test 4", data = Convert.ToDateTime("4/19/2012 5:34:42 PM"), expirat = false });
+            listaBuna.Add(new Notita() { id = 1, text = "Test notite 1", data = Convert.ToDateTime("1/2/2012 12:58:44 AM"), expirat = true });
+            listaBuna.Add(new Notita() { id = 2, text = "test 2", data = Convert.ToDateTime("3/4/2012 5:33:48 PM"), expirat = false });
+            listaBuna.Add(new Notita() { id = 3, text = "test 3", data = Convert.ToDateTime("5/6/2012 5:23:53 PM"), expirat = true });
+            listaBuna.Add(new Notita() { id = 4, text = " test 4", data = Convert.ToDateTime("7/8/2012 5:34:42 PM"), expirat = false });
 
             listaTest = NotitaReader.citesteNotite(caleFisier);
         }
@@ -32,10 +33,8 @@ namespace TestProject1
         [TestMethod]
         public void TestMethod1()
         {
-            TestInitialize1();
             bool test = testeazaEgalitateListe(listaBuna, listaTest);
             Assert.IsTrue(test, "Cele doua liste sunt diferite!");
-            TestCleanup1();
         }
 
         [TestCleanup]

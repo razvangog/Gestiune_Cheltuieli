@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="b634a99c-e54e-47a9-b43a-cd43ebf651be" name="User@RAZVANREB 2012-04-20 00:00:21" runUser="RAZVANREB\User" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="dcb7233e-da86-4555-ac3e-cd9472204edd">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="User_RAZVANREB 2012-04-20 00_00_21">
+      <DeploymentItem filename="C:\Users\User\Gestiune_Cheltuieli\Gestiune Cheltuieli\bin\Debug\Gestiune Cheltuieli.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-04-20T00:00:21.8764484+03:00" queuing="2012-04-20T00:00:23.9585675+03:00" start="2012-04-20T00:00:24.0805745+03:00" finish="2012-04-20T00:00:25.1196339+03:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="TestMethod2" storage="c:\users\user\gestiune_cheltuieli\gestiune cheltuieli\testproject1\bin\debug\testproject1.dll" id="42a82752-11fe-560f-7b81-8b86e0dfd3ae">
+      <Execution id="6c81b544-c152-40b0-a5df-6a51137a4887" />
+      <TestMethod codeBase="C:/Users/User/Gestiune_Cheltuieli/Gestiune Cheltuieli/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.EvenimentReaderTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod2" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="42a82752-11fe-560f-7b81-8b86e0dfd3ae" executionId="6c81b544-c152-40b0-a5df-6a51137a4887" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="6c81b544-c152-40b0-a5df-6a51137a4887" testId="42a82752-11fe-560f-7b81-8b86e0dfd3ae" testName="TestMethod2" computerName="RAZVANREB" duration="00:00:00.1602825" startTime="2012-04-20T00:00:24.1585790+03:00" endTime="2012-04-20T00:00:24.9396236+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6c81b544-c152-40b0-a5df-6a51137a4887">
+      <Output>
+        <ErrorInfo>
+          <Message>Initialization method TestProject1.EvenimentReaderTest.TestInitialize2 threw exception. System.FormatException: System.FormatException: String was not recognized as a valid DateTime..</Message>
+          <StackTrace>    at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.Convert.ToDateTime(String value)
+   at TestProject1.EvenimentReaderTest.TestInitialize2() in C:\Users\User\Gestiune_Cheltuieli\Gestiune Cheltuieli\TestProject1\EvenimentReaderTest.cs:line 29
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

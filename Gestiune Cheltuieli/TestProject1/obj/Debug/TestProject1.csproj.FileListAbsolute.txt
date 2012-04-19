@@ -5,3 +5,10 @@ C:\Users\RazvanReb\GIT\Gestiune_Cheltuieli\Gestiune Cheltuieli\TestProject1\bin\
 C:\Users\RazvanReb\GIT\Gestiune_Cheltuieli\Gestiune Cheltuieli\TestProject1\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\RazvanReb\GIT\Gestiune_Cheltuieli\Gestiune Cheltuieli\TestProject1\obj\Debug\TestProject1.dll
 C:\Users\RazvanReb\GIT\Gestiune_Cheltuieli\Gestiune Cheltuieli\TestProject1\obj\Debug\TestProject1.pdb
+C:\Users\User\Gestiune_Cheltuieli\Gestiune Cheltuieli\TestProject1\bin\Debug\TestProject1.dll
+C:\Users\User\Gestiune_Cheltuieli\Gestiune Cheltuieli\TestProject1\bin\Debug\TestProject1.pdb
+C:\Users\User\Gestiune_Cheltuieli\Gestiune Cheltuieli\TestProject1\bin\Debug\Gestiune Cheltuieli.exe
+C:\Users\User\Gestiune_Cheltuieli\Gestiune Cheltuieli\TestProject1\bin\Debug\Gestiune Cheltuieli.pdb
+C:\Users\User\Gestiune_Cheltuieli\Gestiune Cheltuieli\TestProject1\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\User\Gestiune_Cheltuieli\Gestiune Cheltuieli\TestProject1\obj\Debug\TestProject1.dll
+C:\Users\User\Gestiune_Cheltuieli\Gestiune Cheltuieli\TestProject1\obj\Debug\TestProject1.pdb

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="60eae61a-bb42-4f1d-873c-f569c289bb25" name="User@RAZVANREB 2012-04-20 00:37:01" runUser="RAZVANREB\User" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="dcb7233e-da86-4555-ac3e-cd9472204edd">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="User_RAZVANREB 2012-04-20 00_37_01">
+      <DeploymentItem filename="C:\Users\User\Gestiune_Cheltuieli\Gestiune Cheltuieli\bin\Debug\Gestiune Cheltuieli.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-04-20T00:37:01.8272784+03:00" queuing="2012-04-20T00:37:03.8513942+03:00" start="2012-04-20T00:37:04.3524229+03:00" finish="2012-04-20T00:37:14.3679957+03:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="TestMethod1" storage="c:\users\user\gestiune_cheltuieli\gestiune cheltuieli\testproject1\bin\debug\testproject1.dll" id="8d860aa4-5be8-6cb0-35ba-c49eb7967c7e">
+      <Execution id="5ba8b104-65c0-4575-8a4a-7025913320c3" />
+      <TestMethod codeBase="C:/Users/User/Gestiune_Cheltuieli/Gestiune Cheltuieli/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.NotiteReaderTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod1" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="8d860aa4-5be8-6cb0-35ba-c49eb7967c7e" executionId="5ba8b104-65c0-4575-8a4a-7025913320c3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="5ba8b104-65c0-4575-8a4a-7025913320c3" testId="8d860aa4-5be8-6cb0-35ba-c49eb7967c7e" testName="TestMethod1" computerName="RAZVANREB" duration="00:00:07.2559782" startTime="2012-04-20T00:37:04.8644521+03:00" endTime="2012-04-20T00:37:14.2419885+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5ba8b104-65c0-4575-8a4a-7025913320c3">
+    </UnitTestResult>
+  </Results>
+</TestRun>

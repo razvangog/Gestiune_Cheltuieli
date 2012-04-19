@@ -1,0 +1,6 @@
+<notite>
+  <notita id="1" data="01.02.2012 00:58:44" expirat="True">test 1</notita>
+  <notita id="2" data="03.04.2012 17:33:48" expirat="False">test 2</notita>
+  <notita id="3" data="05.06.2012 17:23:53" expirat="True">test 3</notita>
+  <notita id="4" data="07.08.2012 17:34:42" expirat="False">test 4</notita>
+</notite>
