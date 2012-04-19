@@ -9,3 +9,14 @@ D:\Documente\Razvan\Programe\C#\Gestiune_Cheltuieli\Gestiune Cheltuieli\obj\x86\
 D:\Documente\Razvan\Programe\C#\Gestiune_Cheltuieli\Gestiune Cheltuieli\obj\x86\Debug\Gestiune Cheltuieli.pdb
 D:\Documente\Razvan\Programe\C#\Gestiune_Cheltuieli\Gestiune Cheltuieli\bin\Debug\Gestiune Cheltuieli.exe.config
 D:\Documente\Razvan\Programe\C#\Gestiune_Cheltuieli\Gestiune Cheltuieli\obj\x86\Debug\Gestiune Cheltuieli.csproj.ResolveComReference.cache
+C:\Users\RazvanReb\GIT\Gestiune_Cheltuieli\Gestiune Cheltuieli\bin\Debug\Gestiune Cheltuieli.exe.config
+C:\Users\RazvanReb\GIT\Gestiune_Cheltuieli\Gestiune Cheltuieli\obj\x86\Debug\Gestiune Cheltuieli.csproj.ResolveComReference.cache
+C:\Users\RazvanReb\GIT\Gestiune_Cheltuieli\Gestiune Cheltuieli\obj\x86\Debug\Gestiune Cheltuieli.exe
+C:\Users\RazvanReb\GIT\Gestiune_Cheltuieli\Gestiune Cheltuieli\obj\x86\Debug\Gestiune Cheltuieli.pdb
+C:\Users\RazvanReb\GIT\Gestiune_Cheltuieli\Gestiune Cheltuieli\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\RazvanReb\GIT\Gestiune_Cheltuieli\Gestiune Cheltuieli\obj\x86\Debug\Gestiune_Cheltuieli.frmMain.resources
+C:\Users\RazvanReb\GIT\Gestiune_Cheltuieli\Gestiune Cheltuieli\obj\x86\Debug\Gestiune_Cheltuieli.Properties.Resources.resources
+C:\Users\RazvanReb\GIT\Gestiune_Cheltuieli\Gestiune Cheltuieli\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\RazvanReb\GIT\Gestiune_Cheltuieli\Gestiune Cheltuieli\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\RazvanReb\GIT\Gestiune_Cheltuieli\Gestiune Cheltuieli\bin\Debug\Gestiune Cheltuieli.exe
+C:\Users\RazvanReb\GIT\Gestiune_Cheltuieli\Gestiune Cheltuieli\bin\Debug\Gestiune Cheltuieli.pdb

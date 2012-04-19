@@ -599,6 +599,7 @@ namespace Gestiune_Cheltuieli
             if (amModificat == true)
                 if (MessageBox.Show("Daca redeschideti fisierul de evenimente veti pierde toate modificarile efectuate in sesiunea curenta. Doriti sa continuati?", "Modificari", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+                    //test
                     viewCurent = View.Main;
 
                     pnlAdaugaNotita.Hide();
@@ -943,22 +944,29 @@ namespace Gestiune_Cheltuieli
 
         private void btnAdaugaNotita_Click(object sender, EventArgs e)
         {
-            Notita not = new Notita();
+            if (!string.IsNullOrWhiteSpace(txtText.Text))
+            {
+                Notita not = new Notita();
 
-            not.id = getMaxIdNotita();
-            not.data = dtpDataNotita.Value;
-            not.text = txtText.Text;
-            not.expirat = false;
+                not.id = getMaxIdNotita();
+                not.data = dtpDataNotita.Value;
+                not.text = txtText.Text;
+                not.expirat = false;
 
-            notite.Add(not);
+                notite.Add(not);
 
-            viewCurent = View.Main;
+                viewCurent = View.Main;
 
-            pnlAdaugaNotita.Hide();
-            pnlNotite.Hide();
-            pnlAdaugaEveniment.Hide();
-            pnlGrafic.Hide();
-            pnlMain.Show();
+                pnlAdaugaNotita.Hide();
+                pnlNotite.Hide();
+                pnlAdaugaEveniment.Hide();
+                pnlGrafic.Hide();
+                pnlMain.Show();
+            }
+            else
+            {
+                MessageBox.Show("Trebuie sa completati campul text!", "Adauga notita");
+            }
         }
 
         private void mnuDespre_Click(object sender, EventArgs e)
