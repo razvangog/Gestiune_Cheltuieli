@@ -1,8 +1,8 @@
 <notite>
-  <notita id="0" data="4/14/2012 12:58:44 AM" expirat="True">Test notite</notita>
-  <notita id="0" data="4/19/2012 5:23:53 PM" expirat="True">
+  <notita id="0" data="08.04.2012 00:58:44" expirat="True">Test notite</notita>
+  <notita id="1" data="11.04.2012 17:23:53" expirat="True">
   </notita>
-  <notita id="0" data="4/19/2012 5:33:48 PM" expirat="False">
+  <notita id="2" data="11.04.2012 17:33:48" expirat="False">
   </notita>
-  <notita id="0" data="4/19/2012 5:34:42 PM" expirat="False">     .</notita>
+  <notita id="3" data="11.04.2012 17:34:42" expirat="False">     .</notita>
 </notite>

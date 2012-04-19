@@ -1060,5 +1060,22 @@ namespace Gestiune_Cheltuieli
                 verificaPerioadaEvenimente();
             }
         }
+
+        private void btnInapoiAdaugaNotita_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtText.Text) || MessageBox.Show("Notita curenta nu va fi salvata! Sunteti sigur?",
+                    "Adauga notita", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+
+                viewCurent = View.Main;
+
+                pnlAdaugaNotita.Hide();
+                pnlNotite.Hide();
+                pnlGrafic.Hide();
+                pnlAdaugaEveniment.Hide();
+                pnlMain.Show();
+            }
+
+        }
     }
 }
