@@ -21,7 +21,7 @@ namespace TestProject1
         public void TestInitialize2()
         {
            // string cale = Directory.GetCurrentDirectory();
-            string cale = "";
+            string cale = ""; 
             caleFisier = cale + @"D:\Git\Gestiune Cheltuieli\Gestiune Cheltuieli\TestProject1\bin\Debug\evenimenteTest.xml";           
             //caleFisier = @"C:\Users\RazvanReb\GIT\Gestiune_Cheltuieli\Gestiune Cheltuieli\TestProject1\bin\Debug\evenimenteTest.xml";
 

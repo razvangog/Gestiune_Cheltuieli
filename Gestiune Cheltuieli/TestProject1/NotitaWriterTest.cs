@@ -20,7 +20,7 @@ namespace TestProject1
         public void TestInitialize3()
         {
             // string cale = Directory.GetCurrentDirectory();
-            string cale = "";            
+            string cale = "";             
             caleFisier = cale + @"C:\notiteWriterTest2.xml";
             lista = new List<Notita>();
             lista.Add(new Notita() { id = 1, text = "test 1", data = Convert.ToDateTime("1/2/2012 12:58:44 AM"), expirat = true });

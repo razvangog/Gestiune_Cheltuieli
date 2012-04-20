@@ -20,7 +20,7 @@ namespace TestProject1
         {
             //caleFisier = @"C:\Users\RazvanReb\GIT\Gestiune_Cheltuieli\Gestiune Cheltuieli\TestProject1\bin\Debug\notiteTest.xml";
             // string cale = Directory.GetCurrentDirectory();
-            string cale = "";
+            string cale = ""; 
             caleFisier = cale + @"D:\Git\Gestiune Cheltuieli\Gestiune Cheltuieli\TestProject1\bin\Debug\notiteTest.xml";
 
             listaBuna = new List<Notita>();
