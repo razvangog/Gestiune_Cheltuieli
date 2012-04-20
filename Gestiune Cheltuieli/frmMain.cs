@@ -463,173 +463,95 @@ namespace Gestiune_Cheltuieli
         }
 
 
-        private void btnAdaugaEveniment_Click(object sender, EventArgs e)
-        {
-            if (modificare == false)
-            {
-                Eveniment ev = new Eveniment();
-
-                ev.data = dtpData.Value;
-
-                double sumaOut; 
-
-                if(!Double.TryParse(txtSuma.Text, out sumaOut))
-                {
-                    MessageBox.Show("Suma lipseste sau este intr-un format incorect!", "Adauga eveniment");
-                    return;
+        // imi cer scuze ca am rearanjat codul dar imi era imposibil de citit, scuze
+        private void btnAdaugaEveniment_Click(object sender, EventArgs e) {            
+            Eveniment ev;
+            try {
+                if (modificare == false) {
+                    ev = citesteEveniment(++maxIdEveniment);
+                    evenimente.Add(ev);
                 }
-
-                ev.suma = sumaOut;
-
-                if(cmbPerioada.SelectedItem == null)
-                {
-                    MessageBox.Show("Tip perioada neselectat!", "Adauga eveniment");
-                    return;
+                else {
+                    ev = citesteEveniment(evenimente[index].id);
+                    evenimente[index] = ev;
                 }
-
-                switch (cmbPerioada.SelectedItem.ToString())
-                {
-                    case "Lunar":
-                        ev.perioada = PerioadaEveniment.Lunar;
-                        break;
-                    case "Saptamanal":
-                        ev.perioada = PerioadaEveniment.Saptamanal;
-                        break;
-                    case "Odata la n zile":
-                        ev.perioada = PerioadaEveniment.OdataLaXZile;
-                        int xZileOut; if(!int.TryParse(txtOdataLa.Text, out xZileOut))
-                        {
-                            MessageBox.Show("Format incorect numar zile", "Adauga eveniment");
-                            return;
-                        }
-                        ev.xZile = xZileOut;
-                        break;
-                    case "Alt tip":
-                        ev.perioada = PerioadaEveniment.AltTip;
-                        break;
-                    default:
-                        throw new Exception("Alegeti o perioada");
-                }
-
-                if (cmbTipEveniment.SelectedItem == null)
-                {
-                    MessageBox.Show("Tip eveniment neselectat!", "Adauga eveniment");
-                    return;
-                }
-
-                switch (cmbTipEveniment.SelectedItem.ToString())
-                {
-                    case "Cheltuiala":
-                        ev.tipEveniment = TipEveniment.Cheltuiala;
-                        break;
-                    case "Venit":
-                        ev.tipEveniment = TipEveniment.Venit;
-                        break;
-                }
-
-
-                ev.id = ++maxIdEveniment;
-
-                ev.detalii = txtDetalii.Text;
-
-                evenimente.Add(ev);
-
-                amModificat = true;
-
-                afiseazaEvenimente();
-
-                viewCurent = View.Main;
-
-                pnlAdaugaNotita.Hide();
-                pnlNotite.Hide();
-                pnlAdaugaEveniment.Hide();
-                pnlGrafic.Hide();
-                pnlMain.Show();
-
             }
-            else
-            {
-                Eveniment ev = new Eveniment();
-
-                ev.id = evenimente[index].id;
-
-                ev.data = dtpData.Value;
-
-                double sumaOut;
-
-                if (!Double.TryParse(txtSuma.Text, out sumaOut))
-                {
-                    MessageBox.Show("Suma lipseste sau este intr-un format incorect!", "Modifica eveniment");
-                    return;
-                }
-
-                ev.suma = sumaOut;
-
-                if (cmbPerioada.SelectedItem == null)
-                {
-                    MessageBox.Show("Tip perioada neselectat!", "Modifica eveniment");
-                    return;
-                }
-
-                switch (cmbPerioada.SelectedItem.ToString())
-                {
-                    case "Lunar":
-                        ev.perioada = PerioadaEveniment.Lunar;
-                        break;
-                    case "Saptamanal":
-                        ev.perioada = PerioadaEveniment.Saptamanal;
-                        break;
-                    case "Odata la n zile":
-                        ev.perioada = PerioadaEveniment.OdataLaXZile;
-                        int xZileOut; 
-
-                        if(!int.TryParse(txtOdataLa.Text, out xZileOut))
-                        {
-                            MessageBox.Show("Format incorect numar zile", "Modifica eveniment");
-                            return;
-                        }
-
-                        ev.xZile = xZileOut;
-                        break;
-                    case "Alt tip":
-                        ev.perioada = PerioadaEveniment.AltTip;
-                        break;
-                    default:
-                        throw new Exception("Alegeti o perioada");
-                }
-
-                if (cmbTipEveniment.SelectedItem == null)
-                {
-                    MessageBox.Show("Tip perioada neselectat!", "Modifica eveniment");
-                    return;
-                }
-
-                switch (cmbTipEveniment.SelectedItem.ToString())
-                {
-                    case "Cheltuiala":
-                        ev.tipEveniment = TipEveniment.Cheltuiala;
-                        break;
-                    case "Venit":
-                        ev.tipEveniment = TipEveniment.Venit;
-                        break;
-                }
-
-                ev.detalii = txtDetalii.Text;
-
-                evenimente[index] = ev;
-
-                amModificat = true;
-
-                afiseazaEvenimente();
-
-                viewCurent = View.Main;
-
-                pnlAdaugaNotita.Hide();
-                pnlNotite.Hide();
-                pnlAdaugaEveniment.Hide();
-                pnlGrafic.Hide();
-                pnlMain.Show();
+            catch (InvalidEvenimentException iee) {
+                MessageBox.Show(iee.Message, "Adauga eveniment");
+                return;
             }
+
+            amModificat = true;
+            afiseazaEvenimente();
+
+            viewCurent = View.Main;
+
+            pnlAdaugaNotita.Hide();
+            pnlNotite.Hide();
+            pnlAdaugaEveniment.Hide();
+            pnlGrafic.Hide();
+            pnlMain.Show();
+        }
+
+        private Eveniment citesteEveniment(int id) {
+            Eveniment ev = new Eveniment();
+            ev.id = id;
+
+            ev.data = dtpData.Value;
+
+            double sumaOut;
+            if (!Double.TryParse(txtSuma.Text, out sumaOut))
+            {
+                throw new InvalidEvenimentException("Suma lipseste sau este intr-un format incorect!");
+            }
+            ev.suma = sumaOut;
+
+            if (cmbPerioada.SelectedItem == null)
+            {
+                throw new InvalidEvenimentException("Tip perioada neselectat!");
+            }
+
+            switch (cmbPerioada.SelectedItem.ToString())
+            {
+                case "Lunar":
+                    ev.perioada = PerioadaEveniment.Lunar;
+                    break;
+                case "Saptamanal":
+                    ev.perioada = PerioadaEveniment.Saptamanal;
+                    break;
+                case "Odata la n zile":
+                    ev.perioada = PerioadaEveniment.OdataLaXZile;
+                    int xZileOut; if (!int.TryParse(txtOdataLa.Text, out xZileOut))
+                    {
+                        throw new InvalidEvenimentException("Format incorect numar zile");
+                    }
+                    ev.xZile = xZileOut;
+                    break;
+                case "Alt tip":
+                    ev.perioada = PerioadaEveniment.AltTip;
+                    break;
+                default:
+                    throw new Exception("Alegeti o perioada");
+            }
+
+            if (cmbTipEveniment.SelectedItem == null)
+            {
+                throw new InvalidEvenimentException("Tip eveniment neselectat!");
+            }
+
+            switch (cmbTipEveniment.SelectedItem.ToString())
+            {
+                case "Cheltuiala":
+                    ev.tipEveniment = TipEveniment.Cheltuiala;
+                    break;
+                case "Venit":
+                    ev.tipEveniment = TipEveniment.Venit;
+                    break;
+            }
+
+            ev.detalii = txtDetalii.Text;
+
+            return ev;
         }
 
 

@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InvalidEvenimentException.cs" />
     <Compile Include="NotitaReader.cs" />
     <Compile Include="NotitaWriter.cs" />
     <Compile Include="TipuriDeDate.cs" />
