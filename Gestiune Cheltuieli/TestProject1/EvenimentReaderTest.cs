@@ -19,12 +19,9 @@ namespace TestProject1
 
         [TestInitialize]
         public void TestInitialize2()
-        {
-           // string cale = Directory.GetCurrentDirectory();
-            string cale = ""; 
-            caleFisier = cale + @"D:\Git\Gestiune Cheltuieli\Gestiune Cheltuieli\TestProject1\bin\Debug\evenimenteTest.xml";           
-            //caleFisier = @"C:\Users\RazvanReb\GIT\Gestiune_Cheltuieli\Gestiune Cheltuieli\TestProject1\bin\Debug\evenimenteTest.xml";
-
+        {           
+            caleFisier = CaleAbsoluta.getCaleFisier("evenimenteTest.xml");           
+            
             listaBuna = new List<Eveniment>();
             listaBuna.Add(new Eveniment() { id = 1, data = Convert.ToDateTime("1/2/2012 9:23:41 PM"), perioada = PerioadaEveniment.OdataLaXZile, xZile = 10, tipEveniment = TipEveniment.Cheltuiala, suma = 999, detalii = "Cheltuiala veche" });
             listaBuna.Add(new Eveniment() { id = 2, data = Convert.ToDateTime("3/4/2012 11:20:02 PM"), perioada = PerioadaEveniment.Lunar, tipEveniment = TipEveniment.Venit, suma = 2200, detalii = "Salariu" });

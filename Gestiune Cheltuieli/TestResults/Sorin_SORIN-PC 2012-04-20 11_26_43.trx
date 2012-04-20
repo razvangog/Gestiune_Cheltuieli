@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="8f58b908-01b5-4316-b3fc-5d35a2ef1228" name="Sorin@SORIN-PC 2012-04-20 11:26:43" runUser="Sorin-PC\Sorin" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="dcb7233e-da86-4555-ac3e-cd9472204edd">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Sorin_SORIN-PC 2012-04-20 11_26_43">
+      <DeploymentItem filename="D:\Git\Gestiune Cheltuieli\Gestiune Cheltuieli\bin\Debug\Gestiune Cheltuieli.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-04-20T11:26:43.4318254+03:00" queuing="2012-04-20T11:26:43.4608270+03:00" start="2012-04-20T11:26:43.4838283+03:00" finish="2012-04-20T11:26:43.8888515+03:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="TestMethod4" storage="d:\git\gestiune cheltuieli\gestiune cheltuieli\testproject1\bin\debug\testproject1.dll" id="9c711fe6-fff6-af86-a074-f6218a9adf7e">
+      <Execution id="2a43babb-f299-4bf1-a39b-2bbd8d46f21d" />
+      <TestMethod codeBase="D:/Git/Gestiune Cheltuieli/Gestiune Cheltuieli/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.EvenimentWriterTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod4" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="9c711fe6-fff6-af86-a074-f6218a9adf7e" executionId="2a43babb-f299-4bf1-a39b-2bbd8d46f21d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="2a43babb-f299-4bf1-a39b-2bbd8d46f21d" testId="9c711fe6-fff6-af86-a074-f6218a9adf7e" testName="TestMethod4" computerName="SORIN-PC" duration="00:00:00.0294662" startTime="2012-04-20T11:26:43.5198304+03:00" endTime="2012-04-20T11:26:43.8068468+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2a43babb-f299-4bf1-a39b-2bbd8d46f21d">
+    </UnitTestResult>
+  </Results>
+</TestRun>
