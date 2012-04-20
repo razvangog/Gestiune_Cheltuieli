@@ -31,3 +31,12 @@ C:\Users\User\Gestiune_Cheltuieli\Gestiune Cheltuieli\obj\x86\Debug\Gestiune_Che
 C:\Users\User\Gestiune_Cheltuieli\Gestiune Cheltuieli\obj\x86\Debug\Gestiune_Cheltuieli.Properties.Resources.resources
 C:\Users\User\Gestiune_Cheltuieli\Gestiune Cheltuieli\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Users\User\Gestiune_Cheltuieli\Gestiune Cheltuieli\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\Git\Gestiune Cheltuieli\Gestiune Cheltuieli\bin\Debug\Gestiune Cheltuieli.exe.config
+D:\Git\Gestiune Cheltuieli\Gestiune Cheltuieli\obj\x86\Debug\Gestiune Cheltuieli.csproj.ResolveComReference.cache
+D:\Git\Gestiune Cheltuieli\Gestiune Cheltuieli\obj\x86\Debug\Gestiune Cheltuieli.exe
+D:\Git\Gestiune Cheltuieli\Gestiune Cheltuieli\obj\x86\Debug\Gestiune Cheltuieli.pdb
+D:\Git\Gestiune Cheltuieli\Gestiune Cheltuieli\bin\Debug\Gestiune Cheltuieli.exe
+D:\Git\Gestiune Cheltuieli\Gestiune Cheltuieli\bin\Debug\Gestiune Cheltuieli.pdb
+D:\Git\Gestiune Cheltuieli\Gestiune Cheltuieli\obj\x86\Debug\Gestiune_Cheltuieli.frmMain.resources
+D:\Git\Gestiune Cheltuieli\Gestiune Cheltuieli\obj\x86\Debug\Gestiune_Cheltuieli.Properties.Resources.resources
+D:\Git\Gestiune Cheltuieli\Gestiune Cheltuieli\obj\x86\Debug\Gestiune Cheltuieli.csproj.GenerateResource.Cache

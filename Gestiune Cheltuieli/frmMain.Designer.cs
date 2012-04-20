@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.btnExtinde = new System.Windows.Forms.Button();
             this.lblNrNotiteNecitite = new System.Windows.Forms.Label();
@@ -114,12 +114,12 @@
             this.btnInapoiNotite = new System.Windows.Forms.Button();
             this.lstNotite = new System.Windows.Forms.ListView();
             this.pnlAdaugaNotita = new System.Windows.Forms.Panel();
+            this.dtpDataNotita = new System.Windows.Forms.DateTimePicker();
             this.btnInapoiAdaugaNotita = new System.Windows.Forms.Button();
             this.lblAdaugaNotita = new System.Windows.Forms.Label();
             this.txtText = new System.Windows.Forms.TextBox();
             this.lblText = new System.Windows.Forms.Label();
             this.lblDataNotita = new System.Windows.Forms.Label();
-            this.dtpDataNotita = new System.Windows.Forms.DateTimePicker();
             this.btnAdaugaNotita = new System.Windows.Forms.Button();
             this.pnlMain.SuspendLayout();
             this.mnuMeniu.SuspendLayout();
@@ -653,7 +653,7 @@
             // lblTipEveniment
             // 
             this.lblTipEveniment.AutoSize = true;
-            this.lblTipEveniment.Location = new System.Drawing.Point(140, 250);
+            this.lblTipEveniment.Location = new System.Drawing.Point(140, 245);
             this.lblTipEveniment.Name = "lblTipEveniment";
             this.lblTipEveniment.Size = new System.Drawing.Size(77, 13);
             this.lblTipEveniment.TabIndex = 6;
@@ -662,7 +662,7 @@
             // lblOdataLa
             // 
             this.lblOdataLa.AutoSize = true;
-            this.lblOdataLa.Location = new System.Drawing.Point(167, 222);
+            this.lblOdataLa.Location = new System.Drawing.Point(167, 218);
             this.lblOdataLa.Name = "lblOdataLa";
             this.lblOdataLa.Size = new System.Drawing.Size(50, 13);
             this.lblOdataLa.TabIndex = 5;
@@ -689,7 +689,7 @@
             // lblData
             // 
             this.lblData.AutoSize = true;
-            this.lblData.Location = new System.Drawing.Point(184, 132);
+            this.lblData.Location = new System.Drawing.Point(184, 129);
             this.lblData.Name = "lblData";
             this.lblData.Size = new System.Drawing.Size(33, 13);
             this.lblData.TabIndex = 2;
@@ -817,40 +817,40 @@
             // 
             // chrGrafic
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chrGrafic.ChartAreas.Add(chartArea3);
-            legend3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend3.IsTextAutoFit = false;
-            legend3.Name = "Legend1";
-            this.chrGrafic.Legends.Add(legend3);
+            chartArea1.Name = "ChartArea1";
+            this.chrGrafic.ChartAreas.Add(chartArea1);
+            legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend1.IsTextAutoFit = false;
+            legend1.Name = "Legend1";
+            this.chrGrafic.Legends.Add(legend1);
             this.chrGrafic.Location = new System.Drawing.Point(13, 91);
             this.chrGrafic.Name = "chrGrafic";
             this.chrGrafic.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.chrGrafic.PaletteCustomColors = new System.Drawing.Color[] {
         System.Drawing.Color.Red,
         System.Drawing.Color.Lime};
-            series5.BorderWidth = 2;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series5.Legend = "Legend1";
-            series5.Name = "Cheltuieli";
-            series5.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
-            series5.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            series6.BorderWidth = 2;
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series6.Legend = "Legend1";
-            series6.Name = "Venituri";
-            series6.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
-            series6.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            this.chrGrafic.Series.Add(series5);
-            this.chrGrafic.Series.Add(series6);
+            series1.BorderWidth = 2;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "Cheltuieli";
+            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+            series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series2.BorderWidth = 2;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.Name = "Venituri";
+            series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+            series2.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            this.chrGrafic.Series.Add(series1);
+            this.chrGrafic.Series.Add(series2);
             this.chrGrafic.Size = new System.Drawing.Size(743, 422);
             this.chrGrafic.TabIndex = 0;
-            title3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title3.Name = "ttlTitluGrafic";
-            title3.Text = "Evolutia cheltuielilor/veniturilor";
-            this.chrGrafic.Titles.Add(title3);
+            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title1.Name = "ttlTitluGrafic";
+            title1.Text = "Evolutia cheltuielilor/veniturilor";
+            this.chrGrafic.Titles.Add(title1);
             // 
             // dlgSalveazaGrafic
             // 
@@ -916,6 +916,13 @@
             this.pnlAdaugaNotita.Size = new System.Drawing.Size(770, 530);
             this.pnlAdaugaNotita.TabIndex = 5;
             // 
+            // dtpDataNotita
+            // 
+            this.dtpDataNotita.Location = new System.Drawing.Point(208, 180);
+            this.dtpDataNotita.Name = "dtpDataNotita";
+            this.dtpDataNotita.Size = new System.Drawing.Size(374, 20);
+            this.dtpDataNotita.TabIndex = 16;
+            // 
             // btnInapoiAdaugaNotita
             // 
             this.btnInapoiAdaugaNotita.Location = new System.Drawing.Point(3, 4);
@@ -962,13 +969,6 @@
             this.lblDataNotita.TabIndex = 17;
             this.lblDataNotita.Text = "Data:";
             // 
-            // dtpDataNotita
-            // 
-            this.dtpDataNotita.Location = new System.Drawing.Point(208, 180);
-            this.dtpDataNotita.Name = "dtpDataNotita";
-            this.dtpDataNotita.Size = new System.Drawing.Size(374, 20);
-            this.dtpDataNotita.TabIndex = 16;
-            // 
             // btnAdaugaNotita
             // 
             this.btnAdaugaNotita.Location = new System.Drawing.Point(336, 322);
@@ -984,10 +984,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 572);
+            this.Controls.Add(this.pnlAdaugaEveniment);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlAdaugaNotita);
             this.Controls.Add(this.pnlNotite);
-            this.Controls.Add(this.pnlAdaugaEveniment);
             this.Controls.Add(this.pnlGrafic);
             this.Controls.Add(this.mnuMeniu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

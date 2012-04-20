@@ -12,3 +12,10 @@ C:\Users\User\Gestiune_Cheltuieli\Gestiune Cheltuieli\TestProject1\bin\Debug\Ges
 C:\Users\User\Gestiune_Cheltuieli\Gestiune Cheltuieli\TestProject1\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\User\Gestiune_Cheltuieli\Gestiune Cheltuieli\TestProject1\obj\Debug\TestProject1.dll
 C:\Users\User\Gestiune_Cheltuieli\Gestiune Cheltuieli\TestProject1\obj\Debug\TestProject1.pdb
+D:\Git\Gestiune Cheltuieli\Gestiune Cheltuieli\TestProject1\bin\Debug\TestProject1.dll
+D:\Git\Gestiune Cheltuieli\Gestiune Cheltuieli\TestProject1\bin\Debug\TestProject1.pdb
+D:\Git\Gestiune Cheltuieli\Gestiune Cheltuieli\TestProject1\bin\Debug\Gestiune Cheltuieli.exe
+D:\Git\Gestiune Cheltuieli\Gestiune Cheltuieli\TestProject1\bin\Debug\Gestiune Cheltuieli.pdb
+D:\Git\Gestiune Cheltuieli\Gestiune Cheltuieli\TestProject1\obj\Debug\TestProject1.csprojResolveAssemblyReference.cache
+D:\Git\Gestiune Cheltuieli\Gestiune Cheltuieli\TestProject1\obj\Debug\TestProject1.dll
+D:\Git\Gestiune Cheltuieli\Gestiune Cheltuieli\TestProject1\obj\Debug\TestProject1.pdb

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Text;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,9 @@ namespace TestProject1
         [TestInitialize]
         public void TestInitialize2()
         {
-            caleFisier = @"C:\Users\User\Gestiune_Cheltuieli\Gestiune Cheltuieli\TestProject1\bin\Debug\evenimenteTest.xml";
+           // string cale = Directory.GetCurrentDirectory();
+            string cale = "";
+            caleFisier = cale + @"D:\Git\Gestiune Cheltuieli\Gestiune Cheltuieli\TestProject1\bin\Debug\evenimenteTest.xml";           
             //caleFisier = @"C:\Users\RazvanReb\GIT\Gestiune_Cheltuieli\Gestiune Cheltuieli\TestProject1\bin\Debug\evenimenteTest.xml";
 
             listaBuna = new List<Eveniment>();

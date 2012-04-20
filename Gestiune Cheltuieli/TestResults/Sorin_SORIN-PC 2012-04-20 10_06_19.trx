@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="e2f4e9a8-c6e7-4f1a-9317-5ecf11bc7d33" name="Sorin@SORIN-PC 2012-04-20 10:06:19" runUser="Sorin-PC\Sorin" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="dcb7233e-da86-4555-ac3e-cd9472204edd">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Sorin_SORIN-PC 2012-04-20 10_06_19">
+      <DeploymentItem filename="D:\Git\Gestiune Cheltuieli\Gestiune Cheltuieli\bin\Debug\Gestiune Cheltuieli.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-04-20T10:06:19.5519152+03:00" queuing="2012-04-20T10:06:19.5799168+03:00" start="2012-04-20T10:06:19.6069184+03:00" finish="2012-04-20T10:06:20.1809512+03:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="4" executed="4" passed="1" error="0" failed="3" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="TestMethod1" storage="d:\git\gestiune cheltuieli\gestiune cheltuieli\testproject1\bin\debug\testproject1.dll" id="8d860aa4-5be8-6cb0-35ba-c49eb7967c7e">
+      <Execution id="776135a8-3e53-417f-b9aa-6b4c1f209013" />
+      <TestMethod codeBase="D:/Git/Gestiune Cheltuieli/Gestiune Cheltuieli/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.NotiteReaderTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod1" />
+    </UnitTest>
+    <UnitTest name="TestMethod3" storage="d:\git\gestiune cheltuieli\gestiune cheltuieli\testproject1\bin\debug\testproject1.dll" id="6b1f9fcc-a734-3f9e-f6aa-0b3b8ee867fc">
+      <Execution id="02ab7cda-fece-44cb-828c-48a03276ac5f" />
+      <TestMethod codeBase="D:/Git/Gestiune Cheltuieli/Gestiune Cheltuieli/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.NotitaWriterTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod3" />
+    </UnitTest>
+    <UnitTest name="TestMethod2" storage="d:\git\gestiune cheltuieli\gestiune cheltuieli\testproject1\bin\debug\testproject1.dll" id="42a82752-11fe-560f-7b81-8b86e0dfd3ae">
+      <Execution id="f204fe7f-0c17-459a-9e42-64fd008854c7" />
+      <TestMethod codeBase="D:/Git/Gestiune Cheltuieli/Gestiune Cheltuieli/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.EvenimentReaderTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod2" />
+    </UnitTest>
+    <UnitTest name="TestMethod4" storage="d:\git\gestiune cheltuieli\gestiune cheltuieli\testproject1\bin\debug\testproject1.dll" id="9c711fe6-fff6-af86-a074-f6218a9adf7e">
+      <Execution id="c912b727-924a-484b-9911-e5a05bd82c8e" />
+      <TestMethod codeBase="D:/Git/Gestiune Cheltuieli/Gestiune Cheltuieli/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.EvenimentWriterTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod4" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="42a82752-11fe-560f-7b81-8b86e0dfd3ae" executionId="f204fe7f-0c17-459a-9e42-64fd008854c7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6b1f9fcc-a734-3f9e-f6aa-0b3b8ee867fc" executionId="02ab7cda-fece-44cb-828c-48a03276ac5f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8d860aa4-5be8-6cb0-35ba-c49eb7967c7e" executionId="776135a8-3e53-417f-b9aa-6b4c1f209013" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9c711fe6-fff6-af86-a074-f6218a9adf7e" executionId="c912b727-924a-484b-9911-e5a05bd82c8e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="f204fe7f-0c17-459a-9e42-64fd008854c7" testId="42a82752-11fe-560f-7b81-8b86e0dfd3ae" testName="TestMethod2" computerName="SORIN-PC" duration="00:00:00.0379317" startTime="2012-04-20T10:06:19.6119186+03:00" endTime="2012-04-20T10:06:20.0629444+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f204fe7f-0c17-459a-9e42-64fd008854c7">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.IsTrue failed. Cele doua liste sunt diferite!</Message>
+          <StackTrace>   at TestProject1.EvenimentReaderTest.TestMethod2() in D:\Git\Gestiune Cheltuieli\Gestiune Cheltuieli\TestProject1\EvenimentReaderTest.cs:line 39
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="02ab7cda-fece-44cb-828c-48a03276ac5f" testId="6b1f9fcc-a734-3f9e-f6aa-0b3b8ee867fc" testName="TestMethod3" computerName="SORIN-PC" duration="00:00:00.0085693" startTime="2012-04-20T10:06:20.0749451+03:00" endTime="2012-04-20T10:06:20.0929462+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="02ab7cda-fece-44cb-828c-48a03276ac5f">
+      <Output>
+        <ErrorInfo>
+          <Message>Initialization method TestProject1.NotitaWriterTest.TestInitialize3 threw exception. System.IO.DirectoryNotFoundException: System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\User\Gestiune_Cheltuieli\Gestiune Cheltuieli\TestProject1\bin\Debug\notiteWriterTest2.xml'..</Message>
+          <StackTrace>    at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at System.Xml.XmlDocument.Save(String filename)
+   at Gestiune_Cheltuieli.NotitaWriter.scrieNotite(String numeFisier, List`1 lista) in D:\Git\Gestiune Cheltuieli\Gestiune Cheltuieli\NotitaWriter.cs:line 35
+   at TestProject1.NotitaWriterTest.TestInitialize3() in D:\Git\Gestiune Cheltuieli\Gestiune Cheltuieli\TestProject1\NotitaWriterTest.cs:line 29
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="776135a8-3e53-417f-b9aa-6b4c1f209013" testId="8d860aa4-5be8-6cb0-35ba-c49eb7967c7e" testName="TestMethod1" computerName="SORIN-PC" duration="00:00:00.0037102" startTime="2012-04-20T10:06:20.0989465+03:00" endTime="2012-04-20T10:06:20.1079470+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="776135a8-3e53-417f-b9aa-6b4c1f209013">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.IsTrue failed. Cele doua liste sunt diferite!</Message>
+          <StackTrace>   at TestProject1.NotiteReaderTest.TestMethod1() in D:\Git\Gestiune Cheltuieli\Gestiune Cheltuieli\TestProject1\NotiteReaderTest.cs:line 37
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="c912b727-924a-484b-9911-e5a05bd82c8e" testId="9c711fe6-fff6-af86-a074-f6218a9adf7e" testName="TestMethod4" computerName="SORIN-PC" duration="00:00:00.0229831" startTime="2012-04-20T10:06:20.1119472+03:00" endTime="2012-04-20T10:06:20.1429490+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c912b727-924a-484b-9911-e5a05bd82c8e">
+    </UnitTestResult>
+  </Results>
+</TestRun>

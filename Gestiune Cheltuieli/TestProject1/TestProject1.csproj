@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EvenimentReaderTest.cs" />
+    <Compile Include="EvenimentWriterTest.cs" />
     <Compile Include="NotitaWriterTest.cs" />
     <Compile Include="NotiteReaderTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
