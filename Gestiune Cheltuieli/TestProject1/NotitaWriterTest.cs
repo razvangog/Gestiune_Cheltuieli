@@ -19,9 +19,8 @@ namespace TestProject1
         [TestInitialize]
         public void TestInitialize3()
         {
-            // string cale = Directory.GetCurrentDirectory();
-            string cale = "";             
-            caleFisier = cale + @"C:\notiteWriterTest2.xml";
+            caleFisier = CaleAbsoluta.getCaleFisier("notiteWriterTest2.xml");
+
             lista = new List<Notita>();
             lista.Add(new Notita() { id = 1, text = "test 1", data = Convert.ToDateTime("1/2/2012 12:58:44 AM"), expirat = true });
             lista.Add(new Notita() { id = 2, text = "test 2", data = Convert.ToDateTime("3/4/2012 5:33:48 PM"), expirat = false });

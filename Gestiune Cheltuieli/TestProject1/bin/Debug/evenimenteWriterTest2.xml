@@ -1,0 +1,7 @@
+<evenimente>
+  <eveniment id="1" data="1/2/2012 9:23:41 PM" perioada="OdataLaXZile" xZile="10" tipEveniment="Cheltuiala" suma="999">Cheltuiala veche</eveniment>
+  <eveniment id="2" data="3/4/2012 11:20:02 PM" perioada="Lunar" tipEveniment="Venit" suma="2200">Salariu</eveniment>
+  <eveniment id="3" data="5/6/2012 11:23:59 PM" perioada="AltTip" tipEveniment="Venit" suma="200">Am castigat la loto</eveniment>
+  <eveniment id="4" data="7/8/2012 11:20:22 PM" perioada="Saptamanal" tipEveniment="Cheltuiala" suma="155">Plata factura curent</eveniment>
+  <eveniment id="5" data="9/10/2012 11:30:49 PM" perioada="AltTip" tipEveniment="Cheltuiala" suma="150">Am pierdut niste bani</eveniment>
+</evenimente>

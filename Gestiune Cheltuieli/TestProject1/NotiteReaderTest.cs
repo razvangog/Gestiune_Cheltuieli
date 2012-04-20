@@ -18,10 +18,7 @@ namespace TestProject1
         [TestInitialize]
         public void TestInitialize1()
         {
-            //caleFisier = @"C:\Users\RazvanReb\GIT\Gestiune_Cheltuieli\Gestiune Cheltuieli\TestProject1\bin\Debug\notiteTest.xml";
-            // string cale = Directory.GetCurrentDirectory();
-            string cale = ""; 
-            caleFisier = cale + @"D:\Git\Gestiune Cheltuieli\Gestiune Cheltuieli\TestProject1\bin\Debug\notiteTest.xml";
+            caleFisier = CaleAbsoluta.getCaleFisier("notiteTest.xml");
 
             listaBuna = new List<Notita>();
             listaBuna.Add(new Notita() { id = 1, text = "Test notite 1", data = Convert.ToDateTime("1/2/2012 12:58:44 AM"), expirat = true });

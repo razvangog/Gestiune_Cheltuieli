@@ -19,10 +19,8 @@ namespace TestProject1
         [TestInitialize]
         public void TestInitialize4()
         {
+            caleFisier = CaleAbsoluta.getCaleFisier("evenimenteWriterTest2.xml");
             
-            // string cale = Directory.GetCurrentDirectory();
-            string cale = "";
-            caleFisier = cale + @"C:\evenimenteWriterTest2.xml";
             lista = new List<Eveniment>();
             lista.Add(new Eveniment() { id = 1, data = Convert.ToDateTime("1/2/2012 9:23:41 PM"), perioada = PerioadaEveniment.OdataLaXZile, xZile = 10, tipEveniment = TipEveniment.Cheltuiala, suma = 999, detalii = "Cheltuiala veche" });
             lista.Add(new Eveniment() { id = 2, data = Convert.ToDateTime("3/4/2012 11:20:02 PM"), perioada = PerioadaEveniment.Lunar, tipEveniment = TipEveniment.Venit, suma = 2200, detalii = "Salariu" });
