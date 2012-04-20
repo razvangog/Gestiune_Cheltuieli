@@ -29,10 +29,10 @@ namespace Gestiune_Cheltuieli
 
             viewCurent = View.Main;
 
-            clhData.Width = 70;
+            clhData.Width = -1;
             clhDetalii.Width = 350;
-            clhPerioada.Width = 100;
-            clhSuma.Width = 100;
+            clhPerioada.Width =-1;
+            clhSuma.Width = -2;
 
             pnlAdaugaNotita.Hide();
             pnlNotite.Hide();
@@ -239,9 +239,9 @@ namespace Gestiune_Cheltuieli
         private void modificaEveniment()
         {
             if (lstEvenimente.SelectedItems.Count == 0)
-                MessageBox.Show("Selectati o inregistrare pentru a o modifica", "Modificare eveniment");
+                MessageBox.Show("Selectati o inregistrare pentru a o modifica", "Lista evenimente");
             else if (lstEvenimente.SelectedItems.Count > 1)
-                MessageBox.Show("Selectati o singura inregistrare", "Modificare eveniment");
+                MessageBox.Show("Selectati o singura inregistrare", "Lista evenimente");
             else
             {
                 int idCurent = Convert.ToInt32(lstEvenimente.SelectedItems[0].Tag);
@@ -467,129 +467,168 @@ namespace Gestiune_Cheltuieli
         {
             if (modificare == false)
             {
-                try
+                Eveniment ev = new Eveniment();
+
+                ev.data = dtpData.Value;
+
+                double sumaOut; 
+
+                if(!Double.TryParse(txtSuma.Text, out sumaOut))
                 {
-                    Eveniment ev = new Eveniment();
-
-                    ev.id = ++maxIdEveniment;
-
-                    ev.data = dtpData.Value;
-                    ev.suma = Convert.ToDouble(txtSuma.Text);
-
-                    switch (cmbPerioada.SelectedItem.ToString())
-                    {
-                        case "Lunar":
-                            ev.perioada = PerioadaEveniment.Lunar;
-                            break;
-                        case "Saptamanal":
-                            ev.perioada = PerioadaEveniment.Saptamanal;
-                            break;
-                        case "Odata la n zile":
-                            ev.perioada = PerioadaEveniment.OdataLaXZile;
-                            ev.xZile = Convert.ToInt32(txtOdataLa.Text);
-                            break;
-                        case "Alt tip":
-                            ev.perioada = PerioadaEveniment.AltTip;
-                            break;
-                        default:
-                            throw new Exception("Alegeti o perioada");
-                    }
-
-                    switch (cmbTipEveniment.SelectedItem.ToString())
-                    {
-                        case "Cheltuiala":
-                            ev.tipEveniment = TipEveniment.Cheltuiala;
-                            break;
-                        case "Venit":
-                            ev.tipEveniment = TipEveniment.Venit;
-                            break;
-                    }
-
-                    ev.detalii = txtDetalii.Text;
-
-                    evenimente.Add(ev);
-
-                    amModificat = true;
-
-                    afiseazaEvenimente();
-
-                    viewCurent = View.Main;
-
-                    pnlAdaugaNotita.Hide();
-                    pnlNotite.Hide();
-                    pnlAdaugaEveniment.Hide();
-                    pnlGrafic.Hide();
-                    pnlMain.Show();
+                    MessageBox.Show("Suma lipseste sau este intr-un format incorect!", "Adauga eveniment");
+                    return;
                 }
-                catch (Exception exceptie)
+
+                ev.suma = sumaOut;
+
+                if(cmbPerioada.SelectedItem == null)
                 {
-                    --maxIdEveniment;
-
-                    MessageBox.Show(exceptie.Message, "Atentie");
+                    MessageBox.Show("Tip perioada neselectat!", "Adauga eveniment");
+                    return;
                 }
+
+                switch (cmbPerioada.SelectedItem.ToString())
+                {
+                    case "Lunar":
+                        ev.perioada = PerioadaEveniment.Lunar;
+                        break;
+                    case "Saptamanal":
+                        ev.perioada = PerioadaEveniment.Saptamanal;
+                        break;
+                    case "Odata la n zile":
+                        ev.perioada = PerioadaEveniment.OdataLaXZile;
+                        int xZileOut; if(!int.TryParse(txtOdataLa.Text, out xZileOut))
+                        {
+                            MessageBox.Show("Format incorect numar zile", "Adauga eveniment");
+                            return;
+                        }
+                        ev.xZile = xZileOut;
+                        break;
+                    case "Alt tip":
+                        ev.perioada = PerioadaEveniment.AltTip;
+                        break;
+                    default:
+                        throw new Exception("Alegeti o perioada");
+                }
+
+                if (cmbTipEveniment.SelectedItem == null)
+                {
+                    MessageBox.Show("Tip eveniment neselectat!", "Adauga eveniment");
+                    return;
+                }
+
+                switch (cmbTipEveniment.SelectedItem.ToString())
+                {
+                    case "Cheltuiala":
+                        ev.tipEveniment = TipEveniment.Cheltuiala;
+                        break;
+                    case "Venit":
+                        ev.tipEveniment = TipEveniment.Venit;
+                        break;
+                }
+
+
+                ev.id = ++maxIdEveniment;
+
+                ev.detalii = txtDetalii.Text;
+
+                evenimente.Add(ev);
+
+                amModificat = true;
+
+                afiseazaEvenimente();
+
+                viewCurent = View.Main;
+
+                pnlAdaugaNotita.Hide();
+                pnlNotite.Hide();
+                pnlAdaugaEveniment.Hide();
+                pnlGrafic.Hide();
+                pnlMain.Show();
+
             }
             else
             {
-                try
+                Eveniment ev = new Eveniment();
+
+                ev.id = evenimente[index].id;
+
+                ev.data = dtpData.Value;
+
+                double sumaOut;
+
+                if (!Double.TryParse(txtSuma.Text, out sumaOut))
                 {
-                    Eveniment ev = new Eveniment();
-
-                    ev.id = evenimente[index].id;
-
-                    ev.data = dtpData.Value;
-                    ev.suma = Convert.ToDouble(txtSuma.Text);
-
-                    switch (cmbPerioada.SelectedItem.ToString())
-                    {
-                        case "Lunar":
-                            ev.perioada = PerioadaEveniment.Lunar;
-                            break;
-                        case "Saptamanal":
-                            ev.perioada = PerioadaEveniment.Saptamanal;
-                            break;
-                        case "Odata la n zile":
-                            ev.perioada = PerioadaEveniment.OdataLaXZile;
-                            ev.xZile = Convert.ToInt32(txtOdataLa.Text);
-                            break;
-                        case "Alt tip":
-                            ev.perioada = PerioadaEveniment.AltTip;
-                            break;
-                        default:
-                            throw new Exception("Alegeti o perioada");
-                    }
-
-                    switch (cmbTipEveniment.SelectedItem.ToString())
-                    {
-                        case "Cheltuiala":
-                            ev.tipEveniment = TipEveniment.Cheltuiala;
-                            break;
-                        case "Venit":
-                            ev.tipEveniment = TipEveniment.Venit;
-                            break;
-                    }
-
-                    ev.detalii = txtDetalii.Text;
-
-                    evenimente[index] = ev;
-
-                    amModificat = true;
-
-                    afiseazaEvenimente();
-
-                    viewCurent = View.Main;
-
-                    pnlAdaugaNotita.Hide();
-                    pnlNotite.Hide();
-                    pnlAdaugaEveniment.Hide();
-                    pnlGrafic.Hide();
-                    pnlMain.Show();
+                    MessageBox.Show("Suma lipseste sau este intr-un format incorect!", "Modifica eveniment");
+                    return;
                 }
-                catch (Exception exceptie)
+
+                ev.suma = sumaOut;
+
+                if (cmbPerioada.SelectedItem == null)
                 {
-                    --maxIdEveniment;
-
-                    MessageBox.Show(exceptie.Message, "Atentie");
+                    MessageBox.Show("Tip perioada neselectat!", "Modifica eveniment");
+                    return;
                 }
+
+                switch (cmbPerioada.SelectedItem.ToString())
+                {
+                    case "Lunar":
+                        ev.perioada = PerioadaEveniment.Lunar;
+                        break;
+                    case "Saptamanal":
+                        ev.perioada = PerioadaEveniment.Saptamanal;
+                        break;
+                    case "Odata la n zile":
+                        ev.perioada = PerioadaEveniment.OdataLaXZile;
+                        int xZileOut; 
+
+                        if(!int.TryParse(txtOdataLa.Text, out xZileOut))
+                        {
+                            MessageBox.Show("Format incorect numar zile", "Modifica eveniment");
+                            return;
+                        }
+
+                        ev.xZile = xZileOut;
+                        break;
+                    case "Alt tip":
+                        ev.perioada = PerioadaEveniment.AltTip;
+                        break;
+                    default:
+                        throw new Exception("Alegeti o perioada");
+                }
+
+                if (cmbTipEveniment.SelectedItem == null)
+                {
+                    MessageBox.Show("Tip perioada neselectat!", "Modifica eveniment");
+                    return;
+                }
+
+                switch (cmbTipEveniment.SelectedItem.ToString())
+                {
+                    case "Cheltuiala":
+                        ev.tipEveniment = TipEveniment.Cheltuiala;
+                        break;
+                    case "Venit":
+                        ev.tipEveniment = TipEveniment.Venit;
+                        break;
+                }
+
+                ev.detalii = txtDetalii.Text;
+
+                evenimente[index] = ev;
+
+                amModificat = true;
+
+                afiseazaEvenimente();
+
+                viewCurent = View.Main;
+
+                pnlAdaugaNotita.Hide();
+                pnlNotite.Hide();
+                pnlAdaugaEveniment.Hide();
+                pnlGrafic.Hide();
+                pnlMain.Show();
             }
         }
 
@@ -637,15 +676,50 @@ namespace Gestiune_Cheltuieli
 
         private void btnInapoiAdaugaEveniment_Click(object sender, EventArgs e)
         {
-            viewCurent = View.Main;
+            if (modificare == false)
+            {
+                DialogResult dialogResult = MessageBox.Show("Eveniment nesalvat! Salvati evenimentul curent?",
+                                                            "Adauga eveniment", MessageBoxButtons.YesNoCancel,
+                                                            MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.No)
+                {
+                    viewCurent = View.Main;
 
-            pnlAdaugaNotita.Hide();
-            pnlNotite.Hide();
-            pnlAdaugaEveniment.Hide();
-            pnlGrafic.Hide();
-            pnlMain.Show();
+                    pnlAdaugaNotita.Hide();
+                    pnlNotite.Hide();
+                    pnlAdaugaEveniment.Hide();
+                    pnlGrafic.Hide();
+                    pnlMain.Show();
 
-            afiseazaEvenimente();
+                    afiseazaEvenimente();
+                }
+                else if (dialogResult == DialogResult.Yes)
+                {
+                    btnAdaugaEveniment_Click(null, null);
+                }
+            }
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show("Eveniment nesalvat! Salvati evenimentul curent?",
+                                                            "Modifica eveniment", MessageBoxButtons.YesNoCancel,
+                                                            MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.No)
+                {
+                    viewCurent = View.Main;
+
+                    pnlAdaugaNotita.Hide();
+                    pnlNotite.Hide();
+                    pnlAdaugaEveniment.Hide();
+                    pnlGrafic.Hide();
+                    pnlMain.Show();
+
+                    afiseazaEvenimente();
+                }
+                else if (dialogResult == DialogResult.Yes)
+                {
+                    btnAdaugaEveniment_Click(null, null);
+                }
+            }
         }
 
         private void btnInapoiGrafic_Click(object sender, EventArgs e)
